@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.1 (21 Oktober 2026)
+
+### Baru
+- **Sistem › Data › Integrasi Quinos**: tarik penjualan harian dari Quinos Cloud (pilih tanggal, lalu **Buka**), petakan kode item dan jenis pembayaran Quinos ke master Pilar (tersimpan, cukup sekali), lalu **Cek** dan **Import** menjadi satu faktur penjualan per hari beserta pelunasan per jenis pembayaran. Login Quinos disimpan sebagai **profil** (email, password terenkripsi, store, cabang tujuan); satu perusahaan boleh punya banyak profil untuk beberapa email atau store, dikelola lewat tombol **Kelola Profil** (Baru · Ubah · Hapus); di layar cukup pilih profil dan tanggal. Pemetaan kode item per store (kode Quinos bisa beda per store, bahkan kode yang sama dipakai barang lain); kode dan nama yang sama dengan item Pilar langsung dipakai, cukup memetakan yang beda. Tombol Import baru aktif setelah Cek tanpa error. Total faktur disamakan dengan total Quinos; hari yang sudah diimport tidak bisa diimport dua kali.
+
 ## 1.0.0 (20 Oktober 2026)
 
 ### Baru
