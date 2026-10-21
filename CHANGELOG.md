@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.2 (21 Oktober 2026)
+
+### Baru
+- **Master Item**: panel kanan berisi panduan tiap jenis item — kapan stok terpotong, contoh, dan cara input — supaya **Menu** (tanpa stok, bahan resep terpotong saat dijual) dan **Produksi** (dibuat dulu lewat Rakitan, disimpan sebagai stok, lalu dijual) tidak tertukar. Tab **Resep** untuk Menu (oranye, takaran per porsi) dan tab **Komponen** untuk Produksi (biru, isi per satuan hasil) kini dibedakan tampilannya, dan pilihan Jenis menampilkan keterangan singkat.
+- **Persediaan › Rakitan / Produksi**: jenis **Bongkar** untuk memecah lagi item Produksi yang tidak jadi dijual, mis. parcel sisa Natal: stok parcel berkurang, isinya kembali ke stok dengan nilai yang sama (tanpa laba/rugi). Tombol **Isi dari komponen** mengisi isi parcel × qty; jumlah yang dibongkar tidak boleh melebihi stok. Bukti cetaknya berjudul **Bukti Bongkar Rakitan**.
+- **Penanda proses**: setelah login tampil layar pembuka dengan langkah yang sedang dikerjakan sampai jendela utama siap dipakai. Selama data dimuat, disimpan, dihapus, dibatalkan, atau laporan disiapkan, tab atau jendela yang sedang bekerja diredupkan dengan lingkaran berputar dan keterangannya (mis. "Memuat data…", "Menyimpan…", "Menyiapkan laporan…"), dan bar atas menampilkan penanda kecil. Membuka menu, form, laporan, pratinjau, dan cetakan yang berat menampilkan kursor tunggu dan lingkaran berputar.
+- **Master Item › Harga & Satuan**: **satuan bawaan** beli, jual, dan stok untuk item yang boleh konversi satuan. Contoh kopi dengan satuan dasar gram dan satuan konversi kg: begitu kopi dipilih di Pembelian, Kasir, Faktur Penjualan, retur, dokumen stok, atau Stok Opname, barisnya langsung dalam kg dengan harga per kg (masih bisa diganti per baris). Tombol item di Kasir menampilkan harga satuan jual bawaannya, mis. "290.000 / kg". Rakitan, resep, dan pecah stok tetap memakai satuan dasar (gram). Bisa diisi juga lewat **Import Data** (kolom Satuan Beli, Satuan Jual, Satuan Stok di sheet Item).
+
+### Perbaikan
+- Tombol **Simpan** (juga F9 / Ctrl+S) tidak bisa terpicu dua kali selama dokumen sedang disimpan, jadi dokumen tidak tersimpan dobel.
+- Pembaruan aplikasi saat **Masuk**: pemeriksaan file sebelum mengunduh tidak lagi membuat layar login berhenti bergerak.
+
+### Perlu diperhatikan
+- **Satuan dasar item terkunci** begitu item sudah punya transaksi (termasuk yang dibatalkan atau dihapus), atau dipakai di resep, pecah stok, atau promo item lain. Stok, HPP, dan takaran resep tercatat dalam satuan dasar dan tidak ikut dikonversi, jadi menggantinya akan membuat stok 5 kg terbaca 5 gram. Untuk satuan dasar lain, buat item baru lalu pindahkan stoknya lewat **Pecah Stok**. Berlaku juga di Import Data.
+- **Import Data** transaksi: kolom Satuan yang kosong tetap berarti satuan dasar, walau item punya satuan bawaan lain. Saat Periksa muncul peringatan sekali per item supaya tidak salah baca (mis. 2 terbaca 2 gram, bukan 2 kg).
+
 ## 1.0.1 (21 Oktober 2026)
 
 ### Baru
