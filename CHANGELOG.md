@@ -2,6 +2,14 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.4 (23 Oktober 2026)
+
+### Baru
+- **Persediaan › Kartu Stok**: tombol baru di pita Persediaan yang langsung membuka laporan **Kartu Stok** (perlu hak laporan Kartu Stok). Klik dua kali baris mutasi untuk melihat dokumen asalnya (faktur penjualan, pembelian, item masuk / keluar, transfer, titipan, rakitan, pecah stok, opname, retur, saldo awal stok) di formnya, baca saja; baris penyesuaian nilai membuka dokumen yang memicunya. Dokumen hanya terbuka bila punya hak Lihat di menu dokumen itu (mis. hak laporan Kartu Stok saja tidak cukup untuk membuka faktur pembelian), dan dibuka di cabang dokumennya walau laporan menampilkan semua cabang.
+- **Bantuan › Shortcut**: daftar pintasan keyboard dan klik cepat dalam bagian lipat (accordion), dikelompokkan per bidang kerja: pindah dan tutup tab (**Ctrl+Tab**, **Ctrl+W**, bolak-balik ke tab sebelumnya), ukuran huruf (**Ctrl+=**, **Ctrl+-**, **Ctrl+0**), **Kasir** (**F9** bayar, scan barcode + **Enter**, **Delete** hapus baris), form dokumen (**F9** simpan, **Esc** tutup, **Delete** hapus baris, **Enter** pindah kolom), daftar dan tabel (klik ganda, klik kanan), laporan (**F5**), template cetak, dan dialog.
+- **Laporan › Detail Transaksi**: pilihan laporan baru di laporan yang berisi dokumen dengan barisnya: **Laporan Pembelian**, **Retur Pembelian**, **Laporan Penjualan**, **Retur Penjualan**, **Item Masuk**, **Item Keluar**, **Item Transfer**, **Stok Opname**, **Kas Masuk & Keluar**, dan **Laba Jual**. Isinya sama dengan **Detail per Faktur** (atau Detail per Dokumen / Retur) tetapi satu tabel rata tanpa kelompok per dokumen, dengan kolom **No Faktur**, **Tanggal**, **Kode**, **Nama Item**, dan seterusnya. Barisnya sudah berurutan menurut no dokumen, tanggal, kode item, lalu nama item, jadi hasil **Export Excel** bisa langsung dipakai tanpa diolah lagi. Retur di Laporan Pembelian, Laporan Penjualan, dan Laba Jual ikut sebagai baris minus, seperti di Detail per Faktur. Di Kas Masuk & Keluar, tiap baris juga memuat jenis dokumen dan akun kas / bank-nya.
+- **Laporan**: filter semua laporan dirapikan menjadi bagian lipat (accordion) bertajuk sesuai isinya, mis. **Periode & Cabang**, **Dokumen**, **Pembuat & Pajak**, **Item**. Bagian utama terbuka; bagian pendukung (mis. **Item**, **Pembuat**, **Jenis & Status**) mulai dilipat dan, saat dilipat, judulnya merangkum filter yang sedang aktif, jadi area grid lebih luas dan filter tetap terlihat.
+
 ## 1.0.3 (22 Oktober 2026)
 
 ### Baru
