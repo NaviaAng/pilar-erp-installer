@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.7 (23 Oktober 2026)
+
+### Baru
+- **Integrasi Quinos › Force update (import ulang)**: hari yang sudah diimport bisa diimport ulang, mis. bila PB1 / biaya layanan fakturnya salah. Centang **Force update (import ulang)**, **2. Cek**, lalu **4. Import** dan isi alasannya: pelunasan hasil import Quinos hari itu dihapus dan fakturnya dibatalkan, lalu diimport lagi dengan nomor faktur baru — semuanya sekaligus, satu error saja = tidak ada yang berubah. Hari di periode yang sudah dikunci / ditutup dilewati (dokumennya tetap). Butuh hak **Batal** Penjualan dan **Hapus** Piutang; alasan tercatat di Log Aktivitas.
+- **Integrasi Quinos › Detail Penjualan**: biaya layanan & PB1 tiap baris menurut Quinos dan menurut Pilar, beserta selisihnya (merah bila Rp 1 atau lebih). Hari yang sudah diimport diambil dari fakturnya, hari lain perkiraan hasil import. Judul tab menyebut jumlah baris yang berselisih.
+- **Integrasi Quinos**: tabel Per Hari, Item Quinos, Pembayaran, dan Detail Penjualan memakai judul kelompok kolom (**Quinos** · **Pilar** · **Selisih** · **Pemetaan ke Pilar**), jadi angka Quinos dan Pilar mudah dibandingkan.
+- **Faktur Penjualan** (outlet restoran): kolom **Layanan** dan **PB1** di tiap baris — bagian biaya layanan & PB1 faktur untuk baris itu; jumlahnya sama dengan Biaya Layanan & PB1 di panel kanan.
+- Klik kanan › **Salin semua** di tabel yang kolomnya berkelompok: judul kolom diberi nama kelompoknya (mis. "Pilar · Layanan").
+
+### Perbaikan
+- **Integrasi Quinos**: hari tanpa biaya layanan (atau tanpa PB1) di Quinos dulu diimport dengan tarif bawaan cabang (mis. layanan 5%), lalu selisihnya ditutup Pembulatan. Sekarang tarif 0 dipakai apa adanya. Faktur yang terlanjur salah bisa diperbaiki dengan **Force update**.
+
+### Perlu diperhatikan
+- Tarif biaya layanan & PB1 faktur hasil import Quinos adalah rata-rata satu hari, jadi item yang di Quinos tidak kena layanan tetap tampil berselisih per baris walaupun total hari itu sama dengan Quinos.
+- Setelah **Force update** untuk tanggal yang sudah lewat, jalankan **Persediaan › Rekalkulasi HPP** (klik Cek dulu) mulai tanggal itu bila sesudahnya ada pembelian.
+
 ## 1.0.6 (23 Oktober 2026)
 
 ### Baru
