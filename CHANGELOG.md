@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.9 (24 Oktober 2026)
+
+### Baru
+- **Integrasi Quinos › Cara import per profil**: di **Kelola Profil** pilih **Harian** (satu faktur per hari, cara sebelumnya) atau **Per struk** (satu faktur per struk Quinos: jam, jenis penjualan, meja, kasir & nama pelanggan ikut; dibayar langsung di fakturnya, pembayaran kedua dan seterusnya jadi bukti Penerimaan Piutang). Profil yang sudah ada tetap Harian.
+- **Integrasi Quinos**: angka diambil dari laporan struk Quinos (Transaction Detail) — biaya layanan hanya untuk menu yang di Quinos kena service charge (dine in), PB1 hanya untuk struk yang ada pajaknya, diskon struk ikut. Faktur harian kini dipisah per baris dine in / take away / tanpa PB1, jadi layanan & PB1 per item cocok dengan Quinos.
+- **Integrasi Quinos › saran tindakan** per struk (Per struk) atau per hari (Harian) setelah **1. Buka**: Baru → Import, Sama → Lewati, Beda → Update, void / kosong di Quinos → Batalkan, faktur yang struknya tidak ada di Quinos → Lewati, periode dikunci → Lewati. Kolom **Catatan** menjelaskan alasannya (mis. "Beda: total 88.900 → 98.515"). **Tindakan** bisa diganti per baris; tombol **Ikuti saran** dan **Update yang sama** (memaksa import ulang yang sudah sama); **Tampilkan** menyaring menurut saran / tindakan.
+- **Integrasi Quinos › tab Struk**: daftar struk Quinos (jam, jenis, meja, kasir, layanan, PB1, pembayaran, void) beserta faktur Pilar-nya.
+- **Integrasi Quinos › 1. Buka / 2. Cek / 4. Import** menampilkan batang kemajuan dengan tombol **Batal**; yang dibatalkan tidak menyimpan apa pun.
+- **Integrasi Quinos**: ganti cara import untuk hari yang sudah diimport = satu paket per hari, faktur harian diganti faktur per struk (atau sebaliknya) sekaligus.
+- **Import Data › Faktur Penjualan**: kolom **Jam** (jj:mm atau jj:mm:dd) dan **Layanan Kena PB1**.
+
+### Perlu diperhatikan
+- Hari yang diimport versi sebelumnya dikenali, tidak diimport dua kali. Bila pembagian barisnya beda (dine in & take away dulu satu baris), sarannya **Update** dengan catatan "pembagian baris … beda (import versi lama)"; pilih **Lewati** bila tidak ingin diganti.
+- Update / Batalkan membatalkan faktur & pelunasan lama (hak **Batal** Penjualan & **Hapus** Piutang, alasan wajib). Setelah mengganti faktur tanggal yang sudah lewat, jalankan **Persediaan › Rekalkulasi HPP** bila sesudahnya ada pembelian.
+- Centang **Force update** diganti kolom **Tindakan** (pakai **Update yang sama** untuk import ulang hari / struk yang sudah sama).
+
 ## 1.0.8 (23 Oktober 2026)
 
 ### Baru
