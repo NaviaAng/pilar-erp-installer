@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.10 (24 Oktober 2026)
+
+### Perbaikan
+- **Integrasi Quinos**: modifier di struk Quinos (mis. HOT / ICE tanpa harga) tidak lagi diminta dipetakan. Sebelumnya **2. Cek** gagal dengan "kode Quinos 'MF-36' (HOT) belum dipetakan", padahal kodenya tidak ada di tab **Item Quinos**. Modifier tanpa harga kini dilewati (sama seperti laporan Item Sales Quinos); kode berharga yang hanya ada di struk tampil di tab **Item Quinos** dengan kategori "(hanya di struk)" supaya bisa dipetakan.
+
 ## 1.0.9 (24 Oktober 2026)
 
 ### Baru
