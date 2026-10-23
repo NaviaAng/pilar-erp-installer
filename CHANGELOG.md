@@ -2,6 +2,16 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.8 (23 Oktober 2026)
+
+### Baru
+- **Kena Layanan per baris**: centang **Kena Layanan** di tiap baris **Faktur Penjualan** (outlet restoran) — bawaannya ikut Kena PB1 item, hapus centang mis. untuk roti yang dibawa pulang: baris itu tetap kena PB1 tetapi tidak kena biaya layanan. **Integrasi Quinos** kini menandai baris sesuai Quinos (layanan hanya untuk item yang di Quinos kena service charge, PB1 hanya untuk item yang kena pajak), jadi tarif layanan & PB1 faktur sama dengan Quinos (mis. layanan 1% minuman, PB1 10%) dan angka per baris cocok. **Import Data › Faktur Penjualan** punya kolom **Kena Layanan** (kosong = ikut Kena PB1). Faktur lama tidak berubah (semua baris yang kena PB1 tetap kena layanan).
+- **Integrasi Quinos › 2. Cek / 4. Import**: baris yang biaya layanan / PB1-nya akan beda Rp 100 atau lebih dari Quinos dicatat sebagai peringatan di tab **Pesan**, mis. "22/10/2026 KNO KNO0247 (DOPPIO): PB1 Quinos 6.000, Pilar 8.223 (selisih -2.223)" — biasanya item yang di Quinos pajaknya bukan 10%. Peringatan tidak menghalangi Import; total hari tetap sama dengan Quinos.
+- **Integrasi Quinos › Detail Penjualan**: centang **Hanya baris berselisih** menyaring tabel ke baris yang biaya layanan / PB1 Pilar-nya beda Rp 1 atau lebih dari Quinos.
+
+### Perlu diperhatikan
+- Faktur Quinos yang diimport sebelum versi ini masih memakai tarif rata-rata (layanan ikut terbagi ke item yang di Quinos tidak kena layanan). Totalnya tetap sama dengan Quinos; supaya per baris juga cocok, import ulang hari itu dengan **Force update**. Tarif PB1 tetap satu per faktur, jadi item yang pajaknya di Quinos bukan 10% (mis. ada transaksi tanpa pajak) masih bisa sedikit berselisih per baris.
+
 ## 1.0.7 (23 Oktober 2026)
 
 ### Baru
