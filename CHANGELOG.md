@@ -2,6 +2,16 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.11 (24 Oktober 2026)
+
+### Perbaikan
+- **Integrasi Quinos**: struk batal di Quinos (baris item qty 0 lalu −1, total 0) tidak lagi membuat **2. Cek** gagal dengan "Qty harus lebih dari 0" / "Potongan Rp tidak boleh minus". Baris qty 0 / minus hanya jejak void dan dilewati, sama seperti subtotal struk & laporan Item Sales Quinos; struk yang tinggal tanpa item jadi **Struk kosong**.
+- **Integrasi Quinos**: diskon khusus item ("Disc 100% Item", ditulis Quinos tepat setelah item-nya) kini jadi potongan baris item itu, bukan dibagi rata ke semua baris struk; diskon struk ("disc 10% All item", "Disc Owner") tetap jadi Diskon Faktur. Faktur harian memisahkan baris per store (kode yang sama bisa berpajak di KNO tetapi tidak di KNO-TR). Item yang hari itu bebas pajak di Quinos (mis. PAPER BAG sejak 24/09) tidak diberi PB1. Hasilnya diskon, layanan & PB1 per item sama dengan Quinos (diuji pada data 11–30/09, KNO & KNO-TR: semua item cocok), jadi peringatan "PB1 Quinos …, Pilar …" di tab Pesan hilang.
+- **Integrasi Quinos**: item yang di Quinos tidak punya kode (mis. "LIDAH KUCING EDAM 292") tidak lagi hilang dari faktur. Deskripsinya dipakai sebagai kode di tab **Item Quinos**, jadi bisa dipetakan; sebelumnya nilainya hanya tertutup Pembulatan (atau Cek ditolak karena selisih).
+
+### Perlu diperhatikan
+- Faktur Quinos per struk yang diimport 1.0.9–1.0.10 dari struk berdiskon item akan disarankan **Update** (diskon kini di baris item); totalnya tidak berubah.
+
 ## 1.0.10 (24 Oktober 2026)
 
 ### Perbaikan
