@@ -2,6 +2,15 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.12 (24 Oktober 2026)
+
+### Baru
+- **Bar judul aplikasi** disusun ulang: kiri **logo cabang** | nama perusahaan | pilihan cabang, tengah logo **Pilar ERP** | **versi aplikasi** (mis. v1.0.12), kanan tetap (akun, minimize, maximize). Versi juga tampil di judul taskbar.
+- **Master Cabang › Ubah › Logo**: pasang logo per cabang (PNG / JPG, otomatis dikecilkan ke 256 px) dengan **Pilih Gambar…** atau hapus dengan **Hapus Logo**; terkirim setelah **Simpan**. Logo tampil di kiri bar judul saat cabang itu dipilih; cabang tanpa logo memakai lencana inisial cabang. Cabang baru: simpan dulu, lalu **Ubah** untuk memasang logo.
+
+### Perbaikan
+- **Faktur Penjualan** (outlet restoran): kolom **Layanan** dan **PB1** per baris kini dalam rupiah utuh bila pembulatan "Biaya layanan & PB1" di **Pengaturan Perusahaan › Penjualan** ke rupiah (bawaan: terdekat). Sebelumnya bagian per baris tampil dengan sen (mis. 11.342,3) walaupun totalnya sudah dibulatkan, terutama di faktur hasil import Quinos yang tarif layanannya tidak bulat (mis. 2,9848%). Jumlah per baris tetap sama dengan Biaya layanan & PB1 faktur; total faktur tidak berubah.
+
 ## 1.0.11 (24 Oktober 2026)
 
 ### Perbaikan
