@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.14 (24 Oktober 2026)
+
+### Baru
+- **Integrasi Quinos › tab Struk**: tiap struk bisa dibuka (tanda **+** di kiri baris) untuk melihat **item struk**-nya — kode & deskripsi Quinos, qty, harga, jumlah, diskon item beserta nama diskonnya (mis. "Disc 100% Item"), bagian diskon struk, kena PB1 / layanan dan bagian layanan & PB1 menurut Pilar, item Pilar hasil pemetaan, dan catatan baris yang akan masuk ke faktur. Struk void / kosong hanya menampilkan angka Quinos.
+- **Tab form** di bawah menu kini tampil semua dalam beberapa baris (tidak lagi satu baris dengan panah geser ◂ ▸), paling banyak **3 baris**. Bila tab lebih banyak lagi, tab yang sedang dibuka selalu terlihat; baris lainnya bisa digulir dengan **roda mouse** di atas tab, atau dipilih lewat tombol daftar tab di kanan / **Ctrl+Tab**. Tinggi baris ikut ukuran font.
+
 ## 1.0.13 (24 Oktober 2026)
 
 ### Baru
