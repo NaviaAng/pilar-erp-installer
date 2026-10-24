@@ -2,6 +2,16 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.15 (24 Oktober 2026)
+
+### Baru
+- **Integrasi Quinos › Item Quinos**: kode Quinos yang dipakai untuk beberapa barang (mis. MF-34 untuk 20 jenis roti & kue) kini tampil satu baris **per deskripsi** dan dipetakan per deskripsi ke itemnya masing-masing, jadi stok, HPP & laporan per item benar. Kode biasa tetap satu baris per kode.
+
+### Perbaikan
+- **Integrasi Quinos (cara Harian)**: struk yang tarif layanan / PB1-nya lain dari tarif kebanyakan struk hari itu (mis. satu struk dine in layanan 2%, struk lain 3%) kini jadi **faktur harian tambahan** sendiri (nomor asal "…-T2", catatan "struk tarif lain: layanan 2%") dengan tarifnya sendiri, bukan disamakan lewat Pembulatan. Layanan & PB1 setiap faktur sama persis dengan Quinos. Hari yang sudah diimport satu faktur tampil **Beda** ("1 faktur → 2 faktur") dengan saran **Update** — Update membatalkan faktur lama dan membuat faktur-faktur baru.
+- **Integrasi Quinos**: selisih **PB1** Rp 100 atau lebih antara hitungan Pilar dan Quinos kini jadi error saat **2. Cek** (pajak tidak boleh disamakan lewat Pembulatan); selisih layanan / diskon tetap boleh lewat Pembulatan seperti sebelumnya.
+- **Integrasi Quinos**: faktur hasil import kini mengisi **No. Referensi** dengan nomor struk Quinos — cara **Per struk** mis. "KNO #85", cara **Harian** rentang nomor struk per store hari itu, mis. "KNO #1–134 · KNO-TR #1–72" (struk void / kosong tidak ikut). Catatan faktur tetap berisi struk, jenis penjualan, meja & kasir. Faktur yang sudah diimport sebelumnya mendapat No. Referensi bila di-**Update**.
+
 ## 1.0.14 (24 Oktober 2026)
 
 ### Baru
