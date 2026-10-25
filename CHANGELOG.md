@@ -2,6 +2,21 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.18 (25 Oktober 2026)
+
+### Baru
+- **Stok Opname — edit langsung di grid**: opname yang sudah tersimpan kini diedit **per baris**. Begitu Anda pindah baris, baris yang diubah / ditambah langsung terkirim ke server (kolom **Status** menandai **Baru**, **Diubah**, atau **Gagal**), dan hapus baris langsung berlaku. Tombol **Simpan** hanya menyimpan header (tanggal, catatan, No. Referensi). Opname baru tetap diisi lalu disimpan sekaligus.
+- **Dua orang mengedit opname yang sama**: bila baris atau header sudah diubah user lain, muncul pemberitahuan dan tawaran **Muat ulang**. Seluruh opname dimuat ulang; isian Anda di baris lain yang belum terkirim tetap dipertahankan.
+- **Persediaan › Kartu Stok kini ringkas**: dokumen yang pernah diubah, dibatalkan, atau dihapus tampil **satu baris** (nilai bersihnya, dengan keterangan "diubah 3×"), dokumen yang akhirnya nol tidak tampil, dan baris **penyesuaian nilai** (tanpa perubahan stok) disembunyikan. Saldo tidak berubah. Centang **Semua mutasi** untuk melihat semuanya apa adanya, seperti log.
+
+### Perbaikan
+- **Stok Opname**: **stok sistem** baris yang sudah tersimpan tidak lagi bergeser tiap opname disimpan ulang. Sebelumnya dokumen lain bertanggal sama yang dibuat sesudah opname (mis. retur pembelian) ikut menggeser stok sistem dan selisihnya. Stok sistem baru dihitung ulang untuk baris baru, item yang diganti, atau bila tanggal opname diganti.
+- **Stok Opname**: mengubah satu baris hanya membalik dan memposting ulang mutasi item itu; item lain tidak disentuh, jadi kartu stok tidak lagi penuh pasangan "(ubah)".
+- Mengganti tanggal opname: mutasi pembalik kini bertanggal sama dengan mutasi aslinya, jadi stok di tanggal lama kembali bersih.
+
+### Perlu diperhatikan
+- Pesan "sudah diubah user lain" kini dikirim server dengan kode tersendiri (409) untuk semua dokumen; tampilannya di dokumen lain tidak berubah.
+
 ## 1.0.17 (25 Oktober 2026)
 
 ### Baru
