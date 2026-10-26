@@ -2,6 +2,17 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.19 (26 Oktober 2026)
+
+### Baru
+- **Persediaan › Rekalkulasi Stok & HPP**: menu Rekalkulasi HPP kini sekaligus memeriksa **stok**. Tombol **Cek** menambah tab **Saldo Stok** (saldo stok tersimpan yang berbeda dari jumlah mutasi kartu stok) dan **Pemeriksaan Stok** (saldo minus per hari, opname yang saldo akhirnya ≠ hitung fisik, dokumen bertanggal sama yang dibuat sesudah opname) untuk rentang tanggal satu hari atau satu bulan. **Rekalkulasi** menyamakan saldo stok dengan kartu stok lalu menghitung ulang HPP. Mutasi, dokumen & jurnal tidak dihapus. Selama berjalan tampil **daftar langkah** (periksa saldo stok, saldo minus, opname, muat dokumen, hitung ulang HPP, perbaiki dokumen & jurnal, simpan, susun hasil), masing-masing dengan batang kemajuan dan hitungannya; daftar tetap tampil sesudahnya sebagai rekam apa yang dikerjakan. **Cek** bisa dihentikan dengan tombol **Batal** (berhenti di langkah / butir berikutnya, tidak ada yang disimpan); Rekalkulasi yang sedang menyimpan tidak bisa dibatalkan.
+
+- **Master Item › Koreksi satuan dasar**: satuan dasar item yang sudah punya transaksi kini bisa dikoreksi langsung lewat tombol **Koreksi…** di samping satuan dasar (perlu hak baru **Koreksi Satuan Dasar Item**, bawaan hanya Admin). Dua keadaan: **hanya namanya yang salah** (isi 1) — nama satuan diganti di semua transaksi, angka tetap; atau **angkanya juga salah** (mis. 1 box = 12 pcs) — stok, mutasi, baris penjualan / pembelian / retur / opname, resep, pecah stok dan promo ikut dikonversi (qty dibagi isi, harga per satuan dikali isi), sedangkan jumlah rupiah, HPP total dan jurnal tidak berubah. Ada pratinjau tabel yang akan berubah dulu, alasan wajib, dan tercatat di log aktivitas sebagai **Koreksi Satuan**. Angka yang tidak habis dibagi dibulatkan 4 desimal setelah Anda menyetujui pratinjau.
+
+### Perbaikan
+- **Nomor dokumen pertama bulan itu**: dua orang yang menyimpan dokumen pertama di bulan baru (atau cabang baru) pada saat yang sama tidak lagi membuat salah satunya gagal dengan pesan "bentrok dengan user lain"; yang kedua menunggu sebentar lalu tetap tersimpan dengan nomor berikutnya.
+- **Ubah dokumen (penjualan, pembelian, retur, rakitan, pecah stok, item masuk/keluar, transfer, titipan)**: hanya item yang benar-benar berubah (qty, satuan, harga pokok atau tanggal) yang dibalik dan diposting ulang. Item yang tidak berubah tidak lagi meninggalkan pasangan mutasi "(ubah)" di kartu stok, dan saldo serta HPP rata-ratanya tidak disentuh.
+
 ## 1.0.18 (25 Oktober 2026)
 
 ### Baru
