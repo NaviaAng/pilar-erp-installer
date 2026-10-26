@@ -2,6 +2,20 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.21 (27 Oktober 2026)
+
+### Baru
+- **Laporan & Analisa**: setiap laporan dan analisa kini dibuka di **tab sendiri**. Tab **Laporan** (tombol **Menu Laporan**) dan tab **Analisa** berisi daftar laporan beserta keterangannya; klik sekali untuk melihat keterangannya, **klik dua kali** (atau tekan **Enter**) untuk membukanya di tabnya sendiri, dan bila tabnya sudah terbuka Anda langsung dipindah ke tab itu. **Klik dua kali** baris, titik grafik, atau kartu yang membuka laporan rinci (mis. Tren Penjualan ke Laba Jual) selalu membuka **tab baru** (Laba Jual, Laba Jual #2, …), jadi laporan asal beserta hasilnya tetap terbuka dan tidak tertimpa.
+- **Analisa › Harga Beli per Item**: kolom baru **Status** (Cek input, Fluktuasi tinggi, Naik, Turun, Sekali beli, Stabil; berwarna, yang perlu dicek paling atas), **Harga Tengah**, **Fluktuasi %** (selisih harga tertinggi dan terendah dibanding harga tengah), **Terakhir vs Rata-rata %**, dan **Harga Janggal** (jumlah pembelian yang harganya 3× lipat atau lebih, atau ⅓ atau kurang, dari pembelian lain item itu: kemungkinan salah ketik satuan atau qty). Status bisa dibaca tanpa periode pembanding. Batas "fluktuasi tinggi" diatur di isian **Ambang Fluktuasi %** (bawaan 20).
+- **Analisa › Harga Beli per Item › Fluktuasi Tidak Normal** (pilihan laporan baru): daftar pembelian yang harganya menyimpang dari harga tengah item itu melebihi ambang, dikelompokkan per item, dengan Selisih, Selisih %, dan Kali Harga Tengah. Harga janggal diberi warna merah. Klik dua kali baris untuk membuka faktur pembeliannya.
+
+- **Analisa › Analisa Belanja** (baru, bagian Pembelian): tujuh pilihan untuk melihat ke mana uang belanja pergi. **Efek Harga vs Qty** (per item dan per kategori) memisahkan kenaikan belanja karena harga naik dari karena beli lebih banyak. **Potensi Hemat** menghitung selisih bila item dibeli dari supplier termurah. **Supplier Kecil (Tail Spend)** menandai supplier kecil yang sering dipakai sebagai kandidat digabung. **Langsung vs Tidak Langsung** membandingkan belanja barang untuk dijual atau diolah dengan belanja operasional (non-stok, jasa, kas keluar ke beban). **Ketepatan Bayar Supplier** menunjukkan tepat waktu %, telat, bayar terlalu awal, dan sisa lewat jatuh tempo. **Pembelian di Luar Kebiasaan** mendaftar pembelian tanpa supplier, kas keluar untuk barang, supplier di luar kebiasaan, dan harga di atas harga biasa. Klik dua kali baris membuka laporan rinci atau dokumennya.
+### Perbaikan
+- **Jendela Pembaruan** (saat aplikasi memperbarui diri): kini berukuran dialog biasa, dan huruf, bilah progres serta tombolnya ikut ukuran font aplikasi.
+- **Analisa**: panduan **Cara membaca** di kanan bawaannya disembunyikan, jadi grafik dan tabel lebih lebar. Buka dengan tombol **Tampilkan Panduan**.
+- **Analisa › Harga Beli per Item**: **Harga Jual** dan **Margin Sekarang** kini dihitung dari rata-rata harga **penjualan sebenarnya** di periode itu (per satuan beli). Bila item tidak terjual di periode itu, harga master dipakai, dan kolom **Sumber Harga Jual** menunjukkan yang mana. Item yang tidak dijual (bahan baku, perlengkapan) atau tanpa harga master dibiarkan kosong, dan **HPP Sekarang** kosong untuk item Non-stok/Jasa.
+- **Analisa › Harga Beli per Item**: bila periode pembanding tidak ada pembelian, keterangan di bawah tabel kini menjelaskan kenapa Harga Pembanding dan Selisih kosong. Grafik yang tidak punya nilai untuk digambar menampilkan keterangan, bukan sumbu kosong.
+
 ## 1.0.20 (26 Oktober 2026)
 
 ### Baru
