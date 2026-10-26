@@ -2,6 +2,17 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.20 (26 Oktober 2026)
+
+### Baru
+- **Sistem › Daftar Pemetaan** (setelah Integrasi Quinos): semua pemetaan kode Quinos → item Pilar dalam satu daftar, dengan kolom **Kemiripan (%)** antara nama Quinos dan nama item Pilar (terendah di atas, filter "Hanya kemiripan < 50%"), plus tombol **Hapus Pemetaan**.
+- **Integrasi Quinos › Item Quinos**: kolom **Kemiripan (%)** di grid pemetaan (merah bila < 50%). Kemiripan hanya informasi; **Cocokkan Otomatis** tetap hanya mengisi nama yang persis sama dan kini melaporkan berapa baris yang kemiripannya rendah.
+- **Master Item › Duplikat**: tombol baru di samping Ubah — membuka item baru berisi salinan item terpilih (jenis, satuan & konversi, harga, resep / komponen, pecah stok, akun). Kode otomatis, barcode dikosongkan, nama diberi "(salin)".
+- **Integrasi Quinos › Struk**: centang **Tampilkan Struk Detail** (bawaan mati) — baris item di bawah tiap struk hanya dibuat bila dicentang, supaya tidak memakan banyak memori.
+
+### Perbaikan
+- **Integrasi Quinos**: tombol 1. Buka, 2. Cek, 3. Simpan Pemetaan sejajar dengan pilihan tanggal, 4. Import rata kanan di bawahnya; isian tanggal diperkecil.
+
 ## 1.0.19 (26 Oktober 2026)
 
 ### Baru
