@@ -2,6 +2,25 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.24 (28 Oktober 2026)
+
+### Baru
+- **Hak harga modal**, tiga hak baru di **Jabatan & Hak Akses** (jabatan yang sudah ada tetap memilikinya; cabut sesuai kebutuhan):
+  - **Lihat HPP / Harga Modal di Penjualan**: kolom HPP di daftar & faktur penjualan. Tanpa hak ini kolomnya hilang dan nilainya tidak dikirim server.
+  - **Lihat Harga Modal di Pembelian & Item**: kolom HPP rata-rata & harga beli terakhir di daftar Item, label HPP di form Item, dan harga bawaan faktur pembelian (dari harga beli terakhir / HPP). Tanpa hak ini harga pembelian diketik sendiri.
+  - **Cetak dengan Harga Modal**: template cetak "dengan harga" untuk faktur pembelian dan dokumen persediaan. Tanpa hak ini hanya template "tanpa harga" yang tampil.
+- **Pengaturan Perusahaan › Penjualan › Harga jual di bawah HPP › Untuk user tanpa hak HPP**: bila pilihannya Peringatan, user yang tidak boleh melihat HPP akan **perlu persetujuan atasan** (pesan hanya menyebut itemnya, tanpa angka HPP) atau **tanpa peringatan**. Pilihan Tolak tetap berlaku untuk semua, juga tanpa angka HPP bagi yang tidak berhak.
+- **Sistem › Pengaturan Cetak** (menu sendiri, hak akses sendiri **Pengaturan Cetak**: Lihat / Ubah; jabatan yang boleh mengubah Pengaturan Perusahaan mendapatkannya otomatis; berlaku untuk semua cabang): pilih **tampilkan nama perusahaan** dan **nama cabang** di kepala cetakan, **margin struk thermal** (kiri, kanan, bawah dalam mm; kiri / kanan boleh dikecilkan, bawah ditambah supaya mudah disobek), dan **kode item di cetakan tanpa harga**.
+- **Cetakan tanpa harga** (penerimaan barang, surat jalan, bukti item keluar) tidak lagi menampilkan kode item; nyalakan di pengaturan Cetakan bila ingin kodenya.
+- **Hak cetak dipisah: tanda terima dan faktur.** Hak yang sudah ada menjadi **Cetak … tanpa harga** (surat jalan, tanda terima / bukti penerimaan), dan ada hak baru **Cetak … dengan harga** (struk, faktur, nota retur) untuk Penjualan, Pembelian, dan Persediaan. Jabatan yang sudah boleh mencetak tetap boleh keduanya; hak "dengan harga" butuh juga hak dasarnya. Bukti kas tetap satu hak.
+- **Sistem › Template Cetak**: centang beberapa template (atau centang baris judul dokumen untuk satu kelompok) lalu tekan **Aktifkan** atau **Nonaktifkan** untuk mengubah statusnya sekaligus. Template utama dilewati dengan keterangan (jadikan template lain utama dulu).
+
+### Perbaikan
+- **Struk thermal 80 mm dan 58 mm terpotong di kanan** (tanggal dan kolom nominal): lebar isi template bawaan dikecilkan sesuai area cetak printer thermal (80 mm menjadi 6,9 cm, 58 mm menjadi 4,8 cm). Margin kini bisa diatur di Pengaturan Cetakan (bawaan kiri 2 mm, kanan 8 mm, bawah 10 mm). Berlaku untuk semua template bawaan; salinan template yang sudah Anda simpan tetap berlebar lama, buat salinan baru dari template bawaan bila perlu.
+
+### Perlu diperhatikan
+- HPP rata-rata item masih ikut dikirim ke aplikasi untuk mengisi harga bawaan form persediaan (Item Masuk, Opname, Rakitan), jadi di sana hanya disembunyikan di layar, bukan dikosongkan dari server.
+
 ## 1.0.23 (27 Oktober 2026)
 
 ### Baru
@@ -11,7 +30,7 @@ Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](h
 
 - **Logo perusahaan** (satu per perusahaan, bukan per cabang): pasang di **Sistem › Pengaturan Perusahaan › Perusahaan › Logo** (PNG / JPG, dikecilkan otomatis, langsung tersimpan). Tampil di kiri bar judul untuk semua user dan semua cabang; tanpa logo = inisial perusahaan. Isian **Logo** di Master Cabang dihapus.
 - **Server email (SMTP) diatur di aplikasi**: grup baru **Server email (SMTP)** di Pengaturan Perusahaan › Perusahaan (server, port, SSL, pengirim, user, password). Dipakai untuk ringkasan mingguan via email; password disimpan terenkripsi dan tidak pernah ditampilkan lagi. Dikosongkan = memakai pengaturan email di server (bila ada). Pesan gagal kirim kini menunjuk ke tempat mengisinya.
-- **Menu Sistem & Persediaan disusun ulang**, dari yang paling sering dipakai ke yang jarang, dan lebih ringkas. Persediaan: Stok (Kartu Stok, Stok Opname, Item Masuk / Keluar) → Barang (Item, Satuan, Rak) → Pindah & Olah (Transfer, Rakitan, Pecah Stok) → Perawatan. Sistem: Data (Import, Quinos, Data Terhapus) → Pengguna → Pengaturan → Admin. Menu yang jarang dipakai (Satuan, Rak, Jenis PPN, Penomoran, Izin Backdate, Daftar Pemetaan, Data Terhapus) dibuat kecil dan bertumpuk.
+- **Menu Persediaan & Sistem disusun ulang** satu baris per kelompok, dari yang paling sering dipakai. Persediaan: Kartu Stok · Item · Satuan · Rak | Item Masuk · Item Keluar · Stok Opname | Transfer Masuk · Transfer Keluar | Rakitan / Produksi · Pecah Stok | Rekalkulasi. Sistem: Import Data | Integrasi Quinos · Daftar Pemetaan | Data Terhapus · Bersihkan Data | Pengaturan Perusahaan · Cabang · User · Jabatan · Izin Backdate · Pengaturan Cetak | Jenis PPN · Penomoran Dokumen · Template Cetak.
 
 ### Perlu diperhatikan
 - Logo cabang yang pernah dipasang tidak dipakai lagi; pasang ulang sebagai logo perusahaan.
