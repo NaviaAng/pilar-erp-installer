@@ -2,6 +2,15 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.22 (27 Oktober 2026)
+
+### Baru
+- **Sistem › Penomoran Dokumen** (baru): atur format nomor tiap jenis dokumen (faktur penjualan & pembelian, retur, pelunasan, stok, kas, jurnal, dan lainnya). Yang bisa diatur: **awalan**, **pemisah** (/ - . atau tanpa), **kode cabang** (tanpa kode cabang, semua cabang memakai satu urutan), **tahun** (tanpa, 2 atau 4 digit), **bulan**, **panjang nomor urut**, **kapan urutan mulai dari awal** (tiap bulan, tiap tahun, atau tidak pernah), dan **nomor awal**. Kolom **Contoh Nomor** langsung berubah saat diisi. Bawaan tetap `AWALAN/CABANG/YYMM/0001`. Format hanya berlaku untuk dokumen baru; nomor yang sudah terbit tidak berubah.
+- **Hak akses** baru **Penomoran Dokumen** di grup Sistem: **Lihat** untuk membuka menu, **Ubah** untuk menyimpan format. Bawaan hanya Admin; jabatan lain tidak otomatis mendapatkannya.
+
+### Perlu diperhatikan
+- Mengganti hanya "kapan urutan mulai dari awal" pada jenis dokumen yang sudah punya nomor ditolak, karena nomor baru bisa kembar dengan yang lama. Ubah juga awalan, pemisah, kode cabang, atau tahun / bulan di nomor.
+
 ## 1.0.21 (27 Oktober 2026)
 
 ### Baru
