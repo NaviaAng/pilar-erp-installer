@@ -2,6 +2,21 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.23 (27 Oktober 2026)
+
+### Baru
+- **Profil Saya** (menu akun, klik nama Anda di kanan atas): pasang **foto profil** (PNG / JPG, dikecilkan otomatis; tampil di lingkaran akun), pilih **status** (Otomatis, Sibuk, atau Tidak tampak) dan tulis **pesan status** (maks. 140 karakter, mis. "Di gudang sampai jam 3"). Tiap user mengatur profilnya sendiri.
+- **Beranda › Tim** (baru): semua user perusahaan dengan foto, status **Online / Idle / Sibuk / Offline**, pesan status, terakhir terlihat, dan jam **aktif** serta **idle** hari ini. Disegarkan otomatis tiap 30 detik. User yang memilih Tidak tampak terlihat Offline oleh yang lain.
+- **Jam kerja karyawan**: aplikasi mencatat lama dipakai tiap sesi (login sampai Sign Out / ditutup). **Aktif** = ada gerak mouse atau ketikan; **Idle** = tanpa input lebih dari 5 menit (termasuk saat layar terkunci). Laporan **Laporan Sistem › Jam Kerja Karyawan**: per user per hari (masuk pertama, terakhir terlihat, menit aktif / idle, % aktif) dan ringkasan per user dalam rentang tanggal.
+
+- **Logo perusahaan** (satu per perusahaan, bukan per cabang): pasang di **Sistem › Pengaturan Perusahaan › Perusahaan › Logo** (PNG / JPG, dikecilkan otomatis, langsung tersimpan). Tampil di kiri bar judul untuk semua user dan semua cabang; tanpa logo = inisial perusahaan. Isian **Logo** di Master Cabang dihapus.
+- **Server email (SMTP) diatur di aplikasi**: grup baru **Server email (SMTP)** di Pengaturan Perusahaan › Perusahaan (server, port, SSL, pengirim, user, password). Dipakai untuk ringkasan mingguan via email; password disimpan terenkripsi dan tidak pernah ditampilkan lagi. Dikosongkan = memakai pengaturan email di server (bila ada). Pesan gagal kirim kini menunjuk ke tempat mengisinya.
+- **Menu Sistem & Persediaan disusun ulang**, dari yang paling sering dipakai ke yang jarang, dan lebih ringkas. Persediaan: Stok (Kartu Stok, Stok Opname, Item Masuk / Keluar) → Barang (Item, Satuan, Rak) → Pindah & Olah (Transfer, Rakitan, Pecah Stok) → Perawatan. Sistem: Data (Import, Quinos, Data Terhapus) → Pengguna → Pengaturan → Admin. Menu yang jarang dipakai (Satuan, Rak, Jenis PPN, Penomoran, Izin Backdate, Daftar Pemetaan, Data Terhapus) dibuat kecil dan bertumpuk.
+
+### Perlu diperhatikan
+- Logo cabang yang pernah dipasang tidak dipakai lagi; pasang ulang sebagai logo perusahaan.
+- Jam kerja dihitung dari aplikasi yang terbuka, bukan absensi: PC yang mati / tidur atau tanpa jaringan tidak terhitung. Sesi dicatat pada hari mulainya. Laporan Jam Kerja Karyawan bawaan hanya untuk Admin; jabatan lain diberi hak di **Jabatan & Hak Akses**.
+
 ## 1.0.22 (27 Oktober 2026)
 
 ### Baru
