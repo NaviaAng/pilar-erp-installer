@@ -2,6 +2,15 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.26 (28 Oktober 2026)
+
+### Baru
+- **Cetakan tanpa harga lebih ringkas**: pada struk thermal, tiap barang kini **satu baris** `qty  satuan  nama` (kode item hanya tampil bila opsinya aktif). Pada tabel A4, setengah A4, dan form kontinu, urutan kolom menjadi **Qty, Satuan, Nama**, lalu harga bila ada.
+- **Tanda tangan sesuai praktik umum**: **Bukti Penerimaan Barang** (pembelian) = Diserahkan, Diperiksa, Diterima. **Bukti persediaan** = **Dikeluarkan** (item / transfer / titipan keluar) atau **Diserahkan** (masuk), Diperiksa, Diterima. **Surat Jalan** = Dibuat oleh, Pengirim, Penerima. Bukti retur disesuaikan dengan arah barangnya.
+
+### Perbaikan
+- **Beranda › Tim**: kartu user tidak lagi kosong (nama, status, perangkat, dan hitungan kini tampil).
+
 ## 1.0.25 (28 Oktober 2026)
 
 ### Baru
