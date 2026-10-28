@@ -2,6 +2,19 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.29 (29 Oktober 2026)
+
+### Baru
+- **Beranda › Tim › Perangkat › Grafik** kini berbentuk **lajur per cabang**: sumbu tegak = cabang yang dibuka hari itu, ditambah lajur **Hilang** (tidak ada aplikasi terbuka: belum login, sudah keluar, PC mati / sleep, atau internet putus). Satu **garis per aplikasi**; **pindah cabang** = garis pindah lajur. Titik per interval berwarna status: **hijau aktif, kuning idle, abu-abu hilang**; tooltip berisi rincian aktif / idle / cabang di interval itu. Urutan aktif → idle → hilang → aktif kini terlihat jelas.
+- **Interval** grafik: **15 / 30 / 60 menit** atau **4 / 8 / 12 / 24 jam** (bawaan 15 menit). Garis **Latency (ms)** kini bawaan mati, centang untuk menampilkan.
+- **Idle menurut** (tab Perangkat): **Aktivitas aplikasi** (bawaan) = tidak ada aksi ke server selama 5 menit (buka menu, cari, muat, simpan, cetak; mouse yang sekadar digerakkan tidak dihitung), atau **Mouse & keyboard** = tidak ada gerak mouse / ketikan di jendela aplikasi. Keduanya dicatat di setiap detak; data sebelum versi ini hanya punya mouse & keyboard.
+- **Dua aplikasi dibuka di PC yang sama** (mis. beda cabang): grafik menggambar dua garis (Aplikasi 1, Aplikasi 2), kolom **Status** menyebut jumlah aplikasi yang terbuka, kolom **Cabang** berisi semua cabang yang dibuka hari itu, dan **Keluarkan perangkat** mengeluarkan semua aplikasi di PC itu.
+- **Rentang waktu** di bawah grafik: daftar dari jam:menit sampai jam:menit kini juga menyebut **Cabang** dan **Aplikasi** ke berapa.
+
+### Perbaikan
+- **Tim › Perangkat**: **Lama Aktif / Lama Idle** tidak lagi dobel bila dua aplikasi terbuka bersamaan di PC yang sama (dihitung aktif bila salah satu aplikasi aktif). Sesi yang dimulai kemarin dan masih berjalan ikut terhitung hari ini.
+- **Grafik perangkat**: 5 menit pertama sebelum idle kini ikut idle (sebelumnya tercatat aktif di grafik, sedangkan tabel sudah idle), untuk data sesudah versi ini.
+
 ## 1.0.28 (28 Oktober 2026)
 
 ### Baru
