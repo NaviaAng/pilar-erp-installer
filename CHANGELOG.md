@@ -2,6 +2,18 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.27 (28 Oktober 2026)
+
+### Baru
+- **Beranda › Tim kini punya dua tab.** Tab **User**: kartu ringkas (foto, nama, jabatan, status, pesan status, cabang yang sedang dibuka, lama aktif dan idle hari ini). Tab **Perangkat** (Admin atau hak Lihat Log Aktivitas): satu baris per **user di satu perangkat** pada satu hari, berisi nama device, aplikasi & versi, **login pertama**, jumlah login dan keluar, **aktif atau tidak sekarang**, lama aktif dan idle, serta latency. Pilih tanggal dengan kalender (bawaan hari ini).
+- **Grafik waktu per perangkat**: tombol **Grafik** (atau klik dua kali baris) menampilkan kolom **aktif (hijau), idle (kuning), keluar (abu-abu)** sepanjang hari, dengan interval **1 / 5 / 10 / 30 menit atau 1 jam**, plus garis **latency (ms)** ke server. Tombol **Keluarkan perangkat** pindah ke tab ini. Grafik hanya ada untuk hari sesudah versi ini terpasang di PC user.
+- **Pengaturan Cetak › Tanda tangan**: judul tanda tangan per dokumen bisa diubah, mis. `Gudang;Checker;Penerima`. Jumlah judul = jumlah kotak (1 sampai 4), `-` = tanpa tanda tangan, kosong = bawaan. Berlaku untuk A4, setengah A4, dan dot matrix; struk thermal tetap bawaan.
+- **Cetakan tanpa harga lebih ringkas**: struk thermal satu baris per barang (`5 PCS  Nama barang`), dan urutan kolom tabel menjadi Qty, Satuan, Nama. Tanda tangan baru: penerimaan barang **Diserahkan, Diperiksa, Diterima**; bukti persediaan **Dikeluarkan** (item / transfer / titipan keluar) atau **Diserahkan**, Diperiksa, Diterima; Surat Jalan: Dibuat oleh, Pengirim, Penerima.
+
+### Perbaikan
+- **Bukti item masuk / keluar tanpa harga** tidak lagi mencetak **akun lawan (COA)** yang tidak dimengerti petugas lapangan; di cetakan dengan harga tetap tampil.
+- **Beranda › Tim**: kartu user tidak lagi kosong.
+
 ## 1.0.26 (28 Oktober 2026)
 
 ### Baru
