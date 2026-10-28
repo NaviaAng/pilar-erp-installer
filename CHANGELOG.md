@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.28 (28 Oktober 2026)
+
+### Baru
+- **Bagan akun awal mengikuti jenis usaha.** Perusahaan baru kini mendapat akun yang sesuai bisnisnya, bukan satu daftar yang sama untuk semua. Pilihan **Jenis usaha** bertambah: **Restoran**, **Kafe / Coffee Shop**, **UMKM / Produksi Rumahan**, **Toko Oleh-oleh**, **Pengangkutan / Ekspedisi**, Restoran + Toko Oleh-oleh, dan Lainnya. Akun yang disiapkan sekitar 85 sampai 130, bertingkat rapi. Contoh: kafe mendapat Mesin Kopi dan Komisi Pesan-Antar, UMKM mendapat Beban Produksi dan Pajak Final 0,5%, pengangkutan mendapat BBM, Tol, Uang Jalan, Armada, dan Hutang Leasing. Akun lain bisa ditambah atau dihapus kapan saja di **Akuntansi › Bagan Akun**.
+- **Wizard Perusahaan Baru** (Sistem › Admin Platform › Baru, dan **Daftar perusahaan baru** di layar login): lima langkah, yaitu Perusahaan, Jenis usaha, Cabang pertama, Administrator, lalu Ringkasan. Di langkah Jenis usaha, daftar akun awal yang akan dibuat langsung tampil di sebelah kanan. Pendaftaran dari layar login yang dulu tidak menanyakan jenis usaha kini menanyakannya. Password admin diminta dua kali. Langkah Cabang kini meminta **kode cabang** (dipakai di nomor dokumen, mis. PJ/ST/2610/0001), disarankan dari nama cabang dan dilengkapi contoh nomornya. Dulu semua perusahaan baru otomatis berkode 01.
+- **Menu yang tampil mengikuti jenis usaha.** Perusahaan baru hanya melihat menu yang relevan: **Titipan** untuk restoran, kafe, dan toko oleh-oleh (titip jual); **Rakitan** dan **Pecah Stok** untuk semua kecuali Pengangkutan; Pengangkutan tanpa Titipan, Rakitan, Pecah Stok, Transfer, dan Promo. Menu yang disembunyikan bisa dinyalakan kapan saja di **Pengaturan › Fitur**.
+- Kafe ikut memungut **PB1 dan biaya layanan** di cabang Outlet, sama seperti restoran.
+- **Hak akses persediaan dipisah per menu**: di **Sistem › Jabatan & Hak Akses**, **Item Masuk**, **Item Keluar**, **Transfer Keluar**, dan **Transfer Masuk** kini masing-masing punya baris hak sendiri (dulu Item Masuk/Keluar satu hak dan Transfer satu hak). Gunanya untuk perusahaan yang ingin mencegah kecurangan: yang menambah stok dan yang mengurangi stok, atau yang mengirim dan yang menerima transfer, bisa dibuat orang yang berbeda. Contoh: petugas cabang tujuan hanya diberi **Transfer Masuk** tanpa bisa mengirim, atau gudang hanya **Item Keluar** tanpa bisa menambah stok. Perusahaan yang tidak butuh pemisahan cukup mencentang keduanya.
+- **Hak cetak tanpa harga dan dengan harga per menu**: tiap menu persediaan (Item Masuk, Item Keluar, Transfer Keluar, Transfer Masuk, Stok Opname, Rakitan, Pecah Stok, Titipan, Saldo Awal Stok) punya dua hak, **Cetak …: tanpa harga** dan **Cetak …: dengan harga**, yang berdiri sendiri (boleh salah satu saja). Barisnya ada tepat di bawah menunya; tombol **Cetak ▾** hanya menawarkan template yang boleh dipakai.
+
+### Perlu diperhatikan
+- **Hak lama diubah otomatis** saat server diperbarui, jadi tidak ada yang hilang: hak Koreksi → hak yang sama di Item Masuk dan Item Keluar; hak Transfer → Transfer Keluar dan Transfer Masuk; hak Cetak Persediaan → cetak tanpa harga di menu yang bisa dibuka jabatan itu, dan cetak dengan harga bila dulu juga boleh mencetak dengan nilai dan dengan harga modal. Periksa lagi jabatan Anda bila ingin memisahkannya.
+- **Cetak Faktur Pembelian dengan Harga Modal** (dulu "Cetak dengan Harga Modal") kini hanya untuk faktur pembelian; dokumen persediaan cukup hak "dengan harga" di menunya.
+- Perbarui aplikasi di semua PC: versi lama tidak mengenal hak baru, sehingga menu Item Masuk/Keluar, Transfer, dan tombol cetak persediaan tidak muncul untuk user selain Admin.
+- Perusahaan yang sudah berjalan **tidak berubah**. Mengubah Jenis usaha di Pengaturan Perusahaan juga tidak membuat ulang akun. Akun baru dibuat hanya saat perusahaan dibuat atau lewat **Bersihkan Data** (semua cabang, termasuk akun).
+
 ## 1.0.27 (28 Oktober 2026)
 
 ### Baru
