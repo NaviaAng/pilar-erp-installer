@@ -2,6 +2,19 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.25 (28 Oktober 2026)
+
+### Baru
+- **Satu user di beberapa perangkat**: tiap login (PC / HP) kini punya **sesi sendiri** dengan ID unik (JTI) di tokennya. **Hitungan jam kerja, login, keluar, lama, aktif, dan idle dipisah per perangkat**; total user = jumlah semua perangkat. Laporan **Laporan Sistem › Jam Kerja Karyawan** punya pilihan baru **Per Perangkat**.
+- **Batas perangkat per user** di **Pengaturan Perusahaan › Keamanan › Perangkat**: bebas, atau maksimal 1 / 2 / 3 / 4 / 5 / 10 perangkat. Bila terlampaui, pilih **keluarkan perangkat yang paling lama** atau **tolak login baru** (pesan menyebut perangkat yang sedang dipakai). Admin selalu mengeluarkan yang terlama supaya tidak terkunci.
+- **Keluarkan perangkat**: di kartu **Beranda › Tim**, tombol **Keluarkan perangkat…** (akun sendiri, atau Admin / hak Ubah User untuk user lain). Perangkat itu langsung ditolak dan kembali ke layar login. **Sign Out** juga mencabut tokennya, sehingga token yang bocor tidak bisa dipakai lagi.
+- **Kartu Tim** kini juga menampilkan **sedang di cabang mana**, **menu yang terakhir dibuka**, dan daftar perangkat dengan hitungannya masing-masing.
+- **Riwayat pemakaian**: aplikasi mencatat **jam berapa user membuka menu apa dan di cabang mana** (ringkas, tanpa isi data; menu yang sama berturut-turut dalam 20 detik dihitung satu). Lihat di **Laporan Sistem › Log Aktivitas › Riwayat Pemakaian Menu**, dengan hak akses yang sama dengan Log Aktivitas. Dihapus bersama log lama sesuai masa simpan log.
+- **Beranda › Tim** kini berbentuk **kartu** (CardView). Tiap kartu menampilkan foto, status, pesan status, **login terakhir dari mana** (aplikasi & versi, nama PC; alamat IP hanya terlihat oleh admin), **berapa kali login dan keluar** hari ini, serta **lama**, **aktif**, dan **idle** hari ini. Keluar dihitung dari sesi yang berakhir (Sign Out, aplikasi ditutup, atau terputus).
+
+### Perbaikan
+- **Template Cetak**: pengelompokan per dokumen tidak lagi hilang setelah Muat ulang, Aktifkan / Nonaktifkan, atau menyimpan dari designer.
+
 ## 1.0.24 (28 Oktober 2026)
 
 ### Baru
