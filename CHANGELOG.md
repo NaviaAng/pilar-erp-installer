@@ -2,6 +2,29 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.30 (29 Oktober 2026)
+
+### Baru
+- **Hak lihat harga modal per menu persediaan**: enam hak baru di **Sistem › Jabatan & Hak Akses**, selain hak yang sudah ada untuk Penjualan, Pembelian & Item, dan Cetak. **Lihat Harga Modal di Item Masuk/Keluar & Saldo Awal Stok**, **di Transfer Antar Cabang**, **di Titipan**, **di Stok Opname**, **di Rakitan / Produksi**, dan **di Pecah Stok**. Tanpa hak itu, harga pokok, jumlah, nilai selisih, dan total menu tersebut **disembunyikan di semua tempat**: daftar, form, **Riwayat**, **Laporan Sistem › Log Aktivitas**, **Data Terhapus**, dan cetakan. Nilainya **tidak dikirim server**. Qty tetap terlihat seperti biasa.
+- **Hak lihat harga di Pembelian & Retur Pembelian** (hak ketujuh, **Lihat Harga di Pembelian & Retur Pembelian**): tanpa hak ini harga, potongan, DPP, PPN, total, jumlah yang sudah dibayar, dan sisa hutang dokumen **Pembelian** dan **Retur Pembelian** disembunyikan di daftar, form, **Riwayat**, **Data Terhapus**, dan cetakan, serta tidak dikirim server. Qty, supplier, tanggal, dan catatan tetap bisa dikerjakan.
+- **Gudang bisa mencatat pembelian tanpa melihat harga.** Pembelian oleh user tanpa hak itu memakai **harga beli terakhir** item (kalau belum pernah dibeli, HPP rata-rata), tanpa potongan, dan **kredit seluruhnya**; saat diubah, harga, potongan, pembulatan, dan pembayaran yang tersimpan tetap. Item yang belum pernah dibeli dan belum punya HPP ditolak. Harga yang sebenarnya dikoreksi kemudian oleh jabatan yang punya hak itu (mis. Akunting) lewat ubah pembelian, yang menghitung ulang HPP seperti biasa.
+- **Retur Pembelian** menentukan potongan hutang dan uang kembali, jadi **membuat dan mengubahnya** butuh hak yang sama; user tanpa hak hanya bisa melihat qty-nya, membatalkan atau menghapus sesuai hak menunya.
+- **Yang tidak boleh melihat harga modal juga tidak bisa mengisinya.** Item Masuk, Saldo Awal Stok, Titip Masuk, dan Stok Opname oleh user tanpa hak memakai harga otomatis: **HPP rata-rata**; untuk Titip Masuk dari penitip, harga setoran terakhir lalu HPP rata-rata. Saat dokumen diubah, baris lama **tetap pada harga tersimpannya**, juga bila satuannya diganti (misalnya box menjadi pcs). Item yang **belum punya HPP ditolak** dengan pesan tanpa angka, supaya tidak tercatat bernilai 0; mintalah user yang punya hak untuk mencatatnya. **Import Data dikecualikan**: pemegang hak Import Data bekerja dengan harga pokok / harga titip dari file, dan hasil importnya tetap menampilkan total.
+- **Setoran ke Penitip** untuk user tanpa hak Titipan: kolom **Perkiraan** dan baris **Selisih ke HPP** tidak tampil, dan harga setoran bawaan hanya harga setoran terakhir. Untuk item yang belum pernah disetor, isi harganya dari tagihan penitip.
+- **Cetak "dengan harga"** dokumen persediaan butuh hak **Cetak …: dengan harga** di menunya dan hak **Lihat Harga Modal** menu itu (bila tidak, harga pokoknya tertutup); template "dengan harga" tidak ditawarkan tanpa keduanya, jadi tidak ada cetakan berisi harga atau "TOTAL NILAI" 0.
+
+### Perbaikan
+- **HPP di Retur Penjualan** dan **HPP di Riwayat faktur penjualan** kini mengikuti hak **Lihat HPP / Harga Modal di Penjualan**; sebelumnya masih terkirim ke user tanpa hak itu. **Detail** daftar Kasir / Faktur tidak lagi menampilkan "HPP 0" untuk user tersebut.
+- **Master Item**: HPP resep, Est. HPP, dan margin di tab Resep, serta harga bawaan **Retur Pembelian** tanpa faktur asal, kini mengikuti hak **Lihat Harga Modal di Pembelian & Item**. Harga beli terakhir hanya dikirim ke user dengan hak itu. HPP rata-rata item hanya dikirim ke user yang punya salah satu hak harga modal / harga pokok, dan perkiraan HPP hanya ke user yang punya hak Lihat HPP di Penjualan.
+
+### Perlu diperhatikan
+- **Jual ke perusahaan grup** berharga HPP rata-rata, jadi kini butuh hak **Lihat HPP / Harga Modal di Penjualan**; jabatan yang sudah ada otomatis memilikinya.
+- Hak diberikan per **jabatan**. Jabatan yang sudah ada otomatis mendapat hak harga modal untuk menu yang memang boleh dibukanya; Gudang & Akunting bawaan mendapat keenamnya, sama seperti perusahaan baru. Jadi tampilannya tidak berubah sampai Admin mencabutnya. Contoh: agar gudang tidak melihat HPP di **Item Keluar** dan **Transfer Keluar**, hilangkan centang **Lihat Harga Modal di Item Masuk/Keluar & Saldo Awal Stok** dan **di Transfer Antar Cabang** pada jabatan Gudang. **Jabatan baru** harus dicentang sendiri. Untuk mengatur satu user saja, buat jabatan khusus untuk user itu.
+- Agar HPP benar-benar tertutup, cabut juga hak **Lihat harga pokok (HPP) di laporan**, karena **Laporan, Analisa & Kartu Stok** mengikuti hak itu. **Jurnal / Buku Besar** mengikuti hak menunya, dan **Rekalkulasi HPP** menampilkan HPP semua dokumen.
+- Kartu **Pembelian** di Dasbor kini butuh hak **Lihat Harga di Pembelian & Retur Pembelian** (atau hak Laporan Pembelian). Jabatan yang sudah ada otomatis memiliki hak baru ini bila boleh membuka Pembelian / Retur Pembelian.
+- **Harga Setoran ke Penitip** dan **harga jual Laku Titipan** adalah harga kesepakatan, bukan harga modal, sehingga tetap terlihat.
+- Menyimpan jabatan dari aplikasi versi lama tidak mengubah keenam hak baru ini; perbarui aplikasi untuk mengaturnya. Sebaiknya naikkan **versi minimum aplikasi** ke 1.0.30 setelah rilis.
+
 ## 1.0.29 (29 Oktober 2026)
 
 ### Baru
