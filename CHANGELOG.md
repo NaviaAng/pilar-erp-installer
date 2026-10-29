@@ -2,6 +2,24 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.31 (29 Oktober 2026)
+
+### Baru
+- **Pembelian › Permintaan Grup**: cabang perusahaan pembeli bisa **meminta item & qty** ke perusahaan satu grup usaha. Perusahaan penjual lalu membuat **Faktur Penjualan** dan memilih permintaan itu di **Dari permintaan**: konsumen grup dan item sisa permintaan terisi otomatis dengan harga modal. Qty boleh dikurangi (sisanya bisa dikirim kemudian), item lain tidak bisa ditambah. Fakturnya diterima pembeli lewat **Pembelian › Terima dari grup** seperti biasa.
+- Status permintaan mengikuti faktur penjual: **Terbuka**, **Sebagian**, **Selesai**, **Ditutup**, atau **Batal**. Daftar permintaan menampilkan no. faktur penjual dan no. pembelian penerimanya; form permintaan menampilkan **Terkirim** dan **Sisa** per item. Permintaan yang sudah dibuatkan faktur tidak bisa diubah atau dihapus, hanya **ditutup** (alasan wajib) bila sisanya tidak perlu dikirim.
+- **Faktur Penjualan** ke perusahaan grup tetap bisa dibuat langsung tanpa permintaan, jadi kedua cara bisa dipakai bersamaan. Daftar faktur punya kolom **Permintaan**.
+- **Pengaturan Perusahaan › Grup usaha › Penjualan grup ke perusahaan ini wajib dari Permintaan** (bawaan mati): dicentang di perusahaan pembeli, faktur penjualan grup **ke perusahaan itu** harus dibuat dari permintaannya. Hanya transaksi antar perusahaan grup; pembelian ke supplier biasa, penjualan, Kasir, dan import tidak terpengaruh.
+- **Cabang pengirim** (opsional) di form permintaan: kosong = cabang penjual mana pun boleh memenuhi; diisi = hanya cabang itu yang melihat permintaannya di **Faktur Penjualan › Dari permintaan**, dan fakturnya harus dibuat di cabang itu.
+- **Faktur dari permintaan hanya bisa diterima di cabang peminta.** Di cabang pembeli lain faktur itu tidak muncul di **Pembelian › Terima dari grup**. Faktur grup tanpa permintaan tetap bisa diterima di cabang mana pun.
+- Hak baru **Permintaan Pembelian Grup** di **Sistem › Jabatan & Hak Akses** (Batal = juga Tutup) dan nomor dokumen **PMG** di Penomoran Dokumen.
+
+### Perbaikan
+- **Import Data › Item**: harga pokok stok awal yang tidak sampai ke HPP kini diberi **peringatan** di Periksa dan Import (sebelumnya jatuh diam-diam). Peringatan muncul bila **Stok bertambah tanpa Harga Pokok** pada item yang HPP-nya masih 0 (stok awal bernilai 0 di persediaan dan HPP penjualannya 0), dan bila **Harga Pokok diisi padahal Stok kosong, 0, atau tidak lebih besar dari stok sistem** (HPP hanya terbentuk dari stok yang bertambah, jadi Harga Pokok itu diabaikan). Pesannya menyebut cara memperbaiki HPP yang sudah terlanjur 0: ubah **Harga Pokok** baris item itu di **Stok Opname** "Import item (stok awal)". Catatan kolom **Harga Pokok** di template ikut diperjelas.
+
+### Perlu diperhatikan
+- Item dicocokkan antar perusahaan lewat **kode item yang sama** dan satuan dasar yang sama, seperti Terima dari grup.
+- Jabatan yang sudah boleh membuat Pembelian (termasuk Gudang) otomatis mendapat hak Permintaan Pembelian Grup.
+
 ## 1.0.30 (29 Oktober 2026)
 
 ### Baru
