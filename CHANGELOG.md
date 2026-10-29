@@ -2,6 +2,16 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.32 (30 Oktober 2026)
+
+### Baru
+- **Akun (COA) › Template…**: melihat template bagan akun bawaan (per jenis usaha, atau **Semua jenis usaha**) berdampingan dengan bagan akun perusahaan Anda. Tiap akun diberi status: **Baru** (belum ada), **Sudah ada**, **Nama sama** (akun bernama sama sudah ada dengan kode lain) atau **Kode dipakai** (kodenya sudah dipakai akun lain).
+- Akun yang belum ada bisa **diimpor** ke perusahaan yang sudah berjalan: centang akunnya (yang **Baru** sudah tercentang; klik dua kali baris kelompok untuk memilih atau mengosongkan seisinya), lalu **Impor**. Akun induk yang belum ada ikut dibuat otomatis, sedangkan akun yang sudah ada tidak diubah dan akun yang kodenya bentrok dilewati. Kotak **Sembunyikan yang sudah ada** menyisakan akun yang belum ada.
+- Melihat template butuh hak **Akun (COA) › Lihat**; mengimpor butuh hak **Buat**.
+
+### Perlu diperhatikan
+- Contoh: **Akumulasi Penyusutan – Peralatan** (1-2900) dan **Beban Penyusutan Peralatan** (6-2000) ada di template, jadi perusahaan lama tinggal mengimpornya, tidak perlu membuat sendiri.
+
 ## 1.0.31 (29 Oktober 2026)
 
 ### Baru
