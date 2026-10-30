@@ -2,6 +2,42 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.33 (30 Oktober 2026)
+
+### Baru
+- **Akuntansi › Buku Besar**: menu baru untuk melihat mutasi per akun (saldo awal, debit, kredit, saldo berjalan) di satu cabang atau semua cabang yang
+  boleh diakses. Klik dua kali baris membuka dokumen asalnya langsung di formnya: faktur penjualan / pembelian, penerimaan piutang / pembayaran hutang,
+  kas masuk / keluar / transfer, jurnal umum, saldo awal, item masuk / keluar, transfer, titipan, rakitan, pecah stok, opname, dan retur. Penyesuaian nilai
+  persediaan membuka dokumen yang memicunya; jurnal tanpa dokumen asal (jurnal umum, saldo awal akun, tutup buku) membuka jurnalnya sendiri.
+  Pilih satu akun, akun induk (semua akun di bawahnya), atau kosongkan untuk semua akun. Bisa diekspor ke Excel dan dicetak.
+- **Akuntansi › Buku Besar**: kolom **No Dokumen** menampilkan nomor dokumen asal tiap jurnal otomatis (mis. kas keluar `KK/01/2609/0020` di samping
+  jurnalnya `JU/01/2609/0947`). Kedua nomor kini berupa link: klik **No Jurnal** untuk membuka jurnalnya, klik **No Dokumen** untuk membuka dokumen
+  asalnya (kas masuk / keluar / transfer, faktur, pelunasan, retur, koreksi, transfer, titipan, rakitan, pecah stok, opname, saldo awal) langsung dari
+  Buku Besar, tanpa lewat Jurnal Umum dulu. Klik dua kali baris tetap membuka dokumen asalnya; klik kanan sel untuk menyalin nomornya. Jurnal umum,
+  saldo awal akun, dan tutup buku tidak punya No Dokumen karena jurnalnya sendiri dokumennya.
+- **Kas & Bank › Tagihan Biaya**: biaya bulan ini yang dibayar nanti (listrik pascabayar, royalti, jasa akuntan) dicatat di bulan tagihannya
+  atas nama supplier, lalu dibayar lewat **Pembayaran Hutang** seperti faktur pembelian. Tagihan ikut laporan hutang (saldo, umur, kartu, jatuh tempo)
+  tetapi tidak ikut laporan pembelian. Baris boleh minus untuk potongan, mis. PPh 4(2) / 23 yang dipotong ke akun hutang pajak.
+- **Kas & Bank › Biaya Rutin**: jadwal biaya berulang per cabang (sewa, gaji, listrik, internet, BPJS, setor PB1, PPh Final, royalti) tiap bulan, tiap
+  beberapa bulan atau tahunan, dengan bulan mulai & berakhir. Jumlah tiap baris bisa tetap, diisi saat dicatat, persen dari penjualan neto (+ biaya
+  layanan) cabang di bulan itu, atau saldo akun per akhir bulan sebelumnya. Satu layar per bulan menunjukkan status tiap jadwal (Belum, Terlambat,
+  Dicatat, Dilewati) dengan nomor dokumennya.
+  - **Catat** membuka form Kas Keluar / Tagihan Biaya / Jurnal Umum yang sudah terisi dari jadwal; periksa, ubah bila perlu, lalu Simpan.
+  - **Catat Sekaligus** mencatat baris yang dicentang tanpa membuka form, satu dokumen per jadwal (semua atau tidak sama sekali).
+  - **Lewati** untuk bulan yang memang tidak ada biayanya (alasan wajib).
+  - Biaya tidak pernah tercatat sendiri tanpa diklik. Dokumen hasil yang dibatalkan membuat jadwalnya kembali Belum.
+- **Kunci & Tutup Buku**: pemeriksaan baru "Biaya rutin sudah dicatat" memperingatkan jadwal bulan itu yang belum dicatat / dilewati.
+
+### Perlu diperhatikan
+- Hak baru **Buku Besar** (Lihat) di Jabatan & Hak Akses, grup Akuntansi. Jabatan yang sudah boleh melihat Laporan Buku Besar otomatis mendapatnya, dan jabatan
+  bawaan Akunting mendapatnya di perusahaan baru. Membuka dokumen asal dari baris tetap butuh hak Lihat di menu dokumen itu; tanpa hak itu muncul pesan yang
+  menyebut menu yang dibutuhkan.
+- Laporan Buku Besar di Menu Laporan tidak berubah dan tetap mengikuti hak laporannya; angka keduanya sama.
+- Hak baru **Tagihan Biaya** dan **Biaya Rutin** di Jabatan & Hak Akses, grup Kas & Bank. Jabatan yang sudah boleh membuat Kas Keluar otomatis
+  mendapat keduanya; jabatan bawaan Akunting mendapatnya di perusahaan baru. Catat butuh juga hak Buat di menu hasilnya (Kas Keluar, Tagihan Biaya,
+  atau Jurnal Umum).
+- Pemeriksaan buku bantu hutang di Tutup Periode kini menghitung tagihan biaya; Bersihkan Data punya jenis baru **Tagihan biaya**.
+
 ## 1.0.32 (30 Oktober 2026)
 
 ### Baru
