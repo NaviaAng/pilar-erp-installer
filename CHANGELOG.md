@@ -2,6 +2,51 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.34 (30 Oktober 2026)
+
+### Baru
+- **Penjualan › Permintaan Masuk**: perusahaan penjual kini punya daftar sendiri untuk Permintaan Pembelian Grup yang masuk dari perusahaan satu
+  grup usaha: no., tanggal, perusahaan & cabang peminta, status (Terbuka / Sebagian / Selesai / Ditutup / Batal), jumlah item dan item sisa, no.
+  faktur Anda, no. pembelian penerimanya, dan masalah yang menghalangi (mis. kode item belum ada di perusahaan ini). Item permintaan terpilih
+  tampil di bawah dengan qty diminta, terkirim, dan sisa.
+- Bawaannya **Belum selesai saja** (yang masih ada sisanya, tanggal berapa pun); hilangkan centang untuk melihat semua status menurut tanggal.
+  Daftar per cabang: hanya permintaan untuk cabang ini atau untuk semua cabang.
+- **Buat Faktur** (atau klik dua kali) membuka Faktur Penjualan baru dengan permintaan itu sudah terpilih di **Dari permintaan**: konsumen grup dan
+  sisa item terisi dengan harga modal. Setelah disimpan, daftar dimuat ulang. **Lihat Faktur** membuka faktur yang sudah dibuat dari permintaan
+  itu, di cabangnya.
+- **Akuntansi › Aset Tetap**: daftar aset tetap per cabang dengan harga, akumulasi, nilai buku, sisa umur dan status per tanggal. Form aset
+  menghitung **jadwal penyusutan** sampai habis saat mengetik, dengan tab Dibayar dari, Jadwal dan Riwayat. Asal perolehan: **Beli sekarang**
+  (jurnal perolehan dari akun kas / bank, hutang lain-lain, hutang leasing, …), **Sudah dijurnal** (tanpa jurnal) atau **Saldo awal**
+  (akumulasi awal per tanggal, jurnal saldo awal opsional). Kode aset otomatis per kelompok, mis. PRL-0001.
+- **6 metode penyusutan**: Garis Lurus, Saldo Menurun, Saldo Menurun lalu Garis Lurus, Jumlah Angka Tahun, Satuan Pemakaian (km / jam,
+  diisi tiap bulan) dan Tidak Disusutkan (tanah). Amortisasi aset tak berwujud memakai Garis Lurus. Pembulatan rupiah tanpa selisih menumpuk,
+  tidak pernah melewati nilai sisa.
+- **Ubah Estimasi** di daftar aset: umur, nilai sisa, metode, tarif atau perkiraan pemakaian diubah mulai bulan pertama yang belum diposting,
+  selisihnya dibagi rata ke sisa umur; jadwal sebelum / sesudah tampil berdampingan, alasan wajib, tercatat di tab Riwayat.
+- **Akuntansi › Aset Tetap › Penyusutan**: satu dokumen per cabang per bulan dengan jurnal beban / akumulasi otomatis per kelompok. Bulan
+  yang terlewat (aset didaftarkan terlambat) disusulkan sekaligus, **Posting s/d bulan** membuat bulan-bulan yang tertinggal, batal hanya
+  dokumen bulan terakhir.
+- **Tutup Periode** memposting penyusutan yang belum diposting secara otomatis (sudah tampil di pratinjau laba rugi & jurnal penutup) dan
+  membatalkannya lagi bila periode dibuka kembali. Pemeriksaan baru: penyusutan bulan ini, pemakaian kosong, **aset tetap = buku besar**,
+  dan kelompok aset yang akunnya belum lengkap.
+- **Akuntansi › Aset Tetap › Pelepasan Aset**: aset dijual atau dihapus (rusak / hilang); harga perolehan & akumulasinya dikeluarkan, laba ke
+  Laba Penjualan Aset Tetap (4-2400) dan rugi ke Rugi Penjualan Aset Tetap (6-3000). Juga lewat tombol **Lepas** di daftar aset.
+- **Akuntansi › Aset Tetap › Kelompok Aset**: akun aset / akumulasi / beban dan metode & umur bawaan per kelompok. Perusahaan mendapat
+  kelompok bawaan sesuai jenis usahanya (peralatan dapur, mesin kopi, furnitur, komputer, kendaraan, armada, bangunan, renovasi, tanah, aset
+  tak berwujud).
+- **Menu Laporan › Laporan Aset Tetap**: Daftar Aset Tetap (rinci, per kelompok, per cabang, dibanding buku besar), Penyusutan (kolom per
+  bulan, per kelompok, per dokumen) dan Pelepasan Aset.
+
+### Perlu diperhatikan
+- Menu **Permintaan Masuk** memakai hak **Penjualan** (Lihat untuk daftar, Buat untuk Buat Faktur); tidak ada hak baru.
+- Jabatan yang boleh membuat Jurnal Umum otomatis mendapat hak Aset Tetap, Penyusutan & Pelepasan Aset; jabatan yang boleh melihat Neraca
+  mendapat laporan aset. Fitur bisa dimatikan di **Pengaturan Perusahaan › Fitur › Akuntansi**.
+- Template akun baru **1-3090 Akumulasi Amortisasi Aset Tak Berwujud**; perusahaan lama bisa mengimpornya lewat **Akun (COA) › Template…**.
+  Akun 4-2400 / 6-3000 dipakai sebagai akun sistem laba / rugi pelepasan aset (bila kodenya dipakai akun lain, petakan di Pengaturan ›
+  Akuntansi). Kelompok aset di perusahaan dengan bagan akun hasil migrasi bisa berakun kosong: isi dulu di Kelompok Aset.
+- Penyusutan yang selama ini dicatat lewat Jurnal Umum jangan diulang: daftarkan asetnya sebagai **Saldo awal** per tanggal terakhir
+  penyusutan manual itu.
+
 ## 1.0.33 (30 Oktober 2026)
 
 ### Baru
