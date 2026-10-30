@@ -2,6 +2,28 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.35 (31 Oktober 2026)
+
+### Baru
+- **Dasbor admin › Tim** (console): pengelola bisa memantau Tim perusahaan pelanggan mana pun dari browser, tanpa login ke perusahaan itu.
+  Isinya sama dengan **Beranda › Tim** di aplikasi: kartu User (siapa online / idle / sibuk, cabang yang sedang dibuka, menu terakhir, jam aktif
+  & idle hari ini, asal login), tab Perangkat (per user × perangkat per tanggal, idle menurut aktivitas aplikasi atau mouse & keyboard),
+  grafik waktu lajur cabang per aplikasi dengan latency, dan rentang waktu dari jam:menit sampai jam:menit. Jam menurut WIB; data terbaru
+  lewat tombol **Muat ulang**. **Perusahaan pelanggan** punya tautan **Lihat** ke Tim tiap perusahaan.
+- **Tampilan web baru** (dasbor admin, landing Pilar ERP, situs PT Pilar Sukses Sinergi, halaman unduh): gaya lebih modern dengan permukaan lega,
+  bayangan lembut, dan sudut membulat; **mode gelap otomatis** mengikuti pengaturan perangkat; gerak halus saat halaman dibuka dan saat digulir
+  (mati bila perangkat meminta gerak dikurangi). Dasbor admin: menu samping dan kartu angka berikon, foto inisial pengguna, dan kerangka abu-abu
+  saat halaman dimuat.
+
+### Perbaikan
+- **Beranda › Tim**: koneksi ke server yang putus saat Tim terbuka tidak lagi memunculkan pesan "Tidak bisa terhubung ke server"; data terakhir
+  tetap tampil. Tim (tab User dan Perangkat) tidak lagi memuat ulang sendiri tiap 30 detik: tekan **Muat Ulang** untuk data terbaru.
+
+### Perlu diperhatikan
+- Menu **Beranda › Tim** di aplikasi desktop tetap ada dan tetap bisa dipakai pelanggan.
+- Pengelola kini bisa melihat aktivitas dan IP karyawan pelanggan; sebutkan pemantauan ini di perjanjian layanan. User yang memilih
+  **Tidak tampak** tetap terlihat Offline di kartu Tim dasbor.
+
 ## 1.0.34 (30 Oktober 2026)
 
 ### Baru
