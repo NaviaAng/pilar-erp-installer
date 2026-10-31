@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.37 (31 Oktober 2026)
+
+### Baru
+- **Dasbor admin › Server**: keamanan VPS tanpa SSH. Melihat aturan firewall, IP yang diblokir fail2ban, pengaturan SSH, pembaruan keamanan
+  yang tertunda dan perlu-restart, port yang terbuka ke internet, pengguna sudo, dan status layanan.
+- **Dasbor admin › Server**: tambah / hapus aturan firewall (izinkan atau blokir, dari satu IP / jaringan / semua alamat, ke satu port / semua
+  port), blokir dan buka blokir IP di fail2ban, login password SSH hidup/mati, pasang pembaruan keamanan sekarang, restart caddy / postgresql /
+  pilar-erp / fail2ban. Setiap perubahan meminta password admin dan tercatat di riwayat (siapa, kapan, dari IP mana, hasilnya).
+- **Dasbor admin › Ringkasan**: peringatan baru untuk firewall mati, port terbuka yang tidak diharapkan, pembaruan keamanan menumpuk, server
+  perlu restart, layanan inti mati, dan login password SSH yang masih hidup.
+
+### Perlu diperhatikan
+- Perubahan firewall dan SSH dari dasbor berlaku sementara: tekan **Tetap pakai** dalam 60 detik, kalau tidak server mengembalikannya sendiri.
+  Port SSH/HTTP/HTTPS dan alamat IP pengelola tidak bisa ditutup dari dasbor.
+- Halaman Server baru bisa mengubah server setelah skrip server di VPS diperbarui; sebelum itu halamannya kosong.
+
 ## 1.0.36 (31 Oktober 2026)
 
 ### Baru
