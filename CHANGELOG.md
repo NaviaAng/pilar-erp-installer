@@ -2,6 +2,52 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.38 (31 Oktober 2026)
+
+### Baru
+- **Pembelian › Lainnya › Import dari**: faktur pembelian baru diisi dari **Pesanan Pembelian**, **Penjualan dari Grup**, atau **Faktur pembelian
+  lain** (salinan supplier, jenis PPN, potongan & baris faktur lama, untuk belanja rutin yang sama). Faktur belum tersimpan: periksa, ubah bila
+  perlu, lalu Simpan. Tombol **Import dari ▾** yang sama ada di form Pembelian baru.
+- Label menu Import dari menyebut jumlah yang menunggu, mis. **Penjualan dari Grup (2)**. Daftar Pembelian menampilkan bar info bila ada
+  penjualan perusahaan grup yang menunggu diterima, dengan tombol **Terima…**.
+- **Profil Saya › 2FA** (aplikasi) dan **Profil › 2FA** (dasbor admin): verifikasi dua langkah dengan aplikasi authenticator di HP (Google /
+  Microsoft Authenticator, Authy, 1Password). Nyalakan dengan memindai kode QR (atau mengetik kuncinya), lalu simpan 10 kode cadangan yang
+  hanya ditampilkan sekali. Bisa membuat kode cadangan baru dan mematikan 2FA (password + kode).
+- **Layar login** aplikasi dan dasbor: akun dengan 2FA aktif diminta **Kode 2FA** sesudah password (6 angka dari aplikasi, atau satu kode
+  cadangan). Kode salah dihitung pembatas login dan tercatat di Log Login ("Kode 2FA salah"); satu kode hanya bisa dipakai sekali.
+- **Master User › Reset 2FA** dan **Sistem › Admin Platform › Reset 2FA**: mematikan 2FA user yang kehilangan HP (tercatat di log aktivitas).
+  Kolom **2FA** di daftar user.
+- **Keamanan server**: layanan aplikasi dan web server kini berjalan terkurung. Bila suatu celah keamanan sampai dibobol, penyerang tetap
+  tidak bisa mengambil alih server, mengubah sistem, atau melihat program lain.
+- **Dasbor admin › Server › Layanan**: kolom **Sandbox** menampilkan seberapa terkurung tiap layanan (0 = terkunci rapat, 10 = bebas).
+- **Pembelian › Lainnya › Import dari › Teks (tempel)**: tempel daftar item dari WhatsApp / nota, mis. "Kopi 10 pcs x 1.500", "Gula 2 kg @15rb",
+  "Telur 3 kg = 75.000". Nomor urut, salam, total, PPN & ongkir dilewati. Teks **Salin untuk WhatsApp** dari Pesanan Pembelian juga terbaca.
+- **Import dari › File teks / CSV** dan **Excel**: file faktur / daftar harga supplier (.csv, .txt, .xlsx, .xls). Judul kolom dikenali sendiri
+  walau ada kop perusahaan di atasnya; file tanpa judul cukup diatur kolomnya sekali per supplier (**Kolom…**). File template **Import Data ›
+  Pembelian** berisi beberapa faktur: pilih satu, No Faktur-nya jadi No. Referensi.
+- Item dicocokkan otomatis lewat **peta item supplier**, barcode (juga barcode satuan dus), kode, lalu nama item. Hasilnya diperiksa dulu di
+  jendela pratinjau: baris yang belum cocok dipilih itemnya, baris lain boleh diabaikan, lalu **Isi faktur**.
+- Item yang dipilih sendiri diingat untuk supplier itu (**Ingat untuk supplier ini**, bawaan menyala), termasuk satuannya: faktur berikutnya dari
+  supplier yang sama langsung cocok. Peta dilihat, diubah & dihapus di **Master Supplier › Peta Item** (hak Ubah Supplier).
+
+### Perbaikan
+- **Server › batas permintaan**: lonjakan permintaan dari satu user atau satu IP kini tidak melebihi batas yang diatur (`RateLimit__*`).
+  Sebelumnya, setelah beberapa detik tidak dipakai, lonjakan berikutnya bisa lolos lebih banyak dari batas.
+
+### Perlu diperhatikan
+- Kotak **Terima dari grup** dan **Dari pesanan** di header form Pembelian dihapus; pilihannya pindah ke **Import dari**. Faktur yang sudah
+  tersimpan menulis sumbernya (pesanan / penjualan grup) di judul form.
+- **Lainnya ▾** di daftar Pembelian kini bisa dibuka tanpa memilih faktur; tanpa faktur terpilih isinya Import dari saja.
+- **Admin penyedia aplikasi (admin platform) wajib 2FA.** Sebelum 2FA aktif, dasbor admin hanya membuka Profil › 2FA dan menu Admin Platform
+  menampilkan petunjuk; setelah dinyalakan langsung terbuka tanpa masuk ulang. User lain tidak terpengaruh (2FA opsional).
+- **Dasbor › Server**: perubahan server kini dikonfirmasi dengan **kode 2FA**, bukan ketik ulang password. Satu kode untuk satu perubahan.
+- Server: jalankan ulang `setup.sh` setelah rilis ini supaya dasbor bisa membuka Profil › 2FA (jalur `/api/auth/2fa` di Caddy). Admin platform
+  yang kehilangan HP dan kode cadangan: `sudo bash reset-2fa.sh <KODE> <user>` di VPS (lihat `deploy/linux/README.md`).
+- Saat pengaturan server diperbarui, layanan aplikasi dimulai ulang bila perlu: PC kasir terputus sebentar (±5–30 detik) lalu tersambung
+  lagi.
+- Tanpa hak Lihat harga di Pembelian, harga di teks / file tidak dipakai: harga diisi otomatis seperti input biasa.
+- Baris tanpa harga di teks / file diisi harga beli otomatis seperti memilih item di form (harga beli terakhir / HPP).
+
 ## 1.0.37 (31 Oktober 2026)
 
 ### Baru
