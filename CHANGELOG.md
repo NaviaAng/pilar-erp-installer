@@ -2,6 +2,34 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.36 (31 Oktober 2026)
+
+### Baru
+- **Pembelian › Pesanan Pembelian** (PO) untuk semua supplier, menggantikan Permintaan Grup. Supplier umum: harga perkiraan & jenis PPN,
+  tanggal dibutuhkan, cetak (dengan / tanpa harga) dan **Salin untuk WhatsApp**. Supplier grup (GRP-…): pesanan langsung masuk ke perusahaan
+  penjual seperti Permintaan Grup sebelumnya.
+- **Pembelian › Baru › Dari pesanan**: faktur pembelian diisi dari sisa pesanan (supplier, jenis PPN, item, harga). Harga & qty boleh diubah,
+  item lain boleh ditambah; qty lebih dari sisa pesanan (mis. berat timbangan) disimpan setelah dikonfirmasi. Status pesanan (Terbuka / Sebagian /
+  Selesai) mengikuti fakturnya.
+- **Pengaturan Perusahaan › Pembelian › Pesanan Pembelian**: pilihan "faktur pembelian dari supplier umum wajib dari pesanan" dan "penjualan grup
+  ke perusahaan ini wajib dari pesanan". Bawaan keduanya mati: pesanan opsional, alur lama tetap jalan.
+- Master Supplier & Konsumen: kolom **Jenis** (Umum / Grup).
+- Pesanan Pembelian ikut **Riwayat**, **Data Terhapus** (Pulihkan), dan **Bersihkan Data** per jenis.
+- **Dasbor admin** (console) bertampilan baru bergaya dasbor modern: latar putih dan abu-abu muda, garis tipis, menu samping setinggi layar
+  dengan **Cari menu** (Enter membuka hasil pertama) dan nama pengguna serta tombol keluar di bawahnya, judul halaman di bilah atas, dan
+  kartu angka dengan ikon lingkaran berwarna. Mode gelap otomatis tetap ada. Situs lain tidak berubah.
+
+### Perbaikan
+- Faktur pembelian biasa ke supplier grup (GRP-…) kini ditolak: pembelian dari perusahaan grup dicatat lewat **Terima dari grup**, supaya stok
+  & hutang tidak tercatat dua kali. Faktur lama tetap bisa diubah.
+
+### Perlu diperhatikan
+- Menu **Pembelian › Permintaan Grup** kini bernama **Pesanan Pembelian**, **Penjualan › Permintaan Masuk** menjadi **Pesanan Masuk**, dan
+  **Dari permintaan** di Faktur Penjualan menjadi **Dari pesanan**. Permintaan lama ikut pindah (nomornya tetap), begitu juga hak jabatan dan
+  format nomornya (dokumen baru bernomor PO).
+- Pengaturan "penjualan grup wajib dari permintaan" pindah dari tab Perusahaan ke tab Pembelian.
+- Aplikasi desktop versi lama tidak bisa membuka menu pesanan: perbarui aplikasi bersamaan dengan server.
+
 ## 1.0.35 (31 Oktober 2026)
 
 ### Baru
