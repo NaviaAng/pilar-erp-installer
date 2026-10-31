@@ -2,6 +2,52 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.39 (31 Oktober 2026)
+
+### Baru
+- **Akuntansi › Buku Besar**: hasil dibagi per halaman seperti daftar transaksi (pilihan **Per halaman** 10 / 25 / 50 / 100 di bawah tabel,
+  sama dengan menu lain), jadi buku besar semua akun untuk periode panjang tampil cepat. Saldo berjalan tetap dihitung dari seluruh periode.
+  **Ctrl+F** mencari no. jurnal, no. dokumen, jenis, keterangan, cabang atau akun di semua halaman. Jumlah debit / kredit di kaki tabel =
+  halaman yang tampil; **Export Excel** dan **Cetak / Preview** tetap berisi semua baris.
+- **Persediaan › Stok Opname**: kolom **Harga Jual** (harga jual / pricelist di Master Item, per satuan baris) dan **Nilai Jual** (selisih ×
+  harga jual), plus **Selisih harga jual** di ringkasan kanan. Harga jual dicatat saat baris dibuat atau item / satuannya diganti, jadi opname
+  lama tidak berubah walau harga master naik. Item berharga bebas (harga jual 0) kolomnya kosong.
+- **Cetak ▾** di Stok Opname: template baru **Selisih Opname Harga Jual** (A4, setengah A4, thermal 80 / 58 mm, dot matrix) untuk membebankan
+  selisih stok ke karyawan dengan harga jual: kolom harga jual & nilai jual, ringkasan selisih lebih / kurang / bersih menurut harga jual,
+  tanda tangan Dihitung oleh · Karyawan · Disetujui. Tanpa harga pokok, jadi bisa dicetak jabatan yang hanya boleh cetak tanpa harga.
+- **Persediaan › Permintaan Transfer**: cabang meminta item & qty ke cabang lain (mis. outlet ke dapur pusat / gudang), dengan tanggal dibutuhkan
+  dan catatan. Nomor **PTR**. Status Terbuka / Sebagian / Selesai mengikuti pengirimannya; sisa yang tidak perlu dikirim bisa **Tutup permintaan**.
+- **Persediaan › Permintaan Transfer Masuk**: cabang asal melihat permintaan ke cabangnya beserta item, terkirim & sisa, lalu **Buat Transfer
+  Keluar**: cabang tujuan & sisa item terisi otomatis, qty boleh dikurangi (kirim sebagian). Barangnya diterima seperti biasa di **Transfer Masuk**.
+- **Transfer Keluar › Dari permintaan**: permintaan juga bisa dipilih langsung di form Transfer Keluar baru. Qty tidak boleh melebihi sisa
+  permintaan; item lain boleh ditambah sebagai baris di luar permintaan.
+- **Dasbor admin › Kesehatan server › Kerentanan (.NET)**: API memantau celah keamanan pada runtime .NET yang ikut di paketnya (seperti
+  Node2Shell, CVE-2026-111497) dengan membaca daftar rilis keamanan Microsoft sekali sehari. Runtime API atau desktop yang tertinggal dari
+  rilis keamanan terbaru memunculkan peringatan merah di Kesehatan server dan Ringkasan, lengkap dengan versi dan nomor CVE-nya. Tombol
+  **Cek sekarang** mengecek ulang saat itu juga.
+- **Rilis**: `release.ps1` menolak rilis bila ada paket NuGet yang rentan atau runtime .NET hasil publish lebih tua dari rilis keamanan
+  terbaru (dicek sebelum apa pun dikirim ke server). Tanpa internet hanya memberi peringatan; `-AbaikanCve` untuk keadaan darurat.
+- **Dasbor admin › Server › Ubuntu Pro**: status Ubuntu Pro (terpasang, esm-apps, Livepatch) dan paket yang tambalan keamanannya tertahan
+  karena Pro belum terpasang (caddy, rclone). `setup.sh` bisa memasangnya dengan `PRO_TOKEN`; token tidak disimpan di mana pun.
+
+### Perbaikan
+- **Stok Opname**: opname yang selisih lebih dan kurangnya sama besar di akun persediaan yang sama (mis. item A +2, item B −2 dengan harga
+  pokok sama) tidak bisa disimpan / diubah ("Jurnal tidak punya baris"). Kini tersimpan tanpa jurnal, seperti rakitan dan pecah stok.
+
+### Perlu diperhatikan
+- Baris opname yang sudah ada diisi harga jual master saat pembaruan dipasang (harga master hari itu).
+- Menu **Cetak ▾** dokumen persediaan kini berjudul **Dengan harga pokok** / **Tanpa harga pokok**; template Selisih Opname Harga Jual ada di
+  kelompok sendiri **Harga jual (tanpa harga pokok)**. Template utama opname tidak berubah.
+- **Buku Besar**: pratinjau cetak kini jendela modal (tutup pratinjau dulu sebelum kembali ke Buku Besar).
+- Hak baru **Permintaan Transfer** (kelompok Persediaan). Jabatan yang sudah boleh membuat Transfer Keluar / Masuk otomatis mendapatkannya.
+  Permintaan Transfer Masuk & Transfer Keluar dari permintaan memakai hak **Transfer Keluar**.
+- Permintaan yang sudah dikirim tidak bisa diubah, dibatalkan atau dihapus lagi, hanya ditutup.
+- **Bersihkan Data** punya jenis baru **Permintaan transfer**; transfer keluar yang dibuat dari permintaan yang dihapus tetap ada, tanpa rujukan
+  permintaan.
+- Runtime .NET baru sampai ke pengguna lewat **rilis Pilar ERP baru** (API di server dan pembaruan otomatis desktop). Dasbor hanya memberi
+  tahu; pembaruan Ubuntu tidak menambal runtime ini.
+- Ubuntu Pro belum terpasang di server sebelum pemilik menjalankan `setup.sh` dengan `PRO_TOKEN` (langkah di `deploy/linux/README.md`).
+
 ## 1.0.38 (31 Oktober 2026)
 
 ### Baru
