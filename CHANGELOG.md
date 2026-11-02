@@ -2,6 +2,20 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.41 (2 November 2026)
+
+### Baru
+- **Tampilan › Switch UI**: menu utama bisa diganti antara **Ribbon Menu** (bawaan) dan **Menu Classic**, yaitu menu turun
+  Beranda · Penjualan · Pembelian · … di bawah bar judul seperti aplikasi desktop biasa. Isi menunya sama: hak akses, fitur perusahaan,
+  dan kotak **Cari menu** berlaku di keduanya. Beralih tidak menutup tab yang sedang terbuka, dan pilihannya diingat di PC ini
+  (sampai kembali dipilih lagi); pilihan juga bisa dicari lewat **Cari menu** ("Switch UI").
+- **Sistem › Jabatan & Hak Akses**: hak baru **Switch UI (Ribbon Menu / Menu Classic)** di kelompok Sistem. Jabatan tanpa hak ini tidak melihat
+  pilihan Switch UI dan menu utamanya tetap Ribbon Menu (pilihan yang sudah tersimpan di PC itu tidak terhapus, berlaku lagi bila haknya diberikan).
+
+### Perlu diperhatikan
+- Hak **Switch UI** otomatis diberikan ke semua jabatan yang sudah ada (selain Admin, yang selalu boleh) dan ke jabatan bawaan Kasir, Gudang,
+  dan Akunting di perusahaan baru, jadi tidak ada yang kehilangan pilihannya. Untuk membatasinya, hapus centang **Switch UI** di jabatan terkait.
+
 ## 1.0.40 (2 November 2026)
 
 ### Baru
