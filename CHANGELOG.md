@@ -2,6 +2,78 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.40 (2 November 2026)
+
+### Baru
+- **Satu faktur dari beberapa pesanan**: **Pembelian › Import dari › Pesanan Pembelian** kini memakai kotak centang, jadi beberapa pesanan supplier yang
+  sama (dengan jenis PPN yang sama) bisa dijadikan satu faktur pembelian: satu baris per baris pesanan, diskon pesanan yang belum pernah difakturkan ikut.
+  Di **Faktur Penjualan** ke perusahaan grup, kotak **Dari pesanan** kini tombol **Pilih…** untuk beberapa pesanan dari perusahaan dan cabang pemesan yang
+  sama (✕ melepas pesanan). Kolom **Pesanan** di daftar Pembelian / Penjualan memuat semua nomor pesanan. Tiap pesanan menghitung statusnya sendiri
+  (Terbuka / Sebagian / Selesai) dan menyebut faktur itu.
+- **Penjualan › Closing Harian** (desktop): **Rekap Closing** semua outlet × tanggal (hari yang belum di-closing merah), **Buka Closing** untuk satu hari (kolom
+  **Fisik** bisa diisi langsung, stok sistem, mutasi sesudah hitung, selisih & nilainya; ringkasan Penjualan, Kas & Stok di kanan; **Import Penjualan**, **Simpan (F9)**,
+  **Tutup Hari**, **Buka Kembali**, **Salin WhatsApp**) dan **Atur…** untuk Daftar Hitung Harian, akun kas outlet, batas selisih kas dan jam ganti hari.
+- **Closing Harian outlet** (halaman web untuk HP di `/outlet/`, login dengan akun Pilar ERP): staf outlet menghitung stok dari HP, atasan mengimpor
+  penjualan Quinos hari itu, menghitung kas & setoran, lalu **Tutup Hari**.
+  - **Hitung stok**: item **Daftar Hitung Harian** per outlet (diatur atasan di tab **Atur**: item & lokasi seperti Chiller / Gudang). Hitung buta: staf
+    tidak melihat stok sistem, boleh beberapa orang sekaligus, satu item boleh dihitung di beberapa lokasi (dijumlah). Hitungan tersimpan di HP bila
+    sinyal hilang dan terkirim saat tersambung lagi.
+  - **Penjualan & kas**: tombol **Import penjualan** menjalankan import Quinos hari itu; kas fisik dihitung per pecahan atau total, selisih terhadap
+    saldo buku akun kas outlet, lalu setoran ke bank / kas pusat.
+  - **Tutup Hari** membuat **Stok Opname** per akhir hari, **Kas Masuk / Keluar** selisih kas (akun baru **Selisih Kas**) dan **Transfer Kas**
+    setoran dalam satu langkah, lalu **mengunci tanggal itu untuk outlet itu**: penjualan, pembelian, persediaan, kas & bank, dan pelunasan outlet
+    itu bertanggal itu tidak bisa dibuat / diubah / dibatalkan (Jurnal Umum tetap bisa). Import Quinos melewati hari yang sudah di-closing.
+  - **Penjualan & mutasi selama menghitung** tidak terbaca sebagai selisih: stok sistem dihitung pada **jam hitung** item (penjualan Quinos *Per struk*
+    menurut jam struk; dokumen lain menurut jam input). Penjualan tanpa jam (import *Harian*) tidak bisa dikoreksi dan diberi peringatan.
+  - **Buka kembali** (atasan, alasan wajib) membatalkan Stok Opname & kas buatan closing dan melepas kunci; hitungan tetap ada. **Rekap** semua outlet 7
+    hari terakhir dan **Salin untuk WhatsApp** untuk ringkasan closing.
+- **Sistem › Penomoran Dokumen**: jenis baru **Closing Harian** (CLS). **Sistem › Bersihkan Data**: jenis baru **Closing harian**.
+- **Penjualan › Import dari ▾**: tombol baru di samping **Baru** di daftar Faktur Penjualan, dan di form Faktur Penjualan baru. Faktur baru diisi dari:
+  - **Pesanan Masuk…** (jumlah yang menunggu tertulis di menu): satu atau beberapa Pesanan Pembelian perusahaan grup dari perusahaan dan cabang pemesan
+    yang sama (dulu kotak **Dari pesanan**).
+  - **Faktur penjualan lain**: salinan konsumen, jenis PPN, potongan, dan baris faktur lama untuk pesanan rutin yang sama. Promo yang berlaku hari ini
+    diterapkan lagi, potongan yang diketik ikut. Faktur dari pesanan grup tidak bisa disalin.
+  - **Teks (tempel)…**, **File teks / CSV…**, **Excel…**: pesanan konsumen dari WhatsApp, nota, atau file. Item dicocokkan lewat barcode, kode, lalu nama dan
+    diperiksa dulu di pratinjau; tanpa harga = harga jual item. Konsumen boleh dipilih di pratinjau.
+  Faktur belum tersimpan: periksa, ubah bila perlu, lalu Simpan. Sumbernya tampil di judul form ("Dari pesanan …", "Salinan PJ/…", "Dari teks (12 baris)").
+- **Penjualan › Pesanan Penjualan (SO)**: pesanan konsumen biasa (pre-order, katering, parsel, pesanan rutin kantor) dengan qty, harga, potongan, jenis PPN, dan
+  tanggal kirim yang disepakati. Tidak mengubah stok, jurnal, atau piutang. Nomor **SO**, hak akses **Pesanan Penjualan** per jabatan.
+  - Daftar: **Baru**, **Import dari ▾**, **Lihat**, **Ubah**, **Salin untuk WhatsApp** (teks konfirmasi ke konsumen), **Lainnya ▾** (Riwayat, Tutup, Batalkan,
+    Pulihkan, Hapus). Bawaan menampilkan pesanan yang belum selesai.
+  - **Import dari ▾** di pesanan baru: **Pesanan penjualan lain** (pesanan rutin), **Faktur penjualan lain**, **Teks**, **File teks / CSV**, **Excel**.
+  - Status **Terbuka / Sebagian / Selesai / Ditutup / Batal** dihitung dari faktur yang memakainya. Pesanan yang sudah difakturkan tidak bisa diubah atau
+    dihapus, hanya ditutup (sisa tidak dipenuhi lagi).
+  - Total pesanan memuat PPN saja; PB1 dan biaya layanan dihitung saat faktur dibuat.
+- **Faktur Penjualan › Import dari ▾ › Pesanan Penjualan…**: faktur baru berisi sisa satu atau beberapa pesanan dari konsumen dan jenis PPN yang sama (jumlah
+  pesanan yang menunggu tertulis di menu). Konsumen, jenis PPN, harga, dan potongan pesanan terisi; harga boleh diubah, qty melebihi sisa ditanyakan saat
+  simpan, baris di luar pesanan boleh ditambah. Promo tidak menimpa harga pesanan. Kolom **Pesanan** di daftar Faktur Penjualan menampilkan nomor SO-nya.
+
+### Perbaikan
+- **Pembelian › Import dari ▾** kini tombol sendiri di samping **Baru**, tidak lagi tersembunyi di dalam **Lainnya ▾**. Isinya sama (Pesanan
+  Pembelian, faktur perusahaan grup, Faktur pembelian lain, Teks, File teks / CSV, Excel). **Lainnya ▾** kini hanya untuk pembelian terpilih
+  (Riwayat, Buat retur, Batalkan, Hapus).
+- **Bersihkan Data › Pesanan pembelian**: bila satu faktur berasal dari beberapa pesanan dan hanya sebagian yang dibersihkan, faktur tetap ada dan tetap
+  terhubung ke pesanan yang tersisa (dulu semua rujukan pesanan faktur itu dilepas).
+
+### Perlu diperhatikan
+- Sumber **Penjualan dari Grup (pengguna Pilar ERP)** di Import dari kini bernama **Faktur dari perusahaan grup**. Cara kerjanya tidak berubah.
+- Pesanan asal sebuah faktur ditentukan saat faktur dibuat: pesanan lain tidak bisa ditambahkan ke faktur yang sudah tersimpan. Pemesan hanya bisa
+  menerima satu faktur di satu cabang, jadi pesanan dari cabang pemesan yang berbeda tidak digabung dalam satu faktur penjualan grup.
+- Hak baru **Closing Harian** (Penjualan; Lihat = ringkasan, stok sistem & selisih, Buat = import / kas / Tutup Hari, Ubah = pengaturan, Batal = Buka kembali)
+  dan **Hitung Stok Harian** (Persediaan; khusus staf yang hanya menghitung, tanpa stok sistem). Hak diberikan admin per jabatan; jabatan Kasir bawaan
+  perusahaan baru mendapat Hitung Stok Harian. Import penjualan dari closing juga butuh hak Penjualan & Penerimaan Piutang (Buat).
+- Staf tetap menghitung dari HP (halaman web); atasan memakai aplikasi desktop atau halaman web, keduanya ke data yang sama. Item yang dihitung di lebih dari
+  satu lokasi hanya bisa dilihat (tidak diubah) di desktop.
+- Kotak **Dari pesanan** di form Faktur Penjualan sudah tidak ada: pilih lewat **Import dari ▾ › Pesanan Masuk…**. **Penjualan › Pesanan Masuk › Buat Faktur**
+  tetap membuka faktur berisi pesanan itu.
+- Import teks / file untuk Penjualan tidak mengingat pilihan item dan pemetaan kolom (tidak ada peta item konsumen); kolom file yang judulnya tidak dikenali
+  diatur lewat **Kolom…** setiap kali.
+- Hak **Pesanan Penjualan** (Lihat / Buat / Ubah / Hapus / Batal) dibagikan sekali ke jabatan yang boleh membuat **dan** menghapus Faktur Penjualan; jabatan lain
+  (termasuk Kasir) tidak mendapatkannya sampai diatur di Jabatan & Hak Akses. Admin selalu boleh.
+- Cetak template Pesanan Penjualan (A4 / thermal / dot-matrix) belum ada; untuk saat ini kirim konfirmasi lewat **Salin untuk WhatsApp**.
+- Faktur yang dibuat dari Pesanan Penjualan tidak bisa disalin lewat **Faktur penjualan lain**; pakai Import dari › Pesanan Penjualan.
+- **Bersihkan Data** punya jenis **Pesanan penjualan**: faktur yang berasal dari pesanan yang dibersihkan tetap ada, tanpa rujukan pesanan.
+
 ## 1.0.39 (31 Oktober 2026)
 
 ### Baru
