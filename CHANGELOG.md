@@ -2,6 +2,13 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.43 (2 November 2026)
+
+### Baru
+- **Persediaan › Kartu Stok**: kolom baru **Nilai Saldo** (nilai stok setelah tiap mutasi, dihitung dari nilai saldo awal ditambah kolom Nilai), dan **total Nilai** di baris Total
+  (sama dengan nilai stok akhir). Nilai stok akhir juga tampil di ringkasan di atas tabel. Kolom ini ikut ke ekspor Excel dan cetak.
+  Seperti Harga Pokok dan Nilai, kolom ini hanya tampil bagi yang punya hak **Harga Pokok**; tanpa hak itu kolomnya tidak tampil dan angkanya tidak dikirim ke aplikasi.
+
 ## 1.0.42 (2 November 2026)
 
 ### Baru
