@@ -2,6 +2,45 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.42 (2 November 2026)
+
+### Baru
+- **Kendaraan › Kendaraan**: daftar kendaraan per cabang. Isinya no. polisi (dirapikan otomatis, mis. B1234XYZ menjadi B 1234 XYZ, dan tidak boleh kembar),
+  jenis, merek / model, tahun, warna, no. rangka & mesin, kepemilikan (Milik, Leasing, Sewa, Pinjam), pemegang, meter awal, dan status (Siap, Rusak,
+  Dikembalikan). Kendaraan Milik / Leasing bisa ditautkan ke satu **Aset Tetap** (nilai buku dan penyusutan tetap di Akuntansi › Aset Tetap).
+- **Kendaraan › Pengemudi**: daftar pengemudi cabang dengan telepon, NIK, golongan, nomor, dan masa berlaku SIM. Pengemudi dipilih sebagai pemegang kendaraan.
+- **Kendaraan › Merek & Model**: daftar merek, model, dan varian yang dipilih di form Kendaraan.
+- **Pengaturan Perusahaan › Fitur › Kendaraan**: menyalakan menu Kendaraan.
+- Kendaraan, pengemudi, dan merek / model tercatat di log aktivitas dan bisa dipulihkan lewat **Sistem › Data Terhapus**.
+- **Kendaraan › Dokumen Kendaraan**: STNK, pajak tahunan, KIR, asuransi, dan BPKB per kendaraan, dengan no. dokumen, tanggal terbit, berlaku s/d, penerbit,
+  lokasi fisik dokumen (mis. BPKB ditahan leasing), dan biaya (catatan). Sisa hari berwarna: merah = lewat atau ≤ 7 hari, kuning = ≤ 30 hari. **Perpanjang**
+  membuat dokumen baru dan menjadikan yang lama *Diganti* (riwayatnya tetap tersimpan). Satu dokumen aktif per jenis per kendaraan.
+- **Kendaraan › Kendaraan**: kolom **Dokumen Terdekat** (mis. "STNK · 45 hari lagi") yang berwarna, dan tombol **Dokumen Baru**.
+- **Kendaraan › Pengemudi**: tanggal SIM yang hampir kedaluwarsa diberi warna.
+- **Beranda**: kartu **Dokumen kendaraan perlu perhatian** (lewat, ≤ 7 hari, ≤ 30 hari, ≤ 60 hari, termasuk SIM pengemudi) bagi perusahaan yang memakai fitur Kendaraan.
+- Dokumen kendaraan tercatat di log aktivitas dan bisa dipulihkan lewat **Sistem › Data Terhapus**.
+
+### Perbaikan
+- **Persediaan › Transfer Antar Cabang**: menu dipisah menurut arah barang dan namanya dibuat jelas. Kelompok **Masuk dari Cabang Lain** berisi
+  **Permintaan Transfer** (cabang peminta membuat permintaan) lalu **Transfer Masuk** (cabang peminta menerima barang). Kelompok **Keluar ke Cabang
+  Lain** berisi **Pesanan Transfer** (cabang asal melihat permintaan yang masuk sebagai pesanan) lalu **Transfer Keluar** (cabang asal mengirim barang).
+  Di menu klasik kedua kelompok dipisah garis dan judul. Sebelumnya menu kedua bernama Permintaan Transfer Masuk, dan Transfer Masuk berada sebelum
+  Transfer Keluar.
+- **Persediaan › Rekalkulasi HPP**: pembelian (dan dokumen stok lain) yang pernah diubah dengan **menghapus satu baris** atau **mengubah sebagian barisnya** tidak lagi
+  dianggap batal atau terlewat. Sebelumnya seluruh isi dokumen itu hilang dari hitungan: HPP rata-rata semua item di dalamnya menjadi 0, HPP penjualan atas item itu
+  ikut ditulis ulang menjadi 0 (di Kartu Stok kolom Harga Pokok kosong saat terjual), dan jurnal HPP-nya ikut berubah. Kini setiap item dihitung dari mutasinya sendiri.
+  Item yang HPP-nya sudah terlanjur 0 karena kejadian ini pulih dengan menjalankan **Rekalkulasi HPP** satu kali sejak tanggal dokumen paling awal yang pernah diubah.
+
+### Perlu diperhatikan
+- Fitur **Kendaraan** mati untuk perusahaan yang sudah ada; nyalakan di Pengaturan Perusahaan › Fitur. Perusahaan Pengangkutan baru langsung menyala.
+  Jabatan Akunting otomatis mendapat hak Kendaraan; jabatan lain diatur di Jabatan & Hak Akses (grup Kendaraan).
+- **Akuntansi › Aset Tetap**: aset yang tertaut ke kendaraan tidak bisa dihapus. **Bersihkan Data** jenis Aset tetap hanya melepas tautannya; kendaraan tidak ikut dihapus.
+- Hak **Kendaraan** yang sudah ada otomatis berlaku untuk Dokumen Kendaraan. Biaya di dokumen hanya catatan: pengeluarannya tetap dicatat lewat Kas Keluar / Tagihan Biaya.
+- Pengingat lewat email belum ada (menyusul); ambang pengingat tetap 7 / 30 / 60 hari.
+- Hak akses tidak berubah: **Pesanan Transfer** tetap memakai hak **Transfer Keluar**, **Permintaan Transfer** memakai hak Permintaan Transfer.
+- Bila Kartu Stok sebuah item menunjukkan penjualan tanpa HPP padahal pembeliannya ada, dan dokumen pembeliannya pernah diubah (baris dihapus atau sebagian baris
+  diubah), jalankan **Rekalkulasi HPP** (Cek dulu) sejak tanggal pembelian itu setelah versi ini terpasang.
+
 ## 1.0.41 (2 November 2026)
 
 ### Baru
