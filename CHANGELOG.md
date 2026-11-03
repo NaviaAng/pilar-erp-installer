@@ -2,6 +2,52 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.46 (4 November 2026)
+
+### Baru
+- **Bantuan › Tutorial**: diagram alur dan urutan kini bisa **diperbesar, diperkecil, dan digeser**. **Ctrl + roda mouse** atau tombol **− / +** di atas diagram memberi zoom
+  (20%–400%) di sekitar penunjuk; **seret** atau **Shift + roda mouse** menggeser; **klik dua kali** atau tombol **Pas** menampilkan seluruh diagram; tombol **100%**
+  kembali ke ukuran asli. Tombol **Layar besar** membuka diagram di jendela sendiri (roda mouse langsung zoom, **+ −** zoom lewat keyboard, **0** memuat seluruh diagram,
+  tombol panah menggeser, **Esc** menutup). Roda mouse tanpa Ctrl tetap menggulir halaman. Pintasannya tercatat di **Bantuan › Shortcut**.
+- **Bantuan › Panduan › Tutorial**: topik baru untuk menu Sistem yang belum punya panduan: **Import Data**, **Integrasi Quinos**, **Daftar Pemetaan**,
+  **Data Terhapus**, **Bersihkan Data**, dan **Admin Platform**, masing-masing berisi fungsi, langkah, alur, contoh kasus, aturan, dan hak akses.
+- **Bantuan › Panduan › Tutorial**: 13 topik baru untuk menu Beranda (Dashboard, Tim, Ucapan & Berita), Tampilan (Mode Tab / Jendela,
+  Susun Jendela, Ukuran Font, Warna Aplikasi, Switch UI), dan Bantuan (Tutorial, Shortcut, Periksa Pembaruan, Informasi Sistem, Riwayat Versi),
+  masing-masing berisi fungsi, cara, alur, dan contoh kasus. Tombol **?** dan F1 di menu-menu itu membuka topiknya.
+- **Bantuan › Tutorial**: sembilan topik baru untuk menu **Persediaan**: Kartu Stok, Item Masuk dan Item Keluar, Stok Opname, Permintaan Transfer, Pesanan Transfer,
+  Transfer Keluar dan Transfer Masuk, Rakitan / Produksi (termasuk bongkar), Pecah Stok, dan Rekalkulasi Stok & HPP. Tiap topik berisi fungsi, langkah, diagram alur,
+  contoh kasus dengan angka, aturan, dan hak akses. Dibuka dengan tombol **?** / **F1** di menu itu.
+- **Bantuan › Panduan › Tutorial**: topik baru untuk **Kas Masuk**, **Kas Keluar**, **Transfer Kas**, **Jurnal Umum**, **Buku Besar**, **Saldo Awal Akun**,
+  **Saldo Awal Stok**, dan **Kunci & Tutup Buku**. Tiap topik berisi fungsi, langkah, diagram alur, contoh kasus berangka dengan jurnalnya, aturan, dan hak akses.
+  Tombol **?** atau F1 di menu itu membuka topiknya.
+- **Bantuan › Panduan › Tutorial**: topik untuk menu Pembelian (**Pesanan Pembelian**, **Pembelian**, **Retur Pembelian**, **Saldo Awal Utang**) dan seluruh
+  menu **Titipan** (**Titip Masuk**, **Retur ke Penitip**, **Setoran ke Penitip**, **Titip Keluar**, **Kembali dari Toko**, **Laku Titipan**, ditambah
+  **Alur Titipan**). Tiap topik berisi fungsi, langkah, diagram alur, contoh kasus dengan angka, aturan, dan hak akses; buka dengan tombol ? atau F1.
+- **Bantuan › Panduan › Tutorial**: topik untuk seluruh menu **Laporan** dan **Analisa**. Menu Laporan (cara membuka laporan, filter accordion, ekspor / cetak, hak akses dan hak lihat harga pokok),
+  satu topik per grup laporan (Master, Pembelian, Penjualan, Utang, Piutang, Persediaan, Laba Jual, Kas & Bank, Buku Besar, Keuangan, Rekonsiliasi, Aset Tetap, Kendaraan, Sistem)
+  dengan alur memilih laporan dan contoh kasus berangka, termasuk cara membaca dan menelusuri selisih di Laporan Rekonsiliasi. Analisa: topik pengantar dan satu topik per bagian
+  (Ringkasan & Cabang, Penjualan, Laba & Harga, Persediaan, Pembelian, Keuangan, Operasional & Kontrol).
+
+### Perbaikan
+- **Bantuan › Tutorial**: diagram yang lebar tidak lagi dikecilkan mengikuti lebar jendela sampai teksnya tak terbaca. Di halaman, diagram tidak lebih kecil dari 80%; bagian yang
+  melewati bingkai digeser, atau lihat utuh dengan **Pas**. Bingkai ikut meninggi saat diagram diperbesar.
+- **Bantuan › Tutorial**: semua topik kini memakai susunan yang sama: **Fungsi** (menu ini untuk apa dan kapan dipakai), **Alur** (diagram gambaran
+  besar), **Cara pakai** (langkah per tugas), dan **Contoh kasus**, lalu bagian rujukan seperti Isian, Aturan, dan Hak akses. Topik Tagihan Biaya,
+  Pembayaran Utang, dan Biaya Rutin mendapat diagram alur dan contoh kasus; Jabatan & Hak Akses serta topik gambaran besar (Alur Penjualan, Alur
+  Titipan, Alur Biaya Bulanan) mendapat langkah pemakaian.
+- **HPP rata-rata** selalu dihitung 4 desimal. Dulu, bila desimal harga pokok diatur 0, sisa pembulatan ke rupiah utuh langsung dijurnal ke HPP
+  (Penyesuaian nilai persediaan) saat pembelian, misalnya Beras 60.000 g @ 15,3667 tersimpan 15 dan 22.002 masuk HPP sebelum ada yang terjual.
+- **Persediaan › Rekalkulasi Stok & HPP** tidak lagi membuat penyesuaian nilai persediaan karena HPP dibulatkan ke rupiah utuh: yang lama dibatalkan
+  tanpa pengganti. Yang dibuat ulang hanya selisih nilai sungguhan (stok minus, retur/batal berharga tetap saat stok habis) dan sisa pembulatan 4 desimal
+  bila mencapai Rp 1 per dokumen.
+- **Laporan › Persediaan vs Neraca › Selisih per Dokumen**: selisih di bawah Rp 5 diberi keterangan "Pembulatan harga pokok", ditaruh paling bawah, dan
+  tidak dihitung sebagai dokumen berselisih.
+
+### Perlu diperhatikan
+- **Pengaturan › Persediaan**: isian *Desimal harga pokok* dihapus.
+- Perusahaan yang dulu memakai desimal harga pokok kurang dari 4 sebaiknya menjalankan **Rekalkulasi Stok & HPP** dari tanggal dokumen paling awal supaya
+  penyesuaian nilai karena pembulatan hilang dan nilai persediaan kembali sesuai harga beli.
+
 ## 1.0.45 (3 November 2026)
 
 ### Baru
