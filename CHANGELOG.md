@@ -2,6 +2,74 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.44 (3 November 2026)
+
+### Baru
+- **Kendaraan › biaya per kendaraan**: kolom **Kendaraan** (pilih no. polisi) di baris **Kas Keluar / Kas Masuk**, **Tagihan Biaya**, **Jurnal Umum**, dan **Pembelian**
+  (hanya baris item Non-stok, mis. oli, ban, tol, parkir). Jurnalnya mencatat kendaraan di baris biayanya, jadi biaya tiap kendaraan bisa dipisahkan di buku besar.
+  Kolom ini hanya tampil bila fitur Kendaraan dipakai dan jabatan Anda punya hak Kendaraan.
+- **Persediaan › Item Keluar**: pilihan **Kendaraan** di kepala dokumen. Nilai barang yang keluar (mis. suku cadang) menjadi biaya kendaraan itu di **Akun lawan**
+  (akun lawan wajib dipilih bila kendaraan diisi).
+- **Aset Tetap › Penyusutan**: aset yang sudah ditautkan ke kendaraan dijurnal terpisah per kendaraan (total beban dan akumulasi penyusutan tetap sama).
+- **Retur Pembelian** atas faktur yang berkendaraan mengkredit biaya ke kendaraan yang sama.
+- Mengubah **hanya** kendaraan di baris dokumen memposting ulang jurnalnya, dan tercatat di Riwayat dengan no. polisinya.
+- **Rekalkulasi HPP** mempertahankan kendaraan di jurnal Item Keluar.
+- **Tombol Cetak ▾ di dalam dokumen**: menu yang punya tombol **Cetak** di daftarnya (Penjualan, Pembelian, Pesanan Pembelian, Retur, Kas, Stok Opname, Rakitan, Pecah Stok,
+  Item Masuk / Keluar, Transfer, Titipan) kini punya tombol **Cetak ▾** juga di baris judul dokumen yang dibuka dengan **Lihat** (atau Ubah), di samping Ubah / Simpan / Tutup.
+  Pilihan template dan hak cetaknya sama dengan di daftar. Dokumen yang isiannya belum disimpan diminta disimpan dulu. Tombol ini tidak ada di dokumen baru.
+- **Penjualan › Kasir › Daftar › Detail**: jendela Detail (header dan baris) kini punya tombol **Cetak ▾** untuk mencetak dokumen yang sedang dilihat.
+- **Kendaraan › Kartu Kendaraan** (tombol **Kartu** atau klik dua kali kendaraan di daftar): biaya kendaraan per kategori (bulan ini, 12 bulan, sejak awal), nilai buku bila tertaut Aset Tetap,
+  dokumennya, dan baris biayanya. Klik dua kali baris biaya membuka dokumen asalnya (Kas Keluar, Tagihan Biaya, Jurnal, …). Angkanya sama dengan Buku Besar.
+- **Kendaraan › Catat Biaya** (dari Kartu atau daftar kendaraan): pintasan mencatat BBM, servis, tol, pajak, dan sejenisnya untuk satu kendaraan. Dibayar sekarang membuat **Kas Keluar**,
+  utang ke supplier membuat **Tagihan Biaya**, keduanya dengan kolom Kendaraan terisi.
+- **Kendaraan › Kategori Biaya**: akun beban mana yang dihitung sebagai biaya kendaraan dan masuk kategori apa (BBM & pelumas, servis & perawatan, suku cadang & ban, tol & parkir, pajak & STNK,
+  asuransi, sewa & bunga leasing, denda & tilang, penyusutan). Pemetaan awal terisi dari akun template.
+- **Laporan › Laporan Kendaraan**: **Biaya per Kendaraan** (rekap per kendaraan, per kategori, rinci per jurnal) dan **Biaya Kendaraan Tanpa Kendaraan** (biaya di akun kendaraan yang kolom
+  Kendaraannya masih kosong, supaya bisa dilengkapi di dokumen asalnya).
+- **Akun (COA)**: akun template baru untuk perusahaan baru: 6-1640 Beban BBM & Pelumas Kendaraan, 6-1650 Servis & Perawatan Kendaraan, 6-1660 Suku Cadang & Ban Kendaraan,
+  6-1670 Tol, Parkir & Derek Kendaraan, 6-1990 Denda & Tilang Kendaraan, 1-1360 Piutang Klaim Asuransi.
+- **Laporan › Laba Rugi**: pilihan laporan **Per Bulan (N Bulan Terakhir)**: satu kolom per bulan untuk 3 / 6 / 12 / 24 / 36 bulan terakhir s/d tanggal yang dipilih, plus kolom Total.
+- **Kas & Bank › Tagihan Biaya**: tombol **Bayar** di daftar dan di form tagihan yang sudah tersimpan. Tombol itu membuka **Pembayaran Utang** baru yang sudah berisi supplier dan tagihannya
+  (kolom Bayar = sisa), tinggal pilih akun kas / bank lalu Simpan. Sebelumnya tagihan hanya bisa dibayar dengan membuka Pembayaran Utang sendiri di tab Pembelian.
+- **Bantuan di dalam aplikasi**: tombol bulat **?** di judul tiap menu (dan tombol **F1**) membuka jendela bantuan terpisah, bukan tab. Isinya penjelasan, langkah, dan diagram alur,
+  lengkap dengan daftar topik dan kotak cari. Topik pertama: **Alur Biaya Bulanan**, **Biaya Rutin**, **Tagihan Biaya**, dan **Pembayaran Utang**. Menu yang belum punya topik menampilkan daftar semua topik.
+- **Penampil Markdown** (bantuan dan Riwayat Versi) kini menampilkan **gambar**, diagram **Mermaid** (flowchart dan sequence diagram), dan tautan antartopik.
+- **Laporan › Laporan Rekonsiliasi › Persediaan vs Neraca**: satu laporan untuk mencocokkan nilai persediaan dari sisi barang (sama dengan **Analisa › Nilai Stok**)
+  dengan saldo akun persediaan di Neraca, per tanggal dan cabang. Tiga pilihan: **Per Cabang** (ringkasan), **Per Akun Persediaan** (akun Persediaan dan akun
+  persediaan khusus item), dan **Selisih per Dokumen** (dokumen yang nilai stoknya tidak sama dengan jurnal persediaannya, selisih terbesar dulu, untuk mencari
+  penyebab). Selisih di bawah Rp 100 dianggap pembulatan harga pokok, sama dengan pemeriksaan **Tutup Periode**. Angkanya butuh hak Lihat harga pokok (HPP) di laporan.
+- **Laporan › Laporan Rekonsiliasi** (grup baru, setelah Laporan Keuangan): laporan untuk mencocokkan buku bantu dengan buku besar / Neraca. Isinya
+  **Persediaan vs Neraca**, **Piutang vs Neraca**, **Utang vs Neraca**, dan **Dokumen vs Jurnal**.
+- **Laporan › Laporan Rekonsiliasi › Piutang vs Neraca**: saldo piutang menurut dokumen (faktur kredit, laku titipan, saldo awal piutang, dikurangi penerimaan
+  dan retur; sama dengan Laporan Piutang) dibandingkan saldo akun Piutang di Neraca, per tanggal dan cabang. Tiga pilihan: **Per Cabang**, **Per Akun**, dan
+  **Selisih per Dokumen** (dokumen yang efeknya tidak sama dengan jurnalnya, termasuk jurnal umum atau saldo awal akun yang langsung ke akun Piutang).
+- **Laporan › Laporan Rekonsiliasi › Utang vs Neraca**: sama untuk Utang Usaha (faktur pembelian kredit, tagihan biaya, saldo awal utang, dikurangi pembayaran
+  dan retur), Utang Titipan, dan Titipan Belum Ditagih. Selisih = buku bantu − Neraca; di bawah Rp 0,01 dianggap cocok.
+- **Laporan › Laporan Rekonsiliasi › Dokumen vs Jurnal**: memeriksa periode dan cabang yang dipilih. Pemeriksaannya: dokumen terposting tanpa jurnal, jurnal ganda untuk
+  satu dokumen, tanggal atau cabang jurnal beda dengan dokumennya, jurnal yang dokumen sumbernya sudah dibatalkan / dihapus, dan jurnal yang debit-kreditnya tidak
+  seimbang. **Rekap per Pemeriksaan** menunjukkan jumlah temuan; **Daftar Temuan** menunjuk dokumen dan jurnalnya. Jenis dokumen yang diperiksa: Penjualan,
+  Pembelian, Penerimaan Piutang, Pembayaran Utang, Retur, Saldo Awal Piutang / Utang, Tagihan Biaya, dan Kas Masuk / Keluar / Transfer.
+
+### Perbaikan
+- **Laporan › Neraca, Laba Rugi, dan Analisa (Laba Rugi Tren, Akun × Bulan)**: baris akun induk (mis. 6-5000 Beban Pemilik) kini tebal, sama seperti di daftar **Akun (COA)**. Sebelumnya hanya judul bagian dan total yang tebal.
+- **Penulisan "Hutang" diganti "Utang"** di seluruh tampilan: menu **Pembelian › Pembayaran Utang**, **Saldo Awal Utang**, laporan dan analisa Utang, pesan, bantuan, nama akun di template akun, dan template import.
+  Kunci hak akses tidak berubah (nama akun lama: lihat bagian Perlu diperhatikan). File import lama yang memakai judul kolom "Potong Hutang" / "Sisa Hutang" tetap bisa dibaca.
+
+### Perlu diperhatikan
+- Dokumen lama tidak berubah: kolom Kendaraan kosong. Penyusutan bulan-bulan lalu tidak dijurnal ulang per kendaraan.
+- Barang ber-stok yang dibeli tidak bisa langsung diberi kendaraan di Pembelian: barang masuk persediaan dan baru menjadi biaya kendaraan saat dikeluarkan lewat **Item Keluar**.
+- Kendaraan yang sudah dipakai di dokumen biaya tidak bisa dihapus lagi (ubah statusnya menjadi Dijual / Dikembalikan, atau nonaktifkan).
+- Biaya Rutin, laporan **Biaya per Kendaraan**, dan **Kartu Kendaraan** menyusul.
+- Perusahaan yang sudah berjalan tidak mendapat akun baru otomatis: tambahkan lewat **Akun (COA) › Template**, lalu atur kategorinya di **Kendaraan › Kategori Biaya**.
+- Jabatan yang boleh melihat menu Kendaraan otomatis boleh membuka Laporan Kendaraan.
+- Biaya per km dan biaya total kepemilikan (TCO) menyusul bersama catatan meter.
+- Pembaruan ini mengganti kata "Hutang" di **nama akun** yang sudah ada (mis. "Hutang Usaha" menjadi "Utang Usaha") lewat migrasi database. Hanya kata utuh di nama akun;
+  keterangan jurnal lama dan log aktivitas tidak diubah. Akun yang namanya sudah Anda ubah sendiri tetap mengikuti aturan yang sama bila memuat kata "Hutang".
+- Tombol **Bayar** hanya muncul bagi pengguna yang boleh membuat **Pembayaran Utang**.
+- Jabatan yang sudah boleh melihat Neraca otomatis mendapat hak laporan **Persediaan vs Neraca**.
+- **Persediaan vs Neraca** pindah dari Laporan Keuangan ke Laporan Rekonsiliasi. Hak laporannya tidak berubah.
+- Jabatan yang sudah boleh melihat Neraca otomatis mendapat hak tiga laporan rekonsiliasi yang baru.
+
 ## 1.0.43 (2 November 2026)
 
 ### Baru
