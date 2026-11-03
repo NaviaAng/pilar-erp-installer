@@ -2,6 +2,45 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.45 (3 November 2026)
+
+### Baru
+- **Bantuan › Panduan › Tutorial**: jendela bantuan kini bernama **Tutorial** dan punya tombol sendiri di menu **Bantuan › Panduan** (juga di Menu Classic
+  dan kotak Cari menu). Tombol itu membuka daftar isi semua topik; tombol **?** di judul menu dan **F1** tetap langsung membuka topik menu itu.
+- **Laporan › Laporan Rekonsiliasi › Ringkasan Rekonsiliasi**: semua pemeriksaan rekonsiliasi dalam satu laporan, dengan hasil **Cocok / Selisih** per
+  pemeriksaan: Persediaan, Piutang Usaha, Utang Usaha, Utang Titipan, Titipan Belum Ditagih, Kas & Bank, Aset Tetap (harga perolehan dan akumulasi) vs
+  Neraca, dan Dokumen vs Jurnal (temuan bulan berjalan). **Per Cabang** = keadaan per tanggal laporan; **Per Bulan (12 Bulan Terakhir)** = selisih tiap akhir
+  bulan, untuk melihat sejak bulan apa selisih muncul. Kolom **Laporan Rinci** menyebut laporan yang merinci penyebabnya.
+- **Laporan › Laporan Rekonsiliasi › Kas & Bank vs Neraca**: mutasi akun kas / bank menurut dokumen (penjualan dan pembelian yang dibayar di faktur,
+  penerimaan dan pembayaran, kas masuk / keluar / transfer, refund retur, perolehan dan pelepasan aset) ditambah jurnal lain (jurnal umum, saldo awal akun)
+  dibandingkan saldo di Neraca. Tiga pilihan: **Per Akun** (dengan saldo terendah di periode), **Saldo Minus** (rentang hari saat saldo kas / bank minus), dan
+  **Selisih per Dokumen**.
+- **Laporan › Laporan Rekonsiliasi › Aset Tetap vs Neraca**: harga perolehan dan akumulasi penyusutan menurut daftar Aset Tetap dibandingkan akun aset dan
+  akumulasi di Neraca, per cabang. **Selisih per Dokumen** menunjuk jurnal perolehan, penyusutan, dan pelepasan yang nilainya beda, serta jurnal umum ke
+  akun aset tanpa data asetnya. Aset **Sudah dijurnal** dicocokkan dengan jurnal sumbernya lewat no. sumber.
+- **Tutorial Penjualan**: 9 topik baru di jendela bantuan (tombol **?** / **F1**), kelompok **Penjualan**: Alur Penjualan (mulai di sini), Kasir,
+  Pesanan Penjualan, Faktur Penjualan, Pesanan Masuk, Retur Penjualan, Penerimaan Piutang, Saldo Awal Piutang, dan Closing Harian Outlet.
+  Tiap topik berisi langkah, diagram alur, aturan yang berlaku, efek ke stok dan jurnal, serta contoh kasus resto, kafe, dan toko oleh-oleh.
+- **Bantuan › Tutorial**: panduan lengkap semua menu Master, tiap topik berisi fungsi menu, isian, langkah, **contoh kasus**, dan **alur** (diagram): Item,
+  Koreksi Satuan Dasar, Satuan, Rak, Konsumen, Promo, Supplier, Akun (COA) beserta Template, Aset Tetap, Kelompok Aset, Penyusutan, Pelepasan Aset,
+  Kendaraan, Pengemudi, Merek & Model, Dokumen Kendaraan, Kategori Biaya, Pengaturan Perusahaan (9 tab), Cabang, User, Jabatan & Hak Akses, Izin Backdate,
+  Pengaturan Cetak, Jenis PPN, Penomoran Dokumen, Template Cetak, dan Mulai Pakai. Buka dengan tombol **?** di judul menu atau **F1**.
+- **Dialog master** (Supplier, Konsumen, Satuan, Rak, Jenis PPN, Cabang, User, Akun, Template Cetak) punya tombol **?** di samping tombol Simpan dan bisa
+  dibuka dengan **F1**; **Akun (COA) › Template…** punya tombol **?** di bar atasnya.
+
+### Perbaikan
+- **Laporan**: tombol **?** tidak lagi tampil di **Menu Laporan**, **Analisa**, dan tab tiap laporan (sebelumnya membuka halaman "Belum ada panduan khusus").
+  **F1** di tab laporan membuka daftar isi Tutorial.
+- **Form dan dialog**: panel panduan di kanan form dihapus (Item, Akun, Template Akun, Cabang, Aset Tetap, Kelompok Aset, Ubah Estimasi, Penyusutan, Pelepasan
+  Aset, Kendaraan, Pengemudi, Merek & Model, Dokumen Kendaraan, Catat Biaya, dan tiap tab Pengaturan Perusahaan). Isiannya jadi selebar form; isi panduannya
+  pindah ke Tutorial. Penjelasan singkat per isian tetap ada sebagai tooltip.
+- **Item**: panel HPP & Margin di kanan hanya tampil untuk item ber-resep / komponen; item lain memakai lebar penuh.
+
+### Perlu diperhatikan
+- Jabatan yang sudah boleh melihat Neraca otomatis mendapat hak tiga laporan baru ini. **Aset Tetap vs Neraca** hanya tampil bila fitur Aset Tetap dipakai.
+- Di Ringkasan Rekonsiliasi, angka Persediaan hanya tampil bagi yang punya hak Lihat harga pokok (HPP); hasil Cocok / Selisih tetap tampil.
+- Panduan yang dulu muncul di kanan form kini hanya ada di Tutorial (tombol **?** atau **F1**).
+
 ## 1.0.44 (3 November 2026)
 
 ### Baru
