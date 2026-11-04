@@ -2,6 +2,89 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.47 (4 November 2026)
+
+### Baru
+- **Kas & Bank › Tagihan Biaya**: isian baru **Akun utang**. Dulu semua tagihan otomatis masuk ke Utang Usaha. Kini bawaannya tetap Utang Usaha, tetapi bisa diganti ke
+  **Utang Lain-lain**, **Beban Yang Masih Harus Dibayar**, atau akun Kewajiban lain bila tagihannya bukan utang dagang (misalnya jasa dari perusahaan satu grup).
+  Jurnal tagihan mengkredit akun itu. Daftar Tagihan Biaya punya kolom **Akun Utang**.
+- **Pembelian › Pembayaran Utang**: tagihan biaya yang akun utangnya bukan Utang Usaha melunasi akun itu (debit akun tersebut, bukan Utang Usaha). Satu pembayaran boleh
+  melunasi tagihan ke akun utang yang berbeda.
+- **Kas & Bank › Biaya Rutin**: jadwal dengan hasil Tagihan Biaya punya isian **Akun utang** yang sama, dan tagihan yang dicatat darinya memakai akun itu.
+- **Kas & Bank › Saldo Rekening Koran**: isi saldo akhir bulan tiap akun kas / bank menurut rekening koran (kas tunai: hasil hitung), lihat selisihnya dengan saldo buku
+  semua cabang, dan beri penjelasan untuk selisih yang wajar. Bisa juga lewat **Import Data › Saldo Rekening Koran**. Bulan yang periodenya sudah ditutup terkunci.
+- **Laporan Rekonsiliasi › Kas & Bank vs Rekening Koran**: saldo buku vs rekening koran per bulan dan per akun (12 bulan terakhir). **Ringkasan Rekonsiliasi** memuat satu baris
+  *Kas & Bank (Rekening Koran)*.
+- **Kunci & Tutup Buku**: pratinjau tutup periode memberi peringatan bila ada akun kas / bank yang saldo rekening korannya belum diisi atau selisih tanpa penjelasan.
+- **Persediaan › Daftar Opname**: daftar item yang dihitung tiap hari, banyak per cabang, masing-masing dengan **PIC** (satu item satu daftar). Isi daftar
+  lewat **Generate…** (Semua item, Tipe, Rak, cari, atau Tempel dari Excel) dengan pratinjau dan centang, atau manual.
+- **Persediaan › Opname Harian**: dokumen hitungan per daftar per tanggal (nomor **OPH**). Atasan **Generate dokumen** lalu **Open**; PIC menghitung **buta**
+  (stok sistem & selisih tidak pernah tampil), bisa **Tambah item** di luar daftar (penambahnya dicatat), lalu **Selesai hitung (Release)**. Atasan bisa
+  **Buka Kembali** (Release → Open) atau **Batal** dokumen, keduanya dengan alasan. Juga di HP lewat **/outlet/** tab Stok.
+- **Master Item › Wajib opname**: frekuensi Tidak perlu / Harian / Bulanan / 3 Bulanan / 6 Bulanan / Tahunan. Item berfrekuensi jatuh tempo sejak hitungan
+  terakhirnya (Opname Harian atau Stok Opname) dan muncul di dokumen saat jatuh tempo. Import Item: kolom **Wajib Opname**.
+- **Closing Harian › Atur…**: **Batas hitung terlambat** (bawaan 0 = hitungan sesudah tanggal pelaksanaan ditolak); hitungan terlambat ditandai dan stok
+  sistemnya dikoreksi mutasi sampai jam hitung.
+- **Import Data › Mutasi Rekening Koran**: tempel mutasi dari internet banking ke template (per akun kas / bank; baris SALDO AWAL dan kolom Saldo opsional). Saldo berjalan
+  diperiksa, import ulang rentang yang sama mengganti (tidak menggandakan), dan saldo akhir bulan terisi otomatis di **Saldo Rekening Koran**.
+- **Laporan Rekonsiliasi › Kas & Bank vs Rekening Koran**: pilihan baru **Per Hari** (mutasi dan saldo akhir hari menurut bank vs buku, dengan penanda hari pertama selisih)
+  dan **Mutasi Rekening Koran** (daftar hasil import), dengan filter akun.
+- **Rekonsiliasi Bank (server)**: mutasi rekening koran hasil import dicocokkan dengan baris jurnal akun kas / bank itu (semua cabang) per akun per bulan: saran otomatis
+  (nominal sama, tanggal ±3 hari), satu mutasi ↔ banyak baris jurnal (setoran QRIS / EDC) dan sebaliknya, dua mutasi yang saling meniadakan, **Catat Selisih** (Kas Masuk / Kas Keluar
+  otomatis untuk biaya admin, bunga, MDR) lalu cocok, **Selesai** per bulan secara **berurutan** (syarat: semua mutasi cocok dan saldo rekening koran cocok / dijelaskan) dan **Buka Kembali**
+  (bulan Selesai terakhir, dengan alasan).
+- Dokumen yang barisnya sudah dicocokkan tidak bisa dibatalkan, dihapus, atau diubah (faktur, kas, pelunasan, jurnal umum; juga bila baris kasnya tidak berubah) sampai pencocokannya dilepas.
+  Bulan Selesai, dan bulan-bulan sebelumnya, juga mengunci import ulang mutasi dan perubahan Saldo Rekening Koran.
+- **Kas & Bank › Rekonsiliasi Bank**: cocokkan mutasi rekening koran (hasil **Import Data › Mutasi Rekening Koran**) dengan baris jurnal akun kas / bank itu (semua cabang), per akun per bulan.
+  Centang mutasi di kiri dan baris jurnal di kanan; jumlahnya sama → **Cocokkan** (satu mutasi boleh dengan banyak baris dan sebaliknya, misalnya satu setoran QRIS untuk beberapa hari penjualan).
+- **Saran Otomatis** memasangkan mutasi dan baris jurnal yang nominalnya sama (tanggal berdekatan, referensi atau nama cocok); pasangan bisa diterima sebagian atau semua.
+- **Catat Selisih…** membuat **Kas Masuk** / **Kas Keluar** sebesar selisih (biaya admin, bunga, potongan MDR, atau mutasi yang tidak punya pasangan) ke akun lawan pilihan Anda, lalu mencocokkan semuanya.
+- **Klik dua kali** baris jurnal membuka dokumen asalnya (faktur, kas, pelunasan, jurnal umum, …) di cabang dokumen itu, seperti Buku Besar; kolom **No. Dokumen** menyebut nomornya.
+- **Lepas Cocok** membatalkan pasangan yang salah. **Selesai** mengunci rekonsiliasi bulan itu bila semua syaratnya terpenuhi, **Buka Kembali** (alasan wajib) membukanya.
+- Topik Tutorial baru **Rekonsiliasi Bank**; tombol **?** dan **F1** di layar ini membuka topiknya sendiri walau hak aksesnya sama dengan Saldo Rekening Koran.
+- **Opname Harian › kolom Expired dan Waste**: PIC mencatat barang expired / rusak yang dibuang per item (desktop dan HP **/outlet/**), terpisah dari kolom
+  Fisik. Saat **Tutup Hari**, closing membuat **Item Keluar** sendiri (satu untuk Expired, satu untuk Waste) dengan akun beban masing-masing, **sebelum**
+  Stok Opname gabungan dibuat, jadi buangan tidak ikut terhitung sebagai selisih. Nomor Item Keluar tampil di Closing Harian; **Buka Kembali** closing
+  menghapusnya bersama Stok Opname.
+- **Closing Harian › Atur…**: **Akun Expired** dan **Akun Waste / Rusak** (akun beban lawan Item Keluar). Dikosongkan = kolomnya tidak muncul di layar hitung.
+- **Closing Harian › Atur… › Opname hanya dari Daftar Opname yang di-Generate**: bila dicentang, frekuensi **Wajib opname** per item (Master Item) diabaikan di
+  cabang itu. Tidak ada item yang otomatis jatuh tempo, wajib, atau menghalangi Tutup Hari; item dihitung hanya bila ada di Daftar Opname yang di-Generate
+  menjadi dokumen, dan Release tidak lagi menolak item yang belum dihitung (cukup konfirmasi). Frekuensi di Master Item tidak berubah dan berlaku lagi bila
+  pengaturan dimatikan.
+
+### Perbaikan
+- **Persediaan › Rekalkulasi Stok & HPP › Pemeriksaan**: item yang stoknya minus atau HPP-nya 0 saat barang keluar kini tampil **satu baris per item**, bukan satu baris
+  per penjualan. Kolom **Baris** menunjukkan jumlah penjualan yang terdampak, dan keterangannya memuat rentang tanggal serta saldo terendah. Item yang paling banyak terdampak
+  ada di atas. Dulu bahan yang pembeliannya tidak pernah dicatat menghasilkan ribuan baris untuk belasan item.
+- **Closing Harian**: hasil hitung dan selisih diambil dari dokumen Opname Harian yang sudah Release; Tutup Hari membuat satu Stok Opname gabungan dan
+  dokumennya menjadi Close. Form closing menampilkan status dokumen, pengingat item wajib yang belum punya dokumen, dan tombol Generate dokumen.
+- **/outlet/**: pesan daftar kosong tidak lagi menunjuk menu yang tidak ada.
+- **Bersihkan Data (semua cabang)** kini ikut membersihkan Saldo Rekening Koran dan mutasinya.
+
+### Perlu diperhatikan
+- Akun utang tidak bisa diganti setelah tagihan ada pembayarannya (pembayaran sudah mendebit akun itu). Sebelum dibayar boleh diganti dan jurnalnya ikut pindah.
+- Tagihan ke akun selain Utang Usaha tetap tampil di laporan **Utang** per supplier, tetapi tidak dihitung di **Utang vs Neraca** dan pemeriksaan buku bantu saat Tutup Periode,
+  karena perbandingan itu hanya untuk akun Utang Usaha. Saldo akun utang lainnya dilihat di **Buku Besar**. Tagihan yang sudah ada tidak berubah (tetap Utang Usaha).
+- Ada migrasi database (kolom `payable_account_id` di tabel `expense_bills`).
+- Laporan **Kas & Bank vs Neraca** diganti nama menjadi **Kas & Bank: Dokumen vs Jurnal** (isinya sama): laporan itu membandingkan angka Pilar ERP dengan dirinya sendiri,
+  sedangkan pembandingnya untuk tutup bulan sekarang rekening koran.
+- Menu baru: jabatan yang sudah boleh membuat Jurnal Umum otomatis mendapat hak **Saldo Rekening Koran**, dan jabatan yang boleh melihat Neraca mendapat laporan barunya.
+  Menu ini butuh akses ke semua cabang karena saldo akun kas / bank dihitung semua cabang.
+- Migrasi database: satu tabel baru (`bank_statements`).
+- **Tutup Hari** sekarang ditolak selama ada dokumen Opname Harian **Draft / Open**, atau item wajib opname yang jatuh tempo tetapi belum dihitung.
+- Daftar Hitung Harian lama tiap cabang dipindah menjadi Daftar Opname **Utama** (tanpa PIC), dan hitungan closing lama menjadi dokumen Opname Harian pindahan
+  (nomor **OPH-** + nomor closing). Kolom Fisik di form Closing Harian desktop tidak lagi bisa diisi: hitung lewat Opname Harian.
+- Hitungan dari HP versi lama yang masih tertahan di antrean (belum terkirim) dibuang saat halaman /outlet/ baru dibuka.
+- Migrasi database: satu tabel baru (`bank_statement_lines`). Mutasi rekening koran bukan dokumen akuntansi: tidak ada jurnal dan tidak ikut kunci periode per cabang,
+  tetapi import ke bulan yang periodenya sudah ditutup ditolak.
+- Migrasi database: tiga tabel baru (`bank_match_groups`, `bank_matches`, `bank_reconciliations`).
+- Periode akuntansi yang sudah ditutup tidak menghalangi pencocokan (sisa mutasi di bulan lama tetap bisa dirapikan); yang ditolak hanya dokumen kas baru, import mutasi, dan perubahan saldo.
+- **Hapus Permanen** dan **Bersihkan Data** melepas pencocokan rekening koran yang menyentuh jurnal yang dihapus (mutasi bank tetap ada).
+- Hanya user yang boleh mengakses semua cabang yang bisa memakai Rekonsiliasi Bank.
+- Tidak ada hak akses baru: layar ini memakai hak menu **Saldo Rekening Koran**. **Catat Selisih…** juga butuh hak **Buat** di Kas Masuk (selisih positif) atau Kas Keluar (selisih negatif).
+- Buangan mengikuti kebijakan stok minus perusahaan seperti Item Keluar biasa: bila stok minus dilarang dan buangan melebihi stok, Tutup Hari ditolak.
+- Closing Harian ditolak bila ada buangan tetapi akun Expired / Waste-nya belum diatur.
+
 ## 1.0.46 (4 November 2026)
 
 ### Baru
