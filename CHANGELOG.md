@@ -2,6 +2,34 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.48 (5 November 2026)
+
+### Baru
+- **Cetak**: semua dokumen (A4, setengah A4, dot matrix, struk thermal) kini selalu mencetak "Jumlah Item" dan "Total Qty" di bawah tabel barang.
+  Total harga tidak diulang di baris ini karena sudah ada di ringkasan total. Bukti Kas tanpa Total Qty. Field `TotalQty` kini juga tersedia di data cetak
+  Stok Opname, Rakitan, dan Pecah Stok.
+- **Sistem › Pengaturan Perusahaan**: setiap isian format angka, pembulatan, dan desimal (Tampilan nominal, pembulatan total / layanan & PB1 / PPN
+  penjualan dan pembelian, Desimal qty, Pembulatan jurnal) kini menampilkan baris **Contoh** yang langsung berubah mengikuti pilihan, sebelum disimpan.
+
+### Perbaikan
+- **Penjualan › Closing Harian › Import Penjualan**: import ulang hari yang sudah pernah diimport (data Quinos berubah) tidak lagi gagal dengan
+  "Alasan wajib diisi untuk Update / Batalkan": faktur lama dibatalkan dan diganti, alasannya diisi sistem di log aktivitas.
+- **Closing Harian › Import Penjualan**: hasilnya tampil sebagai tabel (Tanggal / Struk, Item, Masalah, Pesan, Tindakan) dengan petunjuk sesuai error yang
+  terjadi, bukan lagi kalimat umum "mis. item yang belum dipetakan". Web outlet (HP) ikut menampilkan tindakan per pesan.
+- **Sistem › Integrasi Quinos**: tab **Pesan** mendapat kolom Tanggal / Struk, Item, Masalah, dan Tindakan.
+- **Integrasi Quinos / Closing Harian**: harga dan diskon dari Quinos dipakai apa adanya. Import tidak lagi meminta hak Ubah Harga & Potongan, batas potongan
+  (Pengaturan kebijakan), atau persetujuan atasan untuk diskon dan harga di bawah HPP, karena diskon sudah diputuskan di kasir Quinos.
+- **Opname Harian**: kolom **Fisik** kini bisa diisi di desktop (sebelumnya sel tidak bisa diedit sama sekali). Hal yang sama diperbaiki di grid
+  **Daftar Opname** (Item, Lokasi, Urutan) dan kolom **Pilih** di Generate.
+- **Opname Harian**: kolom Wajib tidak ditampilkan lagi (semua item daftar wajib; yang belum dihitung tetap merah). Frekuensi dan Jatuh Tempo hanya muncul bila
+  ada item berfrekuensi, Terlambat hanya bila ada hitungan terlambat.
+- **Opname Harian**: semua item yang masuk daftar kini otomatis **wajib** dihitung sebelum Selesai hitung (Release), juga di cabang yang mencentang
+  "Opname hanya dari Daftar Opname yang di-Generate". Sebelumnya item itu tampil "Tidak perlu" dan boleh dikosongkan begitu saja.
+- **Opname Harian**: bila ada item wajib yang memang tidak sempat dihitung, Release bisa dilanjutkan dengan **alasan**; alasan dan jumlah item yang dilewati
+  dicatat di Catatan dokumen.
+- **Daftar Opname**: tombol **Simpan** kini bisa diklik (sebelumnya klik tidak berbuat apa-apa dan hanya F9 yang menyimpan).
+- **Pengaturan Perusahaan**: kotak isian (GroupBox) dirapatkan, jarak antar kotak dan kotak centang lebih kecil sehingga muat lebih banyak tanpa menggulir.
+
 ## 1.0.47 (4 November 2026)
 
 ### Baru
