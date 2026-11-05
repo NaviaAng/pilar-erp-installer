@@ -2,6 +2,23 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.49 (5 November 2026)
+
+### Baru
+- **Penjualan › Closing Harian › Cetak ▾**: Laporan Closing bisa dicetak dari form closing dan dari daftar Closing Harian, satu kali cetak untuk semuanya: penjualan
+  dan status import Quinos, pembayaran per akun, kas (seharusnya, fisik, selisih, setoran, pecahan uang), opname harian (stok awal, masuk, keluar, sistem, fisik,
+  selisih, nilai selisih menurut harga jual), item belum dihitung, pergerakan stok hari itu, dokumen yang dibuat Tutup Hari, dan kotak tanda tangan.
+  Dua template bawaan di **Sistem › Template Cetak**, keduanya **A4 mendatar** dan **tanpa harga pokok**: **Closing Harian Lengkap** (semua item, beberapa halaman,
+  utama) dan **Closing Harian Ringkas** (satu halaman: hanya 6 item selisih terbesar, jumlah belum dihitung, pergerakan per jenis).
+- Closing yang **belum ditutup** dicetak dengan watermark **DRAFT** dan catatan peringatan. Closing yang **sudah ditutup** dicetak dengan catatan final: ditutup oleh siapa dan
+  kapan, angka dikunci, perubahan hanya lewat Buka Kembali, riwayat buka kembali bila ada, nomor dokumen sumber, dicetak oleh siapa, dan Halaman n dari N.
+- **Template Cetak**: ukuran kertas baru **A4 mendatar**, dan satu dokumen cetak kini boleh memuat beberapa tabel berurutan (dipakai Laporan Closing; template buatan sendiri
+  dari Duplikat atau Desain mengikutinya).
+
+### Perlu diperhatikan
+- Mencetak Laporan Closing butuh hak **Cetak Penjualan** dan **Closing Harian (Lihat)**. Jabatan yang hanya punya Hitung Stok Harian tidak bisa mencetaknya
+  (laporan memuat stok sistem dan selisih). Beri hak **Cetak Penjualan** di Jabatan dan Hak Akses bagi atasan outlet yang belum memilikinya.
+
 ## 1.0.48 (5 November 2026)
 
 ### Baru
