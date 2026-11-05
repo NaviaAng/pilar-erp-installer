@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.51 (5 November 2026)
+
+### Perbaikan
+- **Closing Harian › Laporan Persediaan (thermal 80 mm)**: tiap item kini **satu baris** dengan kolom Aw, Ms, Kl, Fs, Sl sejajar di kanan nama; nama yang kepanjangan turun ke baris bawahnya.
+  Judul kolom diulang di tiap halaman, dan di dalam kelompok nama ditulis ` - Abon Manis` tanpa kata pertamanya.
+
 ## 1.0.50 (5 November 2026)
 
 ### Baru
