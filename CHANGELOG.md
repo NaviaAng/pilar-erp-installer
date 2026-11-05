@@ -2,6 +2,20 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.50 (5 November 2026)
+
+### Baru
+- **Closing Harian › Cetak ▾ › Laporan Persediaan (thermal 80 mm)**: struk khusus pergerakan stok hari closing. Per item: **Awal**, **Masuk**, **Keluar**, **Fisik** (hasil opname) dan **Selisih**.
+  Masuk dan Keluar hanya mutasi yang berpengaruh: pembelian, transfer, retur, item masuk / keluar, rakitan, dan penjualan. Dokumen yang dibatalkan atau diubah tidak menggelembungkan angka,
+  dan dokumen buatan Tutup Hari tidak dihitung. Memuat item closing dan item lain yang bergerak hari itu; item yang tidak dihitung tidak punya Fisik dan Selisih. Tanpa harga pokok.
+  Item yang kata pertama namanya sama dikelompokkan di bawah satu judul (mis. ROTI › Abon Manis, Abon Parmesan); item yang kata pertamanya unik tidak dikelompokkan.
+  Closing yang belum ditutup bertanda ** DRAFT ** di kepala struk.
+- **Login & Pembaruan**: progres langkah dan rincian log kini tampil di samping (dua kolom), tidak lagi memanjang ke bawah. Namanya ditulis "Pilar Erp".
+
+### Perbaikan
+- Cetak Laporan Closing Lengkap: kolom Awal / Masuk / Keluar kini memakai efek bersih tiap dokumen, jadi dokumen yang dibatalkan atau diubah tidak membuat Masuk dan Keluar sama-sama membengkak.
+- **Kode cabang**: selain huruf dan angka, kini boleh memakai tanda minus (mis. `TP-2`), asal tidak di awal atau akhir kode.
+
 ## 1.0.49 (5 November 2026)
 
 ### Baru
