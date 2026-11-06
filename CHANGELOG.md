@@ -2,6 +2,41 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.54 (6 November 2026)
+
+### Baru
+- **Pembelian › Pembayaran Utang** dan **Penjualan › Penerimaan Piutang**: sekarang bisa mencatat **Pembulatan** bila uang yang dibayar / diterima
+  dibulatkan. Contoh: sembilan tagihan berjumlah Rp 1.668.420 dibayar Rp 1.668.000 → isi **Pembulatan** −420 di panel kanan. Semua tagihan tetap
+  **Lunas**, dan selisih Rp 420 dibukukan otomatis ke akun **Selisih Pembulatan**. Panel kanan kini menampilkan **Nilai dokumen**, **Pembulatan**, dan
+  **Total Bayar** (uang yang benar-benar keluar / masuk kas atau bank). Daftar pelunasan punya kolom **Pembulatan**.
+- **Penjualan › Konsumen**: harga jual ke perusahaan satu grup usaha (konsumen `GRP-…`) kini bisa diatur per konsumen, tidak lagi selalu sama dengan
+  harga modal. Admin membuka **Ubah** pada konsumen grup, memilih **Dasar Harga Jual**: **Harga modal (HPP) + markup** (mis. HPP + 5%) atau
+  **Harga jual item − diskon** (mis. harga jual − 10%), lalu mengisi **Persen**. Harga faktur dihitung otomatis saat disimpan dan tidak pernah di
+  bawah HPP, termasuk faktur dari Pesanan Masuk. Kolom baru **Harga Jual Grup** di daftar konsumen meringkas aturannya. Perusahaan pembeli tidak perlu
+  mengatur apa pun.
+
+### Perbaikan
+- **Akuntansi › Jurnal Umum**: keterangan jurnal otomatis kini ikut memuat catatan dari dokumen asalnya, setelah nomor dokumen (mis.
+  `Penjualan PJ/… · meja 5`), sehingga alasan transaksi langsung terbaca saat memeriksa jurnal. Berlaku untuk Penjualan, Pembelian, Retur, Item Masuk /
+  Keluar, Transfer, Titipan, Pelunasan, Saldo Awal, Rakitan, Pecah Stok, dan Opname. Catatan per baris Penjualan / Pembelian juga muncul di **Memo**
+  baris jurnal akun terkait (catatan beberapa baris yang masuk ke akun yang sama digabung). Hanya untuk dokumen yang disimpan atau diubah mulai versi
+  ini; jurnal lama tidak berubah.
+- **Sistem › Pengaturan Perusahaan**: blok **Contoh** (pembulatan, format angka, qty, jurnal, PPN, layanan / PB1) kini tampil rapi di kolom kanan, di
+  samping isiannya, dengan pola angka sebelum → sesudah. Contoh berubah langsung saat pilihan diganti, jadi efek tiap pengaturan langsung terlihat. Di
+  tab Penjualan dan Pembelian, contoh total, layanan / PB1, dan PPN kini satu blok. Bila jendela sempit, contoh pindah ke bawah isian dan tidak terpotong.
+
+### Perlu diperhatikan
+- **Total** pelunasan sekarang berarti uang yang benar-benar dibayar / diterima, sudah termasuk pembulatan. Angka ini yang dipakai laporan Kas & Bank,
+  Closing Harian, dan Analisa. Pelunasan lama tidak berubah (pembulatannya 0).
+- Konsumen grup yang sudah ada otomatis memakai **Harga modal (HPP) + 0%**, sama seperti sebelumnya, jadi harga faktur tidak berubah sampai Admin
+  mengganti aturannya. Faktur lama tidak ikut berubah; faktur yang belum diterima pembeli dihitung ulang dengan aturan baru bila disimpan lagi.
+- Potongan baris dan diskon faktur ke perusahaan grup tetap tidak bisa dipakai; untuk memberi potongan, pakai aturan **Harga jual item − diskon**.
+- Faktur grup berdasar HPP tetap butuh hak **Lihat HPP / Harga Modal di Penjualan**; dasar **Harga jual item − diskon** tidak butuh hak itu.
+- Dengan markup, penjual mencatat laba dan stok pembeli bernilai harga markup. Laporan laba gabungan grup belum ada, jadi laba antar perusahaan belum
+  dieliminasi.
+- Migrasi database (berjalan otomatis saat server diperbarui): kolom baru `rounding` di tabel `payments` (`PembulatanPelunasan`), serta
+  `group_price_basis` dan `group_price_percent` di tabel `customers` (`HargaGrup`).
+
 ## 1.0.53 (6 November 2026)
 
 ### Baru
