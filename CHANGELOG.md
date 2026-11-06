@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.52 (6 November 2026)
+
+### Baru
+- **Persediaan › Opname Harian › Cetak ▾**: dokumen yang sudah di-Release (atau Close) bisa mencetak **Laporan Persediaan** (struk 80 mm) yang formatnya sama dengan di
+  Closing Harian, tetapi hanya memuat item di dokumen itu: awal, masuk, keluar, fisik, dan selisih. Kepala struk mencantumkan nomor dokumen dan nama daftarnya.
+  Tombol tampil bagi yang punya hak Closing Harian dan Cetak Penjualan (selisih tidak ditampilkan kepada penghitung buta).
+- **Closing Harian**: tombol **Pemetaan & Kas** membuka Daftar Pemetaan item, Integrasi Quinos (bila punya hak Quinos), dan Atur kas outlet tanpa keluar dari closing. Siapa pun yang boleh mengimpor (hak Buat Closing Harian) bisa memakai pemetaan dan pengaturan kas, tanpa hak tambahan.
+- **Closing Harian › Atur…**: isian **Closing mundur (hari)**. Diisi N, maka import penjualan dan Tutup Hari untuk tanggal yang sudah lewat sampai N hari tidak lagi kena batas backdate jabatan (tanpa izin backdate / persetujuan atasan). 0 = ikut batas jabatan seperti sebelumnya. Hanya berlaku untuk closing; transaksi lain dan periode yang dikunci tidak berubah.
+- **Closing Harian › Petakan yang belum**: item dan jenis pembayaran Quinos yang belum dipetakan bisa dipetakan langsung dari closing, tanpa membuka Integrasi Quinos. Setelah import berhenti karena pemetaan, form menawarkan memetakan sekarang lalu mengulang import. Dialog menampilkan saran item dan kemiripan nama (merah di bawah 50%) seperti Integrasi Quinos. Cukup hak Closing Harian (Buat); hak Quinos, Item, dan Akun tidak diminta.
+
+### Perbaikan
+- **Closing Harian › Import Penjualan**: PIC outlet tidak lagi ditolak "tidak punya hak Buat di menu Penerimaan & Saldo Awal Piutang". Import Quinos, termasuk import ulang (Update / Batalkan), cukup memakai hak Closing Harian.
+
+### Perlu diperhatikan
+- Migrasi database: kolom baru pengaturan closing (`ClosingMundur`).
+
 ## 1.0.51 (5 November 2026)
 
 ### Perbaikan
