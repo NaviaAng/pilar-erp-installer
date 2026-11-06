@@ -2,6 +2,34 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.53 (6 November 2026)
+
+### Baru
+- **Web /outlet/**: halaman pertama sekarang **Pilih tanggal**. Pilih tanggal, tekan **Buka**, baru masuk ke halaman isian (PIC yang hanya berhak menghitung
+  langsung ke Stok). Sesudah dibuka, tanggal terkunci dan hanya tampil sebagai label; tombol ‹ › dan kolom tanggal di bar atas dihapus. Untuk pindah tanggal,
+  tekan **Ganti tanggal** di bawah halaman Hari ini. Tanggal yang sudah dibuka tidak hilang saat halaman dimuat ulang.
+- **Closing Harian › Petakan yang belum**: kolom **Terdekat** menampilkan item Pilar yang namanya paling mirip dengan nama Quinos, dan tiga kandidat teratas
+  tampil di bawah tabel untuk baris yang dipilih. Tombol **Pakai terdekat baris ini** mengisi satu baris, dan **Isi saran terdekat (≥ 80%)** mengisi semua baris
+  kosong yang kemiripannya 80% ke atas dan jelas unggul dari kandidat kedua (kandidat kembar dan pilihan yang sudah Anda isi dilewati). Baru tersimpan setelah
+  **Simpan**.
+
+### Perbaikan
+- **Closing Harian › Petakan yang belum**: kolom **Item Pilar** tidak lagi menyempit menjadi "K00 Bak…" saat dialog dibuka.
+- **Web /outlet/ › Stok (Opname Harian)**: tampilan HP dibuat lebih ringkas. Tiap baris memuat nama dan kode item di kiri (lokasi stok tetap tampil bila ada)
+  serta isian **Hitung** di kanan; keterangan wajib / terlambat / di luar daftar per baris dan hitungan "item wajib belum" di kepala dokumen tidak
+  ditampilkan lagi.
+- **Web /outlet/ › Stok**: filter Semua / Belum dihitung / Sudah dan kolom cari item menempel di bawah layar, tepat di atas menubar, sehingga terjangkau
+  jempol saat daftar panjang digulir.
+- **Web /outlet/ › Stok**: kalimat kemajuan di kepala dokumen tidak lagi menempel dengan kalimat sesudahnya.
+- **Persediaan › Opname Harian**: baris di daftar dokumen kini berwarna menurut status: Draft teks abu-abu, Open kuning, Release hijau, Close hijau muda, dan
+  Batal merah seperti dokumen batal di daftar lain. Sebelumnya semua baris tampil polos sehingga dokumen Batal sulit dibedakan.
+
+### Perlu diperhatikan
+- **Opname Harian › hak akses**: PIC (jabatan dengan hak **Opname Harian** tanpa **Closing Harian**) tidak lagi bisa membuka riwayat lama. Dokumen yang sudah
+  Release / Close hanya terlihat dari hari ini sampai **batas hitung terlambat** (Closing Harian › Atur…); dokumen yang masih Open tetap terlihat. Di web
+  /outlet/ pilihan tanggalnya ikut dibatasi, dan server menolak lewat jalan lain (desktop maupun web). Atasan dan admin (hak Closing Harian) tetap melihat
+  semua tanggal.
+
 ## 1.0.52 (6 November 2026)
 
 ### Baru
