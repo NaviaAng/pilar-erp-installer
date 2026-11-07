@@ -2,6 +2,128 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.58 (7 November 2026)
+
+### Baru
+- **Sistem › Data › Ekspor & Backup**: Paket Ekspor = salinan data **seluruh perusahaan** atau **satu / beberapa cabang** dalam satu berkas `.pilarpkg`,
+  terenkripsi kata sandi paket (minimal 12 karakter). Dibuat di server sebagai pekerjaan latar dari satu potret data (kasir tetap bisa bekerja), lalu
+  langsung diperiksa (SHA-256 & jumlah baris tiap tabel, rujukan, debit = kredit, saldo stok = mutasi) sebelum berstatus **Terverifikasi**.
+- Paket cabang hanya berisi data cabang itu + master perusahaan lengkap; dokumen yang menyambung ke cabang / perusahaan lain (transfer, pelunasan,
+  retur, grup usaha) ikut sebagai rujukan (id + nomor) dan tercantum di peringatan. Pilihan **Mulai tanggal**, **Excel ringkas**, **Log aktivitas**, **Log login**.
+- Riwayat paket: **Unduh…**, **Periksa…**, **Buka Isi…** (salinan tanpa enkripsi untuk akuntan / auditor), **Periksa Berkas…** (paket di PC), **Hapus**.
+- **Jadwal Otomatis** (admin perusahaan): paket seluruh perusahaan harian / mingguan / bulanan dengan masa simpan di server; paket jadwal ikut
+  disalin backup harian server ke Google Drive / Object Storage penyedia.
+- Tombol **Simpan Salinan Dulu** di **Bersihkan Data** dan **Tutup Periode**.
+- Dasbor admin › **Backup** › **Paket per perusahaan**: jadwal, paket terakhir, status, ukuran, dan **Ekspor sekarang** atas permintaan perusahaan.
+- **Penjualan › Daftar Harga Jual**: harga jual per kanal (mis. GoFood = Harga Dasar + 15%, dibulatkan ke 500), konsumen (grosir / reseller), cabang, dan
+  periode, termasuk harga bertingkat menurut qty (mis. beli 12 lebih murah). Alat untuk mengisi dari Harga Dasar ± %, menyalin dari daftar lain, menaikkan /
+  menurunkan harga sekaligus, import dan ekspor Excel; baris di bawah HPP ditandai.
+- **Kasir** dan **Faktur Penjualan**: pilihan **Harga** (Kasir: tombol F8). Faktur otomatis memakai daftar konsumen, lalu daftar bawaan cabang; harga
+  baris mengikuti daftar dan qty tanpa diketik. Daftar bertanda *Boleh dipilih* bisa dipilih kasir tanpa hak khusus.
+- **Konsumen** (isian Daftar Harga) dan **Cabang** (Daftar Harga Jual Bawaan): memasang daftar harga.
+- **Laporan Master › Daftar Harga**: isi daftar harga dengan Harga Dasar, selisih, HPP, dan margin. Filter **Daftar Harga** di Laporan Penjualan dan
+  Harga Jual vs Harga Daftar (juga kolomnya), analisa Kepatuhan Harga Jual **Per Daftar Harga**.
+- **Import Data › Daftar Harga Jual**, kolom **Daftar Harga** di import Konsumen dan Faktur Penjualan.
+- **Kas & Bank › Biaya › Biaya Dibayar di Muka**: sewa setahun, premi asuransi, lisensi tahunan yang dibayar sekali dicatat sebagai aset lalu dibebankan
+  rata tiap bulan. Asal: dibayar kas / bank, dari tagihan supplier (dibayar lewat **Pembayaran Utang**, ikut laporan utang & jatuh tempo), atau saldo
+  awal / sudah tercatat (tanpa jurnal, dengan yang sudah dibebankan). Form menampilkan jadwal per bulan (beban, sudah dibebankan, sisa, status).
+- **Kas & Bank › Biaya › Amortisasi**: satu dokumen pembebanan per cabang per bulan (AM/…), diposting berurutan, **Posting s/d bulan ini** untuk
+  bulan yang tertinggal, batal hanya bulan terakhir. Mesinnya sama dengan Penyusutan: 10.000.000 / 12 bulan = 833.333, 833.334, 833.333, … tepat
+  10.000.000.
+- **Hentikan** di form Biaya Dibayar di Muka (kontrak putus / pindah tempat): sisa dibebankan sekaligus pada bulan pilihan, ke akun beban atau akun lain
+  (mis. Piutang Lain-lain bila uang sewa dikembalikan); bisa dibatalkan selama amortisasi bulan itu belum diposting.
+- **Tutup Periode** memposting amortisasi bulan itu yang belum diposting (tampil di pratinjau dan laba rugi sebelum jurnal penutup); buka kembali
+  membatalkannya. Akun yang nonaktif = **Blokir**. Pemeriksaan baru **Biaya dibayar di muka sama dengan buku besar** (peringatan bila sisa per akun beda
+  dengan saldo akunnya).
+- **Menu Laporan › Laporan Biaya › Biaya Dibayar di Muka** per tanggal: rinci, rekap per akun / cabang, dan dibanding buku besar.
+- Tutorial baru **Biaya Dibayar di Muka** dan **Amortisasi**.
+- **Laporan › Menu Laporan › Laporan Penjualan › Laporan Closing**: closing harian satu outlet pada satu tanggal, dengan angka yang sama dengan layar Penjualan › Closing Harian.
+  Pilihan laporan: Ringkasan (status, penjualan, pembayaran per akun, kas, stok, dokumen Tutup Hari, peringatan), Opname Harian (urut nilai selisih terbesar, termasuk mutasi
+  sesudah hitung), Item Belum Dihitung, Pergerakan Stok, dan Pergerakan per Item. Bisa diekspor ke Excel dan dicetak; tombol **Cetak Closing ▾** mencetak Closing Harian
+  Lengkap / Ringkas (A4 mendatar) atau Laporan Persediaan (thermal) untuk outlet mana pun yang boleh Anda lihat, tanpa pindah cabang.
+- **Laporan › Menu Laporan › Laporan Persediaan › Selisih Stok Harian per Item**: dari closing yang sudah ditutup dalam rentang tanggal, item mana yang paling sering dan paling
+  besar selisih opname hariannya per outlet (hari dihitung, hari selisih, lebih / kurang, selisih bersih dan terbesar, nilai HPP dan harga jual), untuk memeriksa resep yang salah
+  atau barang hilang. Pilihan Rinci per Tanggal; klik dua kali baris membuka rincian item atau Laporan Closing hari itu.
+- **Persediaan › Moving Index › Buat Daftar Opname**: dari kelas yang tampil (satu cabang, dengan filter kelas, tipe, kategori, supplier terakhir, dan cari yang sama),
+  Daftar Opname baru terbuka dan dialog Generate langsung berisi kandidatnya.
+- **Persediaan › Koreksi Stok › Daftar Opname › Generate…**: sumber baru **Kelas** Moving Index (centang satu atau beberapa kelas, boleh digabung dengan Tipe, Rak, dan cari)
+  dan kolom **Kelas** di pratinjau, mis. daftar "Cepat laku" (Very Fast + Fast) dan "Stok diam" (Very Slow + Dead).
+- **Penjualan › Closing Harian › Atur… › Frekuensi opname mengikuti Moving Index** (per cabang, bawaan mati): frekuensi wajib opname tiap item mengikuti kelasnya.
+  Bawaan: Very Fast Mingguan, Fast 2 Mingguan, Medium Bulanan, Slow 3 Bulanan, Very Slow dan Dead 6 Bulanan, Baru Bulanan; tiap kelas bisa diubah. Item kelas ABC A
+  naik satu tingkat (bisa dimatikan), yang paling sering menang atas isian Wajib opname di Master Item, dan jatuh tempo pertama disebar sepanjang satu siklus supaya
+  Tutup Hari tidak terhalang ratusan item sekaligus. Tombol **Perkiraan beban** menampilkan rata-rata item yang harus dihitung per hari dan per minggu sebelum disimpan.
+- **Master Item › Wajib opname** dan **Import Item › Wajib Opname**: pilihan baru **Mingguan** dan **2 Mingguan**.
+- **Penerimaan Piutang** dan **Pembayaran Utang**: tab baru **Potongan & biaya** untuk selisih antara uang yang benar-benar masuk / keluar dan nilai faktur: PPh dipotong
+  konsumen atau kita potong dari vendor, biaya admin bank, klaim, DP yang dipotongkan, denda, penghapusan piutang. Uang diterima / dibayar = nilai dokumen + pembulatan −
+  potongan + biaya; tiap baris dijurnal ke akunnya. TOTAL BAYAR boleh 0 (penghapusan piutang, tanpa baris kas) bila semua selisih dijelaskan baris potongan. Isian
+  **Uang di rekening** (opsional) dibandingkan dengan TOTAL BAYAR: selisih yang belum dijelaskan tampil merah dan tombol **Jadikan baris** membuatnya jadi baris potongan.
+  Daftar pelunasan punya kolom **Potongan**; rincian pembayaran sebuah faktur menampilkan potongan yang dikenakan ke faktur itu.
+- **Sistem › Master Pendukung › Jenis Potongan**: master jenis potongan (akun lawan, arah terhadap uang, dokumen pajak). Sebelas jenis bawaan dibuat sekali untuk setiap
+  perusahaan: Biaya admin bank, PPh 23, PPh final 4(2), PPh final UMKM, PPh 22, PPN dipungut, Klaim, DP, Denda, Penghapusan piutang, Lainnya. Pembulatan tetap isian sendiri.
+- **Laporan › Pajak** (hak baru **Pajak**): **Bukti Potong Diterima** (PPh yang dipotong konsumen, mana yang bukti potongnya belum diterima, rekap per masa) dan
+  **Bukti Potong Dibuat** (PPh yang kita potong: bukti potong yang belum terbit, rekap potong & setor per masa dengan batas setor). Nomor & tanggal bukti potong diisi dari
+  laporan (klik dua kali, atau pilih beberapa baris lalu Enter); tidak memposting ulang jurnal, boleh setelah periode ditutup, dan tercatat di Log Aktivitas.
+- **Tutup Periode**: dua peringatan baru (bukan blokir): PPh dipotong konsumen yang bukti potongnya masih kosong lebih dari 30 hari, dan bukti potong yang kita terbitkan
+  untuk bulan itu yang nomornya belum diisi.
+- **Import Data › Penerimaan Piutang / Pembayaran Utang**: kolom baru **Jenis Potongan**, **Potongan**, **No Bukti Potong**, **Tgl Bukti Potong** (potongan kedua di baris
+  tambahan tanpa Jumlah); sheet **Daftar Jenis Potongan** di template.
+- **Akun (COA) › Template**: akun baru **2-1160 Utang PPh 4(2)** dan **4-1310 Potongan / Klaim Penjualan** (kontra pendapatan).
+- **Pembelian › Daftar Harga Beli**: harga kesepakatan per supplier dengan periode, cabang, dan tingkat qty (mis. beli 12 lebih murah), plus kode barang di supplier.
+  Daftar yang akan berakhir dalam 14 hari ditandai *Segera berakhir*. Alat untuk menyalin daftar periode lalu dengan ± % (harga Maret naik 3% untuk April),
+  mengisi dari harga beli terakhir, menaikkan / menurunkan harga sekaligus, import dan ekspor Excel.
+- **Pembelian**: setelah supplier dipilih, **Harga Beli** baris terisi harga kesepakatan (kolom baru **Harga Kesepakatan**); mengganti supplier, tanggal, satuan, atau
+  qty menghitung ulang baris yang harganya tidak diketik sendiri. Harga yang beda dari kesepakatan berwarna oranye dan ditanya sebelum simpan (hanya peringatan).
+  Jabatan tanpa hak melihat harga tetap mendapat harga otomatis dari kesepakatan, tanpa melihat angkanya.
+- **Pengaturan Perusahaan › Pembelian › Beda dari harga kesepakatan**: pengingat aktif / mati dan toleransi %.
+- **Laporan Pembelian › Harga Beli vs Kesepakatan** (per item dan detail transaksi) dan analisa **Pembelian › Perbandingan Supplier** (supplier termurah per item,
+  selisih dari yang termurah). **Laporan Master › Daftar Harga** kini memuat daftar beli (dengan supplier) bagi yang boleh melihat harga pokok.
+- **Import Data › Pembelian › Daftar Harga Beli**.
+- **Faktur Penjualan › Cabang tujuan**: jual ke perusahaan satu grup usaha kini memilih cabang pembeli yang dituju. Hanya cabang itu yang melihat faktur
+  di Pembelian › Import dari › Faktur dari perusahaan grup. Wajib dipilih bila pembeli punya lebih dari satu cabang yang boleh beli; pembeli satu
+  cabang terisi otomatis; faktur dari Pesanan Masuk memakai cabang pemesan. Kolom **Kirim Grup** di daftar menyebut cabang tujuannya.
+- **Pembelian › Import dari › Faktur dari perusahaan grup**: kolom **Catatan** (keterangan header penjual) dan **Cabang Tujuan**, serta isi faktur
+  baris demi baris di bawah daftar (kode & nama item penjual, qty, harga, masalah tiap item).
+
+### Perbaikan
+- **Pembelian › Terima dari grup**: catatan yang diketik penjual di header faktur kini ikut tampil di jendela pilih dan masuk ke Catatan faktur
+  pembelian (sebelumnya hilang, sehingga cabang tujuan tidak diketahui).
+- **Akuntansi › Jurnal**: keterangan baris jurnal kini muat sampai 500 huruf (sebelumnya 200), sama dengan catatan baris dokumen sumber. Import Quinos dan dokumen dengan catatan baris panjang tidak lagi gagal tersimpan dengan pesan "value too long".
+
+### Perlu diperhatikan
+- Hak baru **Ekspor & Backup** (Sistem: Lihat / Buat / Hapus). Hanya jabatan bawaan **Akunting** yang otomatis mendapat Lihat + Buat (cabang yang boleh
+  diaksesnya); jabatan lain diatur admin di Jabatan & Hak Akses. Paket seluruh perusahaan dan jadwal hanya untuk admin perusahaan.
+- Paket tidak membawa hash kata sandi user, rahasia 2FA, kata sandi SMTP / Quinos, dan token sesi. Kata sandi SMTP tidak lagi dicatat di log aktivitas.
+- Memulihkan data dari paket belum tersedia (menyusul); paket tidak menggantikan backup database server.
+- Server: folder baru `/var/lib/pilar-erp/exports` (milik user API, 700) dan variabel `Export__Dir` dipasang `setup.sh`; sandbox API boleh menulis folder
+  itu. Jalankan ulang `setup.sh` saat rilis. Migrasi database `PaketEkspor` (tabel baru `export_jobs` dan `export_schedules`).
+- Fitur bawaan **mati**: nyalakan di **Pengaturan Perusahaan › Fitur › Daftar Harga**. Selama mati, harga tetap seperti sebelumnya.
+- Harga daftar, pengingat beda harga, dan pemeriksaan hak Ubah Harga memakai daftar harga faktur, bukan selalu Harga Dasar. Memakai daftar yang tidak
+  bertanda *Boleh dipilih* (atau Harga Dasar padahal ada daftar otomatis) butuh hak Ubah Harga & Potongan atau persetujuan atasan.
+- Jabatan yang boleh mengubah master Item otomatis mendapat hak Daftar Harga Jual; laporan Daftar Harga untuk jabatan yang boleh melihat Laba Jual.
+- Komputer kasir dan komputer pembelian perlu diperbarui ke versi ini sebelum fitur dinyalakan, supaya harga di layar sama dengan hitungan server.
+- Hak baru **Biaya Dibayar di Muka**, **Amortisasi** dan laporan **Biaya Dibayar di Muka**: jabatan Akunting mendapatnya; jabatan lama yang boleh membuat
+  Kas Keluar mendapat kedua menu sekali saat pembaruan, laporannya untuk jabatan yang boleh melihat Neraca.
+- Biaya dibayar di muka yang dulu dicatat lewat Kas Keluar / Jurnal Umum ke 1-1530 bisa didaftarkan dengan asal **Saldo awal / sudah tercatat** supaya
+  ikut dibebankan otomatis.
+- Hak baru **Laporan Closing** dan **Selisih Stok Harian per Item** (Jabatan & Hak Akses › Laporan). Jabatan yang sudah boleh melihat Closing Harian otomatis mendapatnya.
+  Hak laporan ini cukup untuk melihat stok sistem dan selisih semua outlet jabatan itu tanpa hak menu Closing Harian; nilai HPP tetap butuh hak Lihat harga pokok di laporan.
+- Mencetak Laporan Closing kini boleh dengan hak Laporan Closing + Cetak Penjualan (sebelumnya hanya Closing Harian + Cetak Penjualan).
+- Menyalakan frekuensi opname menurut kelas butuh hitungan Moving Index untuk cabang itu (buka menu Moving Index atau Hitung Ulang dulu). Item yang jatuh tempo tetap
+  menghalangi Tutup Hari seperti Wajib opname biasa, jadi lihat **Perkiraan beban** sebelum menyalakannya.
+- Cabang yang belum menyalakan setelan itu tidak berubah. Halaman web `/outlet/` (tab Atur) tidak mengubah setelan baru ini.
+- Perusahaan yang dibuat sebelum ini belum punya kedua akun baru (dan mungkin akun PPh sektor lain): jenis potongan yang akunnya belum ada ditandai di kolom **Perhatian**
+  dan belum bisa dipakai sampai akunnya diisi. Impor akunnya lewat **Akun (COA) › Template…**, lalu pilih di **Jenis Potongan**.
+- Jabatan yang punya hak **Jenis PPN** otomatis mendapat hak **Jenis Potongan** yang sama; jabatan yang boleh melihat **Neraca** otomatis mendapat hak laporan **Pajak**.
+- Kolom **No Faktur** dan **Jumlah** di template import pelunasan tidak lagi bertanda wajib karena baris potongan tambahan boleh tanpa keduanya; baris faktur biasa tetap
+  harus mengisi keduanya (kesalahannya tetap ditunjuk per baris).
+- Fitur **Daftar Harga Jual** di **Pengaturan Perusahaan › Fitur** kini bernama **Daftar Harga (jual & beli)**: satu centang untuk keduanya.
+- Lembar data import daftar harga jual dan beli bernama **Harga Jual** / **Harga Beli**: unduh template baru bila Anda menyimpan template lama.
+- Jabatan yang boleh membuat Pembelian otomatis mendapat hak Daftar Harga Beli; laporan Harga Beli vs Kesepakatan untuk jabatan yang boleh melihat Laba Jual.
+- Faktur penjualan grup yang sudah ada tidak punya cabang tujuan: tetap muncul di semua cabang pembeli, seperti sebelumnya. Penjual yang mengubah faktur
+  lama boleh memilih tujuannya; mengubah tanpa memilih tidak menghapus tujuan yang sudah ada.
+- Klien Pilar ERP versi lama tidak bisa memilih cabang tujuan: membuat faktur grup baru ke pembeli beberapa cabang dari klien lama ditolak dengan
+  pesan "Pilih cabang tujuan". Perbarui aplikasi dulu.
+
 ## 1.0.57 (7 November 2026)
 
 ### Perbaikan
