@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.56 (7 November 2026)
+
+### Perbaikan
+- **Integrasi Quinos › Import (Harian)**: hari dengan banyak catatan baris (diskon item, struk tarif lain) tidak lagi gagal disimpan karena "value too long for type character varying(200)". Catatan baris faktur harian tidak lagi memuat daftar nomor struk (sudah ada di No. Referensi faktur), dan memo baris jurnal dibatasi 200 huruf.
+
 ## 1.0.55 (7 November 2026)
 
 ### Baru

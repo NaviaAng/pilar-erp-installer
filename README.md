@@ -5,13 +5,13 @@ Repo ini hanya berisi **installer** dan **riwayat perubahan**. Kode sumber tidak
 
 ## Unduh
 
-**Versi terbaru: 1.0.55** (7 November 2026)
+**Versi terbaru: 1.0.56** (7 November 2026)
 
 - **[PilarErp-Setup.exe](https://github.com/NaviaAng/pilar-erp-installer/releases/latest/download/PilarErp-Setup.exe)** (1,9 MB)
 - Semua versi: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases)
 - Juga tersedia di https://app.pilarsukses.com/unduh/
 
-SHA-256 installer 1.0.55: `b6f41c3824ff0aed8f741bdfd45d229b8fadd073b405baa2533b098406fc88aa`
+SHA-256 installer 1.0.56: `45d1aef206d4a43748c721f42f6812e397a12f6b44fb7e1f8b9a26e1343a68aa`
 
 ## Pasang
 
