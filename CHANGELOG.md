@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.59 (7 November 2026)
+
+### Perbaikan
+- **Installer**: gagal memasang di sebagian Windows 7 dengan pesan "Pemasangan file gagal: 11". Installer kini membawa pengekstrak 7-Zip sendiri
+  (7za.exe, ikut tertanam di PilarErp-Setup.exe, bukan di folder aplikasi). Cukup unduh installer baru; PC yang sudah terpasang tidak terpengaruh.
+
 ## 1.0.58 (7 November 2026)
 
 ### Baru
