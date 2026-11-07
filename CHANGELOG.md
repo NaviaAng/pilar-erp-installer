@@ -2,6 +2,33 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.60 (8 November 2026)
+
+### Baru
+- **Bantuan › Tutorial**: kotak cari kini mencari di isi semua topik. Topik yang cocok disaring di daftar, kata yang dicari disorot di halaman, dan **Enter** / **F3** (Shift = mundur) atau tombol ▲ ▼ pindah ke kecocokan berikutnya; **Ctrl+F** langsung ke kotak cari.
+- **Bantuan › Tutorial**: panel **Bagian topik** (bookmark dari judul bagian) di kanan halaman. Klik untuk melompat ke bagian itu; butir yang menyala mengikuti bagian yang sedang dibaca. Tampil / sembunyikan dengan tombol **Bookmark** atau **Ctrl+B**.
+- **Tutorial semua menu**: bagian **Hak akses** diseragamkan di tiap modul — hak yang dibutuhkan, tombol yang diatur masing-masing hak, hak tambahan (cetak, harga modal, import), dan jabatan bawaan.
+- **Persediaan › Koreksi Stok › Opname Harian**: tombol **Cetak lembar hitung ▾** mencetak **Lembar Hitung Opname** (A4) untuk dokumen yang dicentang:
+  item daftar dengan kolom Fisik, Expired, dan Waste kosong untuk ditulisi tangan, dikelompokkan per lokasi, tanpa stok sistem. Dua daftar dicentang
+  menghasilkan dua lembar dalam satu cetakan, dan bisa dicetak sejak dokumen masih Draft. Cetakan yang sama ada di form hitung. Nomor baris di kertas
+  sama dengan kolom **No** di form hitung, jadi menyalin dari kertas tinggal turun satu per satu.
+- **Opname Harian**: daftar dokumen kini bisa dicentang banyak, ada tombol **Lihat**, **Ubah**, dan **Open** (untuk dokumen Draft yang dicentang).
+  Lihat dan Ubah membuka form hitung sebagai dialog di atas daftar, tidak lagi pindah ke tab lain.
+- **Penjualan › Closing Harian › Buka Closing**: form dibagi empat tab dengan tombolnya masing-masing: **Opname** (daftar dokumen Opname Harian: Generate,
+  Open, Cetak lembar hitung, Lihat, Ubah), **Penjualan** (Import Penjualan, Pemetaan), **Kas** (Simpan, Atur kas outlet) dan **Tutup Hari** (Tutup Hari,
+  Buka Kembali, Cetak, Salin WhatsApp). Judul tab memberi tanda ✔ / ⚠ / ○ untuk status tiap langkah. Bar atas tinggal Muat Ulang dan Tutup.
+
+### Perbaikan
+- **Akuntansi › Jurnal Umum**: kolom **No. Referensi** jurnal otomatis (penjualan, pembelian, kas, pelunasan, retur, stok, opname, penyusutan, dan lain-lain) kini terisi dari No. Referensi
+  dokumen asalnya, mis. nomor closing `CLS/…` pada Stok Opname buatan Closing Harian. Mengubah No. Referensi di dokumen ikut mengubah jurnalnya. Jurnal lama dilengkapi otomatis saat
+  aplikasi diperbarui. Kolom **Keterangan** dan jurnal manual tidak berubah.
+- **Opname Harian**: tombol Cetak di form dokumen yang menghasilkan Laporan Persediaan (struk, setelah Release) diberi nama **Laporan Persediaan ▾**
+  supaya tidak tertukar dengan lembar hitung.
+
+### Perlu diperhatikan
+- Migrasi database (`JurnalNoReferensi`): hanya mengisi kolom No. Referensi jurnal otomatis lama dari dokumen asalnya (satu perintah, tanpa kolom atau tabel baru).
+- Tombol **Pemetaan & Kas ▾** di form closing kini bernama **Pemetaan ▾** (di tab Penjualan); pintasan Atur kas outlet pindah ke tab Kas.
+
 ## 1.0.59 (7 November 2026)
 
 ### Perbaikan
