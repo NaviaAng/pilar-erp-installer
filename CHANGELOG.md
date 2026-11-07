@@ -2,6 +2,13 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.57 (7 November 2026)
+
+### Perbaikan
+- **Penjualan › Closing Harian**: closing yang dibuka kembali tidak lagi menampilkan selisih stok palsu. Stok Opname hasil Tutup Hari yang dibatalkan oleh Buka Kembali
+  tadinya terbaca sebagai "mutasi sesudah jam hitung", sehingga tiap item berselisih sebesar opname lama (muncul juga di Laporan Persediaan Harian) dan Tutup Hari ulang
+  memposting selisih itu ke stok lagi. Kini dokumen yang dibatalkan atau dihapus impas dengan pembaliknya.
+
 ## 1.0.56 (7 November 2026)
 
 ### Perbaikan
