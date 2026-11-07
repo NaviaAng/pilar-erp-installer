@@ -2,6 +2,100 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.55 (7 November 2026)
+
+### Baru
+- **Pembelian › Pembayaran Utang** dan **Penjualan › Penerimaan Piutang**: tombol **Ribuan** / **Ratusan** di baris **Bulatkan** (panel kanan) mengisi
+  **Pembulatan** otomatis supaya **Total Bayar** bulat ke ribuan / ratusan terdekat. Contoh: tagihan Rp 1.668.420 → klik **Ribuan** → Pembulatan −420,
+  Total Bayar Rp 1.668.000. Pembulatan tetap bisa diubah sesudahnya.
+- **Sistem › Import Data › Pembayaran Utang** dan **Penerimaan Piutang**: kolom baru **Pembulatan** (opsional, cukup diisi di baris pertama tiap
+  No Bukti) dengan aturan yang sama dengan isian di form. Uang yang dibayar / diterima = jumlah faktur + pembulatan, faktur tetap **Lunas**, dan
+  selisihnya ke akun **Selisih Pembulatan**. File lama tanpa kolom ini tetap bisa dipakai (pembulatan 0).
+- **Persediaan › Item › tab Harga & Satuan › Harga perkiraan**: bahan yang belum pernah dibeli dan belum punya stok awal kini bisa diberi harga
+  perkiraan per satuan dasar. Selama HPP rata-rata bahan masih 0, tab **Resep** memakai harga perkiraan itu untuk **Est. HPP** dan **margin** menu,
+  dengan catatan abu-abu "PERKIRAAN" dan keterangan "(perkiraan)" di panel HPP & Margin. Begitu bahan dibeli atau diberi stok awal, HPP sebenarnya yang
+  dipakai. Harga perkiraan hanya untuk melihat angka: tidak masuk stok, jurnal, HPP penjualan, maupun laporan. Hanya untuk item ber-stok (Bahan, Dagang,
+  Produksi) dan jabatan dengan hak **Lihat Harga Modal di Pembelian & Item**.
+- **Sistem › Import Data › Item**: kolom baru **Harga Perkiraan** (kosong = tidak diubah); ikut terisi di sheet Daftar Item template untuk jabatan yang
+  berhak.
+- **Akuntansi › Akun (COA)**: akun Kas/Bank punya isian **Wajib sebelum Tutup Periode** (Tidak / Saldo saja / Saldo + Rekonsiliasi Selesai) dan **Wajib mulai bulan**
+  (terisi bulan berjalan saat dinyalakan, bisa diubah). Bawaannya Tidak; kolom **Wajib Rekonsiliasi** tampil di daftar akun. Saldo + Rekonsiliasi hanya bisa dipilih untuk
+  akun yang sudah punya mutasi rekening koran hasil import.
+- **Kunci & Tutup Buku › Tutup Periode**: akun yang diwajibkan diperiksa sendiri-sendiri (**Rekening koran wajib: …**). Saldo Rekening Koran yang belum diisi atau
+  selisih tanpa penjelasan, dan untuk Saldo + Rekonsiliasi juga Rekonsiliasi Bank yang belum **Selesai**, menjadi **Blokir** (bukan lagi Peringatan) mulai Wajib mulai bulan.
+  Klik dua kali barisnya membuka Saldo Rekening Koran / Rekonsiliasi Bank bulan dan akun itu. Akun yang tidak diwajibkan tetap Peringatan seperti sebelumnya.
+- **Abaikan sekali**: pemegang hak baru **Abaikan Syarat Rekening Koran (Tutup Periode)** bisa mengabaikan syarat satu akun untuk satu bulan (mis. rekening koran
+  terlambat dari bank) lewat tombol **Abaikan sekali…** di Tutup Periode. Alasan wajib dan tercatat di Log Aktivitas; syarat akun dan bulan berikutnya tidak berubah;
+  **Batalkan abaikan…** memberlakukannya lagi selama periode belum ditutup.
+- **Saldo Rekening Koran**: kolom **Wajib Sebelum Tutup**; akun yang diwajibkan selalu perlu diisi (juga tanpa saldo dan mutasi, isi 0).
+- **Import Data › Akun (COA)**: kolom **Wajib Rekonsiliasi** dan **Wajib Mulai Bulan** (mis. 11/2026).
+- **Laporan › Laporan Kendaraan › Daftar Kendaraan**: daftar kendaraan per tanggal (rinci per kendaraan, rekap per jenis / cabang) dengan pemegang, no. rangka
+  & mesin, harga perolehan, akumulasi, nilai buku Aset Tetap tertaut, biaya sampai tanggal itu, dan dokumen terdekat; bisa dicetak dan diekspor.
+- **Laporan › Laporan Kendaraan › TCO per Kendaraan**: total biaya kepemilikan per kendaraan (operasional, pajak & asuransi, sewa & leasing, penyusutan),
+  dalam satu periode atau sejak perolehan, beserta TCO per bulan.
+- **Biaya per Kendaraan › Dibanding Buku Besar**: pemeriksaan otomatis per akun, biaya ber-kendaraan + tanpa kendaraan = mutasi akun di Buku Besar.
+- **Kas & Bank › Biaya Rutin**: kolom **Kendaraan** per baris jadwal (cicilan leasing, asuransi, sewa per kendaraan); Kas Keluar, Tagihan Biaya, atau Jurnal
+  Umum yang dicatat membawa kendaraannya.
+- **Kendaraan › Dokumen Kendaraan**: tombol **Simpan & Catat Biaya** (dokumen baru / perpanjangan) dan **Catat Biaya** mencatat biaya perpanjangan STNK, pajak,
+  KIR, atau premi asuransi sebagai Kas Keluar / Tagihan Biaya ber-kendaraan; nomornya tampil di kolom **Biaya Dicatat** dan tidak bisa tercatat dua kali.
+- **Kendaraan › Kendaraan**: **Cetak Kartu** / **Cetak** di Kartu Kendaraan: Kartu Kendaraan A4 (identitas, pemegang & SIM, Aset Tetap, dokumen aktif,
+  ringkasan biaya per kategori).
+- **Akuntansi › Buku Besar**: kolom **Kendaraan** (no. polisi) di baris biaya kendaraan; klik no. polisinya membuka Kartu Kendaraan, kotak cari juga
+  mencari no. polisi.
+- **Sistem › Import Data**: kelompok **Kendaraan** dengan import **Pengemudi** dan **Kendaraan** dari Excel (dicocokkan lewat kode / no. polisi, merek &
+  model baru dibuat otomatis).
+- **Menu akun › Refresh Menu Akses** (klik nama Anda di kanan atas): menarik ulang semua hak akses, daftar cabang, dan pengaturan perusahaan (fitur yang
+  dipakai, format angka, kunci layar, nama perusahaan) dari server tanpa keluar aplikasi. Menu disusun ulang, tab daftar yang sedang terbuka dibuat ulang
+  supaya tombolnya (Baru, Ubah, Hapus, dan lainnya) mengikuti hak terbaru, dan tab yang haknya dicabut ditutup. Pesan hasilnya menyebut menu yang bertambah
+  atau dicabut. Form dokumen yang sedang terbuka tidak disentuh, jadi isiannya aman.
+- **Persediaan › Moving Index**: kelas pergerakan setiap item ber-stok di setiap cabang, Very Fast, Fast, Medium, Slow, Very Slow, dan Dead (ditambah
+  Baru dan Tidak aktif), dari seberapa sering item keluar dalam 90 hari terakhir. Hari stok kosong tidak menurunkan kelas, transfer keluar ke outlet
+  dihitung sebagai permintaan gudang, buangan Expired / Waste dan retur pembelian tidak dihitung. Tab **Ringkasan** menampilkan tabel cabang × kelas
+  (jumlah item, % item, atau nilai stok) dengan grafik; klik dua kali angkanya untuk melihat itemnya. Tab **Rincian** memuat frekuensi, hari bergerak,
+  hari stok kosong, rata-rata keluar per hari, hari persediaan, kelas ABC, dan supplier terakhir; klik dua kali membuka Kartu Stok item itu. Tab
+  **Antar Cabang** menunjukkan stok mati yang bisa ditransfer ke cabang yang laku, dan tab **Perubahan** menunjukkan item yang naik / turun kelas.
+  Kelas dihitung otomatis tiap tanggal 1 pukul 02.00 (bisa diatur Mingguan atau Manual saja) atau lewat tombol **Hitung Ulang**, dan riwayat tiap
+  hitungan disimpan. **Kunci Kelas** menetapkan kelas secara manual (mis. parcel musiman, item promosi, bahan cadangan) dengan alasan dan batas tanggal.
+- **Pengaturan Perusahaan › Persediaan › Moving Index**: jendela, ambang kelas, Hari Dead, masa item Baru, pembagi minimal, abaikan hari stok kosong, jadwal.
+- **Master Item** (tab Item) dan **Kartu Stok** menampilkan kelas Moving Index item itu per cabang.
+
+### Perbaikan
+- **Persediaan › Item › tab Resep / Komponen**: bahan yang HPP-nya masih 0 di cabang aktif (belum dibeli atau belum diberi stok awal) kini diberi
+  catatan merah "HPP 0" beserta nama bahannya dan petunjuk mengisinya lewat Pembelian, Saldo Awal Stok, atau Harga perkiraan. Sebelumnya Est. HPP
+  menu diam-diam kurang tanpa penjelasan. Catatan tidak tampil untuk jabatan tanpa hak Lihat Harga Modal.
+- **Tutorial › Item**: penjelasan dari mana HPP menu berasal, dengan contoh menu baru sebelum bahannya dibeli.
+- **Import Data › Akun (COA)**: memperbarui akun Kas/Bank lewat import tidak lagi menghapus centang **Minta nomor kartu**.
+- **Biaya Kendaraan Tanpa Kendaraan**: jurnal penutup (Tutup Buku) tidak lagi ikut dihitung sebagai biaya tanpa kendaraan.
+- **Kendaraan › Kategori Biaya**: akun template kendaraan yang diimpor belakangan lewat **Akun (COA) › Template…** (mis. 6-1640 … 6-1990 di perusahaan
+  lama) langsung terpetakan ke kategorinya.
+- Perubahan **Fitur** perusahaan (Pengaturan Perusahaan) dan hak akses yang diberikan saat sebuah tab sudah terbuka kini bisa sampai ke PC lain tanpa login ulang,
+  lewat **Refresh Menu Akses**. Sebelumnya menu atau tombol yang baru diberi hak kadang tidak muncul sampai user keluar dan masuk lagi.
+- **Web /outlet/**: tab yang dibuka lagi keesokan harinya (mis. dipulihkan Chrome di HP) tidak lagi masih memegang tanggal kemarin, yang membuat isian **Hitung** terkunci atau halaman Stok kosong. Tanggal yang dibuka kini hanya diingat sampai hari kerja berganti; sesudahnya halaman mulai dari **Pilih tanggal**.
+- **Opname Harian**: tanda **Terlambat** kini mengikuti **jam ganti hari** cabang, sama dengan aturan penolakan hitungan. Dokumen kemarin yang dihitung
+  sesudah tengah malam tetapi sebelum jam ganti hari (bawaan 06.00) tidak lagi ditandai terlambat di dokumen, Closing Harian, dan Laporan Closing.
+  Sebelumnya hitungan itu diterima walau batas hitung terlambat 0 dan layar PIC tidak memberi peringatan, tetapi barisnya tersimpan sebagai terlambat.
+
+### Perlu diperhatikan
+- **Riwayat** item menutup perubahan Harga perkiraan bagi jabatan tanpa hak Lihat Harga Modal di Pembelian & Item. **Koreksi Satuan Dasar**
+  mengonversi harga perkiraan seperti harga jual (dikali isi).
+- **Rekonsiliasi Bank**: untuk akun yang diwajibkan, mutasi dan bulan sebelum Wajib mulai bulan tidak lagi ikut daftar belum cocok dan tidak dihitung di aturan
+  **Selesai berurutan**, jadi riwayat mutasi lama yang pernah di-import tidak menghalangi.
+- Hak **Abaikan Syarat Rekening Koran** tidak diberikan otomatis ke jabatan mana pun (juga tidak ke Akunting); Admin selalu boleh. Atur di Jabatan & Hak Akses bila perlu.
+- Kendaraan yang masih disebut jadwal Biaya Rutin tidak bisa dihapus sebelum kendaraannya dikosongkan di jadwal itu.
+- Jabatan yang boleh melihat menu Kendaraan otomatis mendapat hak laporan baru **Daftar Kendaraan** dan **TCO per Kendaraan**.
+- Hitungan yang tersimpan sebelum pembaruan ini tidak diubah: baris yang terlanjur bertanda terlambat tetap begitu. Koreksi stok sistem tidak berubah.
+- Hak baru **Moving Index** (Lihat = menu, Ubah = Hitung Ulang & Kunci Kelas). Jabatan yang sudah boleh melihat analisa Stok Mati otomatis mendapat Lihat;
+  nilai keluar & nilai stok tetap butuh hak Lihat harga pokok di laporan.
+- Hitungan pertama dibuat saat menu Moving Index pertama kali dibuka sesudah pembaruan (tanggal hitung akhir bulan lalu).
+- **Bersihkan Data** satu cabang ikut menghapus hasil hitung dan Kunci Kelas cabang itu.
+- Migrasi database tata letak (`UrutanKolomGrupClosing`, `UrutanKolomTanpaDefault`): tabel `customers`, `closing_settings`, `sales`, `sale_lines`,
+  dan `expense_bills` dibangun ulang supaya kolom yang ditambah belakangan (aturan harga grup, closing mundur, rujukan pesanan penjualan, akun utang
+  tagihan biaya) berada sebelum kolom audit, dan nilai bawaan database yang tersisa di 60 kolom lain dibuang (nilai selalu diisi aplikasi). Hanya
+  tata letak tabel yang berubah; data, index, dan relasi tetap. Update server pertama kali sedikit lebih lama, sebanding dengan jumlah faktur penjualan.
+- Migrasi database lain di versi ini (berjalan otomatis saat server diperbarui): `HargaPerkiraan` (kolom `items.estimated_cost`, awal 0),
+  `Kendaraan5` (kendaraan di baris Biaya Rutin, biaya tercatat di Dokumen Kendaraan), `SyaratRekonsiliasi` (syarat per akun di `accounts` dan tabel
+  `bank_recon_waivers`), dan `MovingIndex` (tabel `moving_runs`, `moving_items`, `moving_locks`, serta pengaturan Moving Index di `company_settings`).
+
 ## 1.0.54 (6 November 2026)
 
 ### Baru
