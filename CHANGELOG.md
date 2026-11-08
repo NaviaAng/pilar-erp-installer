@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.68 (8 November 2026)
+
+### Baru
+- **Cetak Hasil Hitung Opname Harian** (A4 dan thermal 80 mm) dari tombol **Cetak ▾** di daftar dan form Opname Harian: fisik sesudah revisi, Expired, Waste, catatan revisi per item, jumlah revisi, dan tanda tangan PIC dan Kepala outlet. Tanpa stok sistem, selisih, dan harga.
+- **Laporan › Laporan Persediaan › Revisi Opname Harian**: Rekap per Perevisi dan Rincian Revisi (qty sebelum dan sesudah, alasan, perevisi, apakah PIC sendiri) untuk rentang tanggal opname dan outlet.
+  Hak baru `lap_revisi_opname_harian`, diberikan ke jabatan yang boleh melihat Closing Harian.
+- **Rekap Closing** (desktop dan web) mendapat kolom **Revisi** (jumlah revisi hitungan hari itu).
+- Ringkasan **Salin untuk WhatsApp** menambahkan baris "Revisi hitungan: n item" beserta daftar ringkasnya bila ada.
+- **Web outlet (/outlet/) › Transfer**: tab baru untuk terima kiriman cabang lain (**Masuk**) dan kirim barang ke cabang lain (**Keluar**) dari HP. Tampil sesuai hak
+  Transfer Masuk dan Transfer Keluar akun.
+- **Stok Opname berstatus (tahap 1, server)**: dokumen hitung periodik dengan status Draft → Open → Release → Close, nomor `SOH/…`, tanpa Closing Harian dan tanpa Daftar Opname. **Close** memposting Stok Opname (OP) per akhir tanggal opname dan buangan Expired / Waste sebagai Item Keluar; **Buka Kembali** dari Close membatalkan keduanya. Layar desktop dan label di HP menyusul di tahap berikutnya.
+- Hak baru **Stok Opname (berstatus)** (atasan: Lihat, Buat, Ubah, Batal) dan **Hitung Stok Opname (PIC)** (Lihat, Buat), terpisah dari Opname Harian. Jabatan yang bisa membuat Stok Opname Langsung otomatis mendapatkannya.
+
+### Perlu diperhatikan
+- Migrasi basis data `StokOpnameBerstatus`: dokumen Opname Harian lama otomatis berjenis Harian.
+
 ## 1.0.67 (8 November 2026)
 
 ### Baru
