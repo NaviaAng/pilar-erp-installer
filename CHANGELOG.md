@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.61 (8 November 2026)
+
+### Baru
+- **Opname Harian › Cetak**: Lembar Hitung Opname kini punya template Thermal 80 mm. Satu baris per item (No, Nama, Sat, Fisik, Exp, Wst); nama item yang kepanjangan dipotong, tidak turun ke baris bawah.
+
 ## 1.0.60 (8 November 2026)
 
 ### Baru
