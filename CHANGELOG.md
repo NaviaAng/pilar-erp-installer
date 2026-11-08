@@ -2,6 +2,14 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.67 (8 November 2026)
+
+### Baru
+- **Persediaan › Kartu Stok**: jenis mutasi kini jelas tanpa membuka dokumennya. Kolom **Jenis** membedakan **Penjualan umum** dan **Penjualan grup**
+  (antar perusahaan satu grup), **Pembelian umum** dan **Pembelian grup**, serta **Opname lebih** dan **Opname kurang**. Kolom baru **Lawan** menyebut
+  konsumen / supplier, alasan Item Masuk / Keluar (akun lawan), cabang tujuan Transfer Keluar ("→ Cabang") dan cabang asal Transfer Masuk ("← Cabang"),
+  serta penitip / toko titipan.
+
 ## 1.0.66 (8 November 2026)
 
 ### Baru
