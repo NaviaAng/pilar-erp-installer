@@ -2,6 +2,26 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.66 (8 November 2026)
+
+### Baru
+- **Closing Harian (Web) › Stok › Selisih**: sub-tab baru di HP untuk pemegang hak Closing Harian. Menampilkan selisih stok dokumen Opname Harian yang sudah Release **sebelum Tutup Hari**
+  (Sistem, Fisik, Selisih, filter Berselisih / Direvisi, pencarian) beserta riwayat revisi.
+- **Revisi hitungan per item dari HP**: ketuk baris di tab Selisih, isi qty baru, alasan, serta username dan password yang merevisi (kode 2FA bila user itu memakainya),
+  sama seperti di desktop. PIC melihat catatan revisi atas hitungannya di layar hitung.
+- Menu bawah web HP diringkas: **Stok** memuat sub-tab Hitung dan Selisih, **Penjualan** memuat sub-tab Penjualan dan Kas.
+- **Expired dan Waste selalu tampil** di layar hitung Opname Harian (desktop dan HP). Akun lawannya otomatis akun **5-1300 Susut, Rusak & Kedaluwarsa (Waste)** bila belum diatur di Closing Harian › Atur.
+- Hak baru **Pengaturan Closing Harian** (Penjualan): Ubah = menyimpan Closing Harian › Atur (akun kas outlet, batas selisih kas, jam ganti hari, akun Expired / Waste, dan lainnya). Jabatan yang sebelumnya bisa menyimpan pengaturan (Closing Harian Buat) otomatis mendapatkannya.
+
+### Perbaikan
+- **Closing Harian / Opname Harian**: selisih opname kini selalu dibandingkan dengan stok akhir tanggal closing (awal + masuk − keluar − buangan),
+  tidak lagi dengan stok pada jam hitung diinput. Hitungan yang diketik keesokan hari (dari lembar kertas) tidak lagi berselisih palsu karena kiriman
+  atau penjualan tanggal berikutnya. Kolom dan peringatan *Mutasi Sesudah Hitung* / *Penjualan tanpa jam* dihapus.
+
+### Perlu diperhatikan
+- Closing yang sudah ditutup dengan selisih palsu tidak berubah sendiri (Stok Opname sudah diposting): **Buka Kembali** closing itu lalu **Tutup Hari** lagi.
+- Cabang yang belum punya akun Expired / Waste dan perusahaannya tidak punya akun 5-1300 tidak bisa **Generate dokumen** dan **Open** Opname Harian sampai kedua akun diisi di Atur.
+
 ## 1.0.65 (8 November 2026)
 
 ### Baru
