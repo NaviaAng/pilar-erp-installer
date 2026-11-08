@@ -2,6 +2,16 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.64 (8 November 2026)
+
+### Perbaikan
+- **Cetak thermal**: nama item di semua struk thermal (80 dan 58 mm) selalu satu baris; nama yang kepanjangan dipotong dan diakhiri "...", tidak turun ke baris bawah.
+
+### Perlu diperhatikan
+- **Buka Kembali** closing dan dokumen Opname Harian kini butuh hak baru **Buka Kembali Closing & Opname** (Penjualan), bukan lagi Closing Harian › Batal. Jabatan yang
+  dulu punya Closing Harian › Batal otomatis mendapat hak baru ini, dan jabatan bawaan **Akunting** juga. Cabut dari kepala outlet di Jabatan & Hak Akses bila Buka Kembali
+  hanya untuk pusat; tanpa hak itu, desktop meminta Persetujuan Atasan dan halaman web HP tidak menampilkan tombolnya. **Batal** dokumen tetap memakai Closing Harian › Batal.
+
 ## 1.0.63 (8 November 2026)
 
 ### Baru
