@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.62 (8 November 2026)
+
+### Baru
+- **Closing Harian (Web)** dan **Opname Stock (Web)**: dua hak akses baru di Jabatan & Hak Akses untuk halaman web `/outlet/` di HP.
+  Menu Hari ini, Penjualan, Kas, Tutup, Rekap, dan Atur mengikuti Closing Harian (Web); menu **Opname** mengikuti Opname Stock (Web).
+- **Opname** di halaman web `/outlet/`: begitu login (akun dengan Opname Stock (Web) saja), tampil daftar dokumen opname yang **Draft**, **Open**, dan **Release**
+  di semua tanggal; yang sudah Close tidak tampil. Ketuk satu dokumen untuk menghitung dan Release.
+
+### Perlu diperhatikan
+- Jabatan yang sudah punya hak Closing Harian atau Opname Harian otomatis mendapat kedua hak web baru ini, jadi tidak ada yang kehilangan akses. Cabut salah satunya
+  di Jabatan & Hak Akses bila ingin memisahkan. Jabatan **Kasir** bawaan ikut mendapatkannya.
+- **Closing Harian › Tutup Hari** kini hanya mengunci **transaksi** cabang pada tanggal itu: penjualan, retur, import Quinos, pembelian, dan dokumen stok.
+  **Kas Masuk, Kas Keluar, Transfer Kas, pelunasan piutang / utang, dan biaya** bertanggal itu tetap bisa dibuat dan diubah Akunting sampai Tutup Periode.
+- **Closing Harian**: hitung kas tidak wajib lagi untuk Tutup Hari. Kas dipegang Akunting; bila kas fisik diisi, selisih kas dan setoran tetap dibuat saat Tutup Hari.
+- Pembelian yang telat diinput untuk tanggal yang sudah ditutup tetap harus lewat **Buka Kembali** closing, lalu Tutup Hari lagi, supaya stok tidak dobel.
+
 ## 1.0.61 (8 November 2026)
 
 ### Baru
