@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.65 (8 November 2026)
+
+### Baru
+- **Closing Harian › Kas › Posting Kas**: kas fisik dan setoran kini langkah tersendiri, terpisah dari Tutup Hari. Kepala outlet boleh menutup hari tanpa mengisi kas;
+  **Akunting** mengisi kas fisik dan setoran lalu menekan **Posting Kas** (membuat Kas Masuk / Keluar selisih kas dan Transfer setoran), juga **sesudah** Tutup Hari.
+  Kas yang sudah diposting dikunci sampai **Batalkan Posting Kas…** (alasan wajib). Bila kas fisik sudah diisi sebelum Tutup Hari, Tutup Hari memostingnya otomatis seperti dulu.
+- Hak baru **Kas Closing Harian** (Penjualan): Buat = isi kas dan Posting Kas, Batal = Batalkan Posting Kas.
+- **Sistem › Jabatan & Hak Akses**: kolom Keterangan hak lintas-menu (harga modal, cetak, import, persetujuan, dan sebagainya) kini menyebut nama menu yang memakainya
+  ("Dipakai di: …"), jadi hak mudah dicari lewat nama menu.
+
+### Perlu diperhatikan
+- **Buka Kembali closing tidak lagi membatalkan Kas Masuk / Keluar selisih dan Transfer setoran**; hanya Stok Opname dan Item Keluar buangan. Batalkan kas lewat
+  **Batalkan Posting Kas…** bila perlu.
+- Jabatan yang boleh mengisi kas (Closing Harian Buat) otomatis mendapat Kas Closing Harian Lihat + Buat, yang punya Closing Harian Batal juga Batal; jabatan bawaan Akunting
+  mendapat ketiganya. Closing yang sudah ditutup sebelum pembaruan ini dianggap kasnya sudah diposting.
+
 ## 1.0.64 (8 November 2026)
 
 ### Perbaikan
