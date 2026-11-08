@@ -2,6 +2,17 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.63 (8 November 2026)
+
+### Baru
+- **Opname Harian › Revisi…**: hitungan yang sudah di-Release bisa direvisi per item sebelum Tutup Hari. Yang merevisi mengisi qty baru, alasan, username, dan
+  password-nya sendiri (kode 2FA bila memakai 2FA). Kolom **Revisi** di grid menampilkan qty sebelum → sesudah, siapa, dan alasannya; **Riwayat revisi**
+  menyimpan semuanya, termasuk user yang login di komputer saat itu. PIC ikut melihat revisi atas hitungannya.
+
+### Perlu diperhatikan
+- Hak baru **Revisi Hitungan Opname** (kelompok Persediaan). Jabatan yang boleh Tutup Hari (Closing Harian Buat) otomatis mendapatkannya; cabut di Jabatan & Hak Akses
+  bila hanya kepala outlet yang boleh merevisi.
+
 ## 1.0.62 (8 November 2026)
 
 ### Baru
