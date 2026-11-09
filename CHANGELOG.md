@@ -2,6 +2,18 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.73 (9 November 2026)
+
+### Baru
+- **Web Outlet › menubar**: menubar jadi lima tombol: **Beranda**, **Penjualan**, **Pembelian**, **Persediaan**, dan **Closing** (Closing Harian). Layar di dalam tiap tombol dipilih lewat sub-tab.
+- **Web Outlet › Beranda**: pintu masuk berisi kiriman yang menunggu diterima, opname yang berjalan, dan aksi cepat sesuai hak akun.
+- **Web Outlet › Penjualan / Pembelian**: daftar transaksi 7 hari terakhir dengan rincian item (hanya melihat).
+- **Web Outlet › Persediaan**: transfer keluar bisa **diubah** dan **dihapus** selama belum diterima; transfer masuk bisa diubah (tanggal, catatan) dan **dibatalkan terimanya**, dengan alasan wajib. Layar Pesanan Transfer untuk cabang penerima permintaan belum ada di web.
+- **Web Outlet › Closing**: **Opname** (Opname Harian) kini paling depan di grup Closing.
+
+### Perbaikan
+- **Web Outlet › halaman masuk**: nomor versi tidak lagi memakai gaya inline yang diblokir kebijakan keamanan peramban.
+
 ## 1.0.72 (9 November 2026)
 
 ### Perbaikan
