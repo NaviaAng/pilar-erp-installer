@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.71 (9 November 2026)
+
+### Perbaikan
+- **Penjualan › Closing Harian › tab Opname**: menu **Cetak ▾** kini juga menawarkan **Hasil Opname Stock Thermal 80 mm** untuk dokumen yang dicentang (yang sudah Release / Close, bagi pemegang hak Closing Harian); satu struk per dokumen dalam satu cetakan.
+- **Penjualan › Closing Harian › tab Tutup Hari**: **Cetak ▾ › Hasil Opname Stock Thermal 80 mm** meminta konfirmasi **No Opname Harian** dulu (semua nomor yang sudah Release / Close dicentang), baru dicetak, satu struk per nomor.
+
 ## 1.0.70 (9 November 2026)
 
 ### Perbaikan
