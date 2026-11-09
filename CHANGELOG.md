@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.70 (9 November 2026)
+
+### Perbaikan
+- **Penjualan › Closing Harian** dan **Laporan › Laporan Closing**: menu **Cetak** kembali menampilkan **Closing Harian Lengkap** dan **Ringkas** (A4 mendatar), di samping struk thermal.
+- **Opname Harian / Closing Harian**: struk thermal 80 mm kini bernama **Hasil Opname Stock** (sebelumnya Laporan Persediaan Harian); judul di struknya **HASIL OPNAME STOCK**. Nama template lama di tiap perusahaan ikut diganti otomatis.
+
 ## 1.0.69 (9 November 2026)
 
 ### Baru
