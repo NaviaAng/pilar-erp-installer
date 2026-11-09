@@ -2,6 +2,14 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.72 (9 November 2026)
+
+### Perbaikan
+- **Web Outlet › Transfer Masuk / Transfer Keluar**: daftar "Diterima / Terkirim 7 hari terakhir" kini punya tombol **Lihat rincian** untuk melihat item dan qty tiap transfer (sebelumnya daftar tidak menampilkan item sama sekali).
+- **Web Outlet › menubar**: menubar diringkas jadi 3 tombol grup — **Harian** (Hari ini, Opname, Hitung, Selisih, Penjualan, Kas, Tutup, Rekap sebagai sub-tab), **Transfer** (Masuk, Keluar), dan **Atur**. Sub-tab bisa digeser ke samping bila tidak muat.
+- **Web Outlet › Transfer › Permintaan**: sub-tab baru untuk meminta barang ke cabang lain (Permintaan Transfer, nomor PTR) langsung dari web: pilih cabang, tanggal dibutuhkan, item dan qty. Daftar "Permintaan saya" menampilkan status, nomor transfer keluarnya, dan rincian terkirim/sisa. Perlu hak Permintaan Transfer.
+- **Web Outlet**: nomor versi kini tampil di halaman masuk dan di header (di bawah nama pengguna).
+
 ## 1.0.71 (9 November 2026)
 
 ### Perbaikan
