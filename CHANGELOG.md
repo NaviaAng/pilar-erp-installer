@@ -2,6 +2,27 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.69 (9 November 2026)
+
+### Baru
+- **Persediaan › Koreksi Stok › Stok Opname** (menu baru, desktop): daftar dokumen Stok Opname berstatus (Draft → Open → Release → Close), **Baru…** (judul, tanggal opname, batas hitung, PIC, pilih item dari Semua / Tipe / Rak / Kelas / Excel), Open, Cetak, dan form dokumen dengan **Close (posting)**, Revisi, Ganti PIC, Buka Kembali, Batal. Menu lama diganti nama menjadi **Stok Opname Langsung**.
+- **Halaman web HP**: menu Opname memuat dokumen Stok Opname berstatus (diberi label) untuk PIC dengan hak Hitung Stok Opname.
+- **Stok Opname (berstatus) › Baru…**: centang **Pecah per rak** untuk membuat satu dokumen Draft per rak (judul "judul · rak", PIC sama; item tanpa rak satu dokumen sendiri). Aplikasi menyebut dokumen yang dibuat.
+- **Stok Opname (berstatus) › Close…**: centang beberapa dokumen Release bertanggal opname sama lalu Close bersama menjadi **satu** Stok Opname (OP); buangan Expired / Waste digabung per alasan. Item yang sama di dua dokumen ditolak. Buka Kembali satu dokumen dari gabungan mengembalikan semua dokumen gabungan ke Release.
+- **Sistem › Bersihkan Data**: jenis data baru **Stok Opname (berstatus)** (boleh per rentang tanggal opname) menghapus dokumen beserta hitungan, revisi, Stok Opname (OP), dan Item Keluar buangan hasil Close-nya. Bersihkan semua transaksi satu cabang juga ikut membersihkan dokumen Stok Opname berstatus; menghapus OP / Item Keluar hasil Close ikut menghapus dokumennya.
+- **Persediaan › Laporan › Revisi Opname Harian**: kolom **Nilai Perubahan (Harga Jual)** di Rincian Revisi dan Rekap per Perevisi (perubahan qty × harga jual daftar item), serta **Nilai Perubahan (HPP)** bagi jabatan yang boleh melihat harga pokok.
+- **Opname Harian › Cetak**: template **Hasil Hitung + Selisih** (A4 dan thermal 80 mm) dengan kolom Sistem dan Selisih dari Closing Harian, tombol **Hasil + Selisih ▾** di form dokumen. Hanya untuk pemegang hak Closing Harian; PIC tanpa hak itu tidak melihat template maupun angkanya.
+
+### Perbaikan
+- **Opname Harian**: Akun Expired / Waste tidak lagi wajib. Cabang yang belum punya akunnya tetap bisa Generate dokumen dan Open; kolom Expired / Waste
+  saja yang tidak dipakai. Qty buangan lebih dari 0 tanpa akunnya tetap ditolak saat dicatat.
+- **Persediaan › Opname Harian**: tombol Laporan Persediaan dipindah ke menu **Cetak ▾** dan namanya menjadi **Laporan Opname Harian Thermal 80 mm** (muncul sesudah dokumen di-Release).
+- **Penjualan › Closing Harian** dan **Laporan › Laporan Closing**: menu **Cetak** kini hanya berisi **Laporan Opname Harian** (struk); cetakan A4 Closing Harian Lengkap dan Ringkas tidak ditawarkan lagi. Judul struknya **LAPORAN OPNAME HARIAN**.
+- **Penjualan › Closing Harian** (desktop) dan **web outlet**: tab **Kas** kini menampilkan **Diterima per akun** (uang yang masuk hari itu, termasuk dari import Quinos) walau akun kas outlet belum dipilih, jadi atasan langsung melihat uangnya masuk ke akun mana.
+- **Ekspor & Backup**: paket cabang kini memuat hitungan dokumen Stok Opname berstatus (sebelumnya terlewat karena tidak punya Closing Harian).
+- **Opname Harian › wajib opname**: item berfrekuensi yang dihitung di dokumen Stok Opname berstatus kini terpenuhi setelah dokumen **Close** (bukan sejak Release), dan kembali jatuh tempo bila Close dibuka kembali.
+- **Opname Harian › Ganti PIC…**: kini cukup dengan hak Closing Harian **Buat** (hak Tutup Hari), jadi kepala outlet yang boleh Tutup Hari bisa mengganti PIC. Generate, Open, dan Daftar Opname tetap butuh hak Ubah.
+
 ## 1.0.68 (8 November 2026)
 
 ### Baru
