@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.74 (10 November 2026)
+
+### Baru
+- **Closing Harian › Laporan Outlet** (tahap simulasi, bawaan mati): tab baru untuk mencatat uang harian outlet seperti di kertas Laporan Harian. Tunai dan Lainnya per shift diketik, **slip rekap EDC** per bank diketik per shift (hanya rupiah, tanpa nomor batch), lalu EDC, total pembayaran, dan **setoran tunai** (Tunai − Kas Keluar + Kas Masuk) dihitung otomatis. **Pencocokan dengan sistem** menandai selisih per bank dan menduga **salah gesek** bila dua bank berselisih sama besar berlawanan tanda. Hanya mencatat: tidak ada jurnal atau dokumen. Mode per cabang (Cabang › Laporan Outlet): Peringatan (bawaan, tidak menghalangi Tutup Hari) atau Wajib (Tutup Hari ditolak bila belum diisi atau ada selisih tanpa catatan). Nyalakan di Pengaturan Perusahaan › Fitur › **Laporan Outlet (simulasi)**.
+- **Sistem › Master Pendukung › Jenis Kas Outlet**: master jenis kas keluar / kas masuk (arah, cara Biaya atau Bayar faktur, akun lawan) untuk Laporan Outlet. Tampil hanya bila fitur menyala.
+- **Cabang**: isian **Jumlah shift**, **Mode Laporan Outlet** (Peringatan / Wajib), dan daftar **Bank EDC** (nama, TID / MID, akun kas / bank bank itu) untuk Laporan Outlet. Tampil hanya bila fitur menyala.
+
+### Perbaikan
+- **Penjualan › Opname Harian** dan **Persediaan › Stok Opname**: klik dua kali dokumen berstatus Release kini membuka dokumen dalam mode Ubah bagi yang boleh Buka Kembali, jadi tombol **Buka Kembali** langsung terlihat (sebelumnya dokumen Release terbuka sebagai Lihat tanpa tombol itu).
+
+### Perlu diperhatikan
+- Fitur **Laporan Outlet** bawaan **mati** untuk semua perusahaan: nyalakan di Pengaturan Perusahaan › Fitur › **Laporan Outlet (simulasi)**. Selama mati tidak ada yang berubah
+  (tab, menu, dan isian Cabang tersembunyi; server menolak permintaannya). Fitur hanya mencatat dan mencocokkan: tidak membuat jurnal, Kas Keluar / Masuk, Transfer Kas, atau Pembayaran.
+  **Mode Laporan Outlet** per cabang: Peringatan (bawaan, tidak pernah menolak Tutup Hari) atau Wajib (Tutup Hari ditolak bila belum diisi atau ada selisih pencocokan tanpa catatan);
+  mode Wajib hanya berlaku bila fitur menyala. Migrasi `LaporanOutlet` menambah tabel kosong.
+
 ## 1.0.73 (9 November 2026)
 
 ### Baru
