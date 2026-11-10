@@ -2,6 +2,25 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.76 (10 November 2026)
+
+### Baru
+- **Closing Harian**: judul tab kini memakai **ikon berwarna** (ceklis hijau selesai, seru kuning peringatan, silang merah penghalang atau gagal, lingkaran kosong belum diisi, setengah biru sebagian terisi), tetap benar di semua tema Warna Aplikasi. Arahkan mouse ke ikon untuk melihat arti dan alasannya, termasuk alasan Tutup Hari ditolak.
+- **Closing Harian › Kas**: **Hitung fisik per pecahan** (lembar diketik, jumlah dihitung, boleh langsung mengetik total) dan **Mutasi kas hari ini** (Kas Masuk / Kas Keluar cabang itu tanggal itu); rincian pecahan tersimpan di closing.
+- **Closing Harian › Laporan Outlet**: kolom kanan **Ringkasan hari** (persen tiap pembayaran, shift terisi, diisi oleh siapa dan jam), kotak **Peringatan (n)**, dan **Catatan laporan outlet** (memo bebas, satu per hari, tidak terkait selisih).
+- **Laporan Outlet (sisi server)**: memo harian bebas per cabang per tanggal (maks. 1000 huruf) dan penanda "diisi oleh / kapan" (nama user dan waktu simpan
+  terakhir). Memo tidak terkait pencocokan, catatan selisih, atau Mode Wajib: memo kosong tidak pernah menolak Tutup Hari. Fitur Laporan Outlet tetap harus
+  dinyalakan di Pengaturan Perusahaan › Fitur.
+
+### Perbaikan
+- **Cabang › Laporan Outlet › Pilih akun…**: kotak centang akun kas / bank kini bisa dicentang (sebelumnya klik tidak mengubah apa pun, sehingga akun tidak bisa dikaitkan ke Bank EDC). Klik baris atau tekan Spasi untuk mencentang; daftar hanya akun Kas / Bank, urut kode.
+- **Cabang › Ubah**: dialog dua kolom (isian cabang di kiri, kotak Laporan Outlet di kanan, tanpa gulir) dan satu tombol **Simpan** untuk cabang dan pengaturan Laporan Outlet; tombol "Simpan Laporan Outlet" yang terpisah dihapus.
+
+### Diubah
+- **Closing Harian**: semua tab memakai kotak berjudul standar (garis tipis, mengikuti tema Warna Aplikasi), tidak ada lagi bar judul berwarna atau akordeon.
+- **Closing Harian › Laporan Outlet** dipecah menjadi dua tab: **Uang per Shift** (grid master-detail lebar) dan **Setoran & Pencocokan**. Urutan tab: Opname, Penjualan, Kas, Uang per Shift, Setoran & Pencocokan, Tutup Hari. Tetap tersembunyi bila fitur Laporan Outlet mati.
+- **Closing Harian › Penjualan** didesain ulang: **Ringkasan penjualan** (Faktur, Total, Rata-rata per faktur, Diskon / PB1 / Layanan), **Penerimaan per akun** (akun, %, jumlah), **Import Quinos**, dan **Retur dan pembatalan**. Rincian per akun hanya di Penjualan; tab Kas hanya menyebut penerimaan tunai.
+
 ## 1.0.75 (10 November 2026)
 
 ### Baru
