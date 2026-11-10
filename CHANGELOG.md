@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.77 (10 November 2026)
+
+### Diubah
+- **Closing Harian › Laporan Outlet › Uang per Shift**: tampilan kini seperti kertas Laporan Harian, dengan **shift sebagai kolom** (baris Tunai, EDC tiap bank, Lainnya, Total pembayaran). Tunai dan Lainnya diketik langsung di sel; sel **EDC** (berlatar biru dengan ikon) diisi lewat popup **Rincian slip** (Debit, Kredit, QRIS, QRIS Tap; klik ganda, Enter, F2, atau tombol Rincian slip…). **Kas keluar / kas masuk** menjadi daftar datar dengan kolom Shift. Tanpa perubahan data di server.
+
 ## 1.0.76 (10 November 2026)
 
 ### Baru
