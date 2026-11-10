@@ -2,6 +2,18 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.75 (10 November 2026)
+
+### Baru
+- **Web Outlet › Pilar ERP**: halaman web outlet kini bernama **Pilar ERP** dengan logo di halaman masuk dan di bar atas. Bar atas memuat nama cabang di kiri (tekan untuk memilih cabang) dan logo di kanan.
+- **Web Outlet › Kartu pengguna**: tombol bulat di kanan bawah membuka kartu berisi nama, jabatan, perusahaan, cabang, versi, dan **Keluar**. Tombol Keluar di bar atas dihapus.
+- **Web Outlet › Dashboard**: halaman pertama setelah masuk, berisi penjualan dan selisih kas hari ini, kiriman yang menunggu, opname yang berjalan, dan aksi cepat.
+- **Web Outlet › Closing List**: tombol **Closing** membuka daftar 7 hari terakhir cabang terpilih (menggantikan Rekap semua cabang): nomor, penjualan, kas, selisih kas, opname, dan status. Tanggal dipilih dari list atau **Buka tanggal lain**.
+- **Web Outlet › Hari closing**: tanggal di kiri dan **Ubah tanggal** di kanan; sub-tab Dashboard (kartu Opname, Selisih, Penjualan, Kas dan tombol Tutup Hari), Opname, Selisih, Penjualan, Kas, dan Atur. Hari ini diganti nama Dashboard, Hitung digabung ke Opname.
+
+### Perubahan
+- **Web Outlet**: status **Tersimpan** tidak lagi tampil; strip kuning **Menunggu sinyal** muncul hanya bila ada hitungan yang belum terkirim.
+
 ## 1.0.74 (10 November 2026)
 
 ### Baru
