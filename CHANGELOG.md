@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.78 (11 November 2026)
+
+### Diubah
+- **Closing Harian › Uang per Shift**: **Pembayaran per shift** dan **Kas keluar / kas masuk** kini dua tab dalam satu tab group (bukan dua kotak bertumpuk), masing-masing memenuhi seluruh tinggi tab; judul tab kedua menampilkan jumlah baris, dan ringkasan setoran tunai tetap terlihat di bawahnya.
+
 ## 1.0.77 (10 November 2026)
 
 ### Diubah
