@@ -2,6 +2,24 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.82 (11 November 2026)
+
+### Baru
+- **Closing Harian › Kas** disederhanakan: dua isian (**Kas fisik**, **Setoran** + tujuan) yang terisi dari Uang per Shift bila Laporan Outlet menyala, satu baris angka
+  (Seharusnya, Selisih, Setoran, Sisa kas) dengan rumusnya, kotak **Dibuat saat Posting Kas**, accordion **Mutasi kas hari ini** (terbuka), dan **Hitung per pecahan** di paling bawah (tertutup).
+- **Posting Kas** kini juga membuat dokumen dari kas keluar / kas masuk **Uang per Shift**: jenis Biaya menjadi **Kas Keluar / Kas Masuk**, jenis Bayar faktur menjadi
+  **Pembayaran Utang**. Faktur yang sudah lunas membuat Posting Kas ditolak; yang sudah dibayar sebagian diberi keterangan. **Batalkan Posting Kas** membatalkan semuanya.
+- Urutan tab Closing Harian mengikuti alur kerja: Opname, Penjualan, Uang per Shift, Setoran & Pencocokan, **Kas**, Tutup Hari.
+
+### Perbaikan
+- **Closing Harian › Uang per Shift › Kas keluar / kas masuk**: baris yang salah kini bisa dihapus lewat tombol **Hapus baris** (atau Ctrl+Delete), lalu **Simpan (F9)**.
+- **Closing Harian › Uang per Shift**: panel kanan **Ringkasan hari** dan **Mode** dibuat 50% lebih lebar.
+
+### Perlu diperhatikan
+- Kas keluar / kas masuk Uang per Shift tidak lagi sekadar catatan: saat Posting Kas menjadi jurnal. Pembayaran faktur yang sudah dicatat di Uang per Shift **jangan diinput lagi**
+  di menu Pembayaran Utang (Posting Kas akan menolak faktur yang sudah lunas).
+- Sesudah Posting Kas, baris kas keluar / kas masuk Uang per Shift terkunci sampai **Batalkan Posting Kas**.
+
 ## 1.0.81 (11 November 2026)
 
 ### Perbaikan
