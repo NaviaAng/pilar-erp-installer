@@ -2,6 +2,18 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.83 (12 November 2026)
+
+### Baru
+- **Closing Harian › Tutup Hari › Cetak ▾ › Laporan Setoran Harian** (struk thermal 80 mm): melaporkan uang yang akan disetorkan. Kolom **Sistem** (penjualan) dan **Settlement**
+  (uang yang dihitung di Uang per Shift) untuk Tunai, tiap EDC, Lainnya, dan Total, lalu **Kas Keluar**, **Kas Masuk**, dan **Total Setoran**. Muncul bila fitur Laporan Outlet menyala.
+- **Closing Harian › Penjualan › Import Quinos**: kolom **Outlet Quinos** menampilkan store Quinos yang dicakup tiap profil.
+- **Closing Harian › Penjualan › Penerimaan per akun** kini grid parent-child: baris induk per outlet Quinos (dengan total), baris anak per akun. Penerimaan di luar import Quinos
+  (Kasir, faktur, pelunasan manual) ada di baris **Di luar Quinos**.
+
+### Perbaikan
+- **Closing Harian › Penjualan**: kolom dibuat 50% / 50%; Import Quinos dan Retur dan pembatalan pindah ke kolom kiri, Penerimaan per akun ke kanan.
+
 ## 1.0.82 (11 November 2026)
 
 ### Baru
