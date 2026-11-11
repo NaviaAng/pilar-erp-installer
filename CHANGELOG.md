@@ -2,6 +2,17 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.80 (11 November 2026)
+
+### Baru
+- **Kas & Bank › Kas Masuk / Kas Keluar / Transfer Kas**: kotak **Bagian Closing Harian (kas outlet)** menandai dokumen sebagai bagian kas laci cabang. Kosong (bawaan) berarti input langsung dari Kas & Bank (Akunting). Daftar dokumen menampilkan kolom **Sumber**.
+- **Closing Harian › Kas**: **Mutasi kas hari ini** dan **Kas seharusnya** hanya memuat dokumen bertanda Closing Harian (selisih kas dan setoran dari Posting Kas otomatis bertanda) serta penjualan tunai.
+  Dokumen yang diinput Akunting langsung dari Kas & Bank (mis. bayar pajak) tidak lagi ikut closing operasional cabang.
+
+### Perlu diperhatikan
+- Dokumen kas yang dibuat Posting Kas sebelum rilis ini otomatis ditandai Closing Harian. Dokumen Kas & Bank lainnya dianggap input langsung Akunting, sehingga **Kas seharusnya** hari-hari yang belum diposting bisa berubah (tidak lagi memuat kas keluar / masuk Akunting). Closing yang kasnya sudah diposting tidak berubah.
+- Kas keluar atau masuk laci yang dicatat dari menu Kas & Bank perlu dicentang **Bagian Closing Harian**, supaya ikut kas seharusnya.
+
 ## 1.0.79 (11 November 2026)
 
 ### Baru
