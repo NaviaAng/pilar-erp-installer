@@ -2,6 +2,17 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.81 (11 November 2026)
+
+### Perbaikan
+- **Closing Harian › Kas › Seharusnya**: dihitung bersambung per hari: **sisa kas closing sebelumnya** (kas fisik − setoran; belum pernah mengisi kas = 0) + penerimaan tunai + kas keluar / masuk bertanda Closing Harian.
+  Sebelumnya (1.0.79 dan 1.0.80) memakai saldo seluruh riwayat akun kas, yang tercampur setoran Akunting yang dicatat belakangan, sehingga selisih kas palsu (1.0.80: sampai ratusan juta).
+  Dokumen Kas & Bank yang diinput langsung (Akunting) tetap tidak ikut closing.
+
+### Perlu diperhatikan
+- Hari pertama sebuah cabang mengisi kas memakai modal laci 0, jadi selisih hari itu sebesar modal laci sebenarnya; sisa kasnya otomatis menjadi modal hari berikutnya.
+- Kas keluar laci yang hanya dicatat di Laporan Outlet (belum menjadi Kas Keluar bertanda **Bagian Closing Harian**) belum mengurangi Seharusnya.
+
 ## 1.0.80 (11 November 2026)
 
 ### Baru
