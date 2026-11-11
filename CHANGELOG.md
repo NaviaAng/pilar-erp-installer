@@ -2,6 +2,21 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.79 (11 November 2026)
+
+### Baru
+- **Closing Harian › Kas › Setoran**: jumlah setoran terisi otomatis dari Setoran tunai Laporan Outlet (Tunai − Kas keluar + Kas masuk), tidak perlu diketik ulang. Angka yang diketik user tidak ditimpa.
+- **Closing Harian › Uang per Shift › Lainnya**: terisi otomatis dari penerimaan sistem (akun di luar kas dan bank) di shift 1 pada hari yang belum tersimpan; ubah bila berbeda.
+- **Closing Harian › Setoran & Pencocokan**: kolom **Sistem** sudah terisi sebelum isian disimpan (sebelumnya 0 sampai disimpan).
+
+### Perbaikan
+- **Closing Harian › Setoran & Pencocokan**: kolom **Sistem** kini ikut data penerimaan per akun di tab Penjualan walau akun bank belum dipetakan di Cabang › Bank EDC.
+  Akun yang namanya memuat nama bank (mis. "QRIS/EDC/Transferan (BRI)") otomatis dihitung ke EDC bank itu, bukan lagi masuk **Lainnya**.
+  Akun yang tetap tidak cocok dihitung sebagai Lainnya dan disebut di daftar Peringatan, lengkap dengan petunjuk untuk memetakannya.
+
+### Perlu diperhatikan
+- **Rilis**: gerbang CVE kini mengikuti ketentuan pembaruan komponen. Rilis keamanan .NET yang baru dan tidak serius ditunda 30 hari (Moderate) atau 90 hari (Low) (tidak menolak rilis); CVE serius yang dicatat pemilik repo atau paket High/Critical tetap menolak segera.
+
 ## 1.0.78 (11 November 2026)
 
 ### Diubah
