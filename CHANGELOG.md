@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.86 (13 November 2026)
+
+### Perbaikan
+- **Penjualan › Closing Harian**: kolom Cabang kini langsung tersaring ke cabang aktif tab itu saat dibuka. Filter bisa dihapus dari header kolom untuk melihat semua outlet.
+
 ## 1.0.85 (12 November 2026)
 
 ### Baru
