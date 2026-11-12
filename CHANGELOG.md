@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.85 (12 November 2026)
+
+### Baru
+- **Integrasi Quinos › cara Harian**: profil yang mencakup beberapa store (mis. KNO dan KNO-TR) kini menghasilkan **satu faktur harian per store (outlet)** memakai kolom store dari struk,
+  bukan satu faktur gabungan. Profil satu store tidak berubah. Dengan begitu **Closing Harian › Penjualan › Penerimaan per akun** terpisah per outlet.
+- **Closing Harian › Uang per Shift › Kas keluar / kas masuk**: kolom **No. Referensi** (nomor faktur / nota; ketik manual bila bukan pembayaran utang, otomatis dari faktur untuk Bayar faktur)
+  dan kolom **Dokumen** (nomor Kas Keluar / Kas Masuk / Pembayaran Utang yang dibuat Posting Kas dari baris itu). No. Referensi ikut ke dokumen yang dibuat.
+
+### Perbaikan
+- **Uang per Shift**: keterangan "Utang usaha (dicatat saja)" pada jenis Bayar faktur diganti "Utang usaha (Pembayaran Utang)": sejak 1.0.82 baris itu benar-benar menjadi Pembayaran Utang saat Posting Kas.
+
+### Perlu diperhatikan
+- Hari-hari Quinos cara Harian yang sudah diimport sebagai satu faktur gabungan untuk profil beberapa store tampil **Beda** ("1 faktur → 2 faktur") di Integrasi Quinos. Tidak berubah sampai Anda
+  memilih **Update** untuk hari itu; yang belum diupdate tetap tampil gabungan di Penerimaan per akun.
+- Perubahan database: kolom baru `outlet_moves.ref_no` (migrasi otomatis saat API start).
+
 ## 1.0.84 (12 November 2026)
 
 ### Baru
