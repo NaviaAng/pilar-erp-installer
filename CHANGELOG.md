@@ -2,6 +2,32 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.84 (12 November 2026)
+
+### Baru
+- **Penjualan › Faktur Penjualan, Pesanan Penjualan, Kasir** dan **Pembelian › Faktur Pembelian, Pesanan Pembelian**: tombol **Muat ulang item**
+  (atau **F5**) memuat ulang daftar item dari server, jadi item yang baru ditambah di Item (oleh user lain atau di PC lain) langsung bisa dipilih tanpa
+  menutup form. Baris yang sudah diisi tidak berubah; tombol menampilkan sebentar berapa item baru yang masuk.
+  - Daftar item juga dimuat ulang sendiri saat tab faktur / pesanan dibuka kembali setelah lebih dari 2 menit.
+  - Di **Kasir**, barcode atau kode yang dipindai dan tidak ditemukan memuat ulang daftar otomatis lalu mencari lagi.
+- **Persediaan › Stok Opname, Item Masuk / Item Keluar, Transfer Keluar, Rakitan / Produksi, Pecah Stok, Permintaan Transfer**, **Titipan** (Titip Masuk dari penitip,
+  Titip Keluar ke toko) dan **Akuntansi › Saldo Awal Stok**: tombol **Muat ulang item** (atau **F5**) di judul form memuat ulang daftar item dari server, jadi item yang
+  baru ditambah di Item (oleh user lain atau di PC lain) langsung bisa dipilih tanpa menutup form. Sama seperti di Penjualan dan Pembelian. Baris yang sudah diisi tidak
+  berubah; tombol menampilkan sebentar berapa item baru yang masuk. Tombolnya hanya tampil saat form bisa diisi.
+  - Daftar item juga dimuat ulang sendiri saat tab form dibuka kembali setelah lebih dari 2 menit.
+  - **Stok Opname**: item baru ikut **Muat semua item**, dengan stok sistem dari server; stok sistem baris yang sudah diisi tidak dihitung ulang.
+  - **Rakitan**: item hasil yang sudah dipilih tetap terpilih dan komponen yang sudah diisi tidak berubah.
+  - **Pecah Stok**: item yang baru diberi aturan pecah (tab Konversi di Item) muncul di pilihan **Item dipecah**.
+
+### Perbaikan
+- **Persediaan › Koreksi Stok › Daftar Opname**: item yang sudah ada di daftar kini bisa dikeluarkan. Form daftar (Baru dan Ubah) punya tombol **Hapus item**;
+  **Ctrl+Delete** juga bekerja saat sel sedang diketik (sebelumnya Delete diam saja begitu sel diklik), dan **Ctrl / Shift + klik** memilih beberapa item sekaligus.
+  Perubahan baru tersimpan saat **Simpan (F9)**, dan dokumen Opname Harian yang sudah dibuat dari daftar itu tidak berubah.
+
+### Diperbaiki
+- **Laporan Setoran Harian (Tutup Hari › Cetak)** disamakan dengan lembar Excel kasir: Kas Keluar tampil positif, Kas Masuk nol tampil "-", baris **Pembulatan**
+  (isian setoran di tab Kas dikurangi setoran hitung) ditambahkan, dan **TOTAL SETORAN** kini sama dengan isian tab Kas. Baris Lainnya yang nol tidak dicetak.
+
 ## 1.0.83 (12 November 2026)
 
 ### Baru
