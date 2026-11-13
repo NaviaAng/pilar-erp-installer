@@ -2,6 +2,17 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.88 (13 November 2026)
+
+### Baru
+- **Web /outlet › Penjualan dan Pembelian**: sekarang bisa input baru, ubah, batal, dan hapus langsung dari HP (hak dan aturannya sama dengan desktop;
+  pajak per baris, promo, dan pesanan tetap lewat desktop). Pembelian tanpa hak lihat harga modal tidak menampilkan atau mengubah harga.
+- **Web /outlet › Permintaan Transfer**: bisa diubah, dibatalkan, dan dihapus selama belum ada transfer keluar dari permintaan itu.
+- **Web /outlet › Cetak Pengiriman / Cetak Penerimaan**: Penjualan mencetak **Surat Jalan / Pengiriman** dan Pembelian mencetak **Bukti Penerimaan Barang**,
+  struk thermal 80 mm tanpa harga, isinya sama dengan template bawaan di aplikasi desktop (hak Cetak Penjualan / Pembelian tanpa harga).
+- **Web /outlet › Cetak struk thermal 80 mm** juga di Transfer Keluar/Masuk, Permintaan Transfer, ringkasan Closing, dan Hasil Opname (tab Selisih). Dicetak lewat printer sistem (driver thermal atau layanan cetak Android); setelah menyimpan, aplikasi menawarkan langsung mencetak.
+- **Closing Harian › Kas**: angka Seharusnya dan Selisih (serta rumusnya) bisa diklik. Muncul popup **Asal angka kas** berisi sisa kas kemarin, tiap kas masuk / keluar tercatat, dan kas keluar / masuk Uang per Shift beserta dokumen asalnya (klik dua kali = buka dokumen). Pengeluaran yang tercatat dua kali (mis. pembelian tunai yang juga diketik di Uang per Shift) diberi tanda ⚠.
+
 ## 1.0.87 (13 November 2026)
 
 ### Perbaikan
