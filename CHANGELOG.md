@@ -2,6 +2,17 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.90 (13 November 2026)
+
+### Perbaikan
+- **Opname Harian › Revisi…**: kolom **Expired** dan **Waste** kini bisa direvisi sesudah Release (sebelumnya hanya Fisik), di desktop dan di web outlet.
+  Dialog Revisi punya pilihan **Yang direvisi** (Fisik / Expired / Waste); riwayat, catatan baris, laporan **Revisi Opname Harian** dan ringkasan closing menandai kolomnya.
+  Dipakai bila buangan sudah dicatat sebagai Item Keluar lalu terinput lagi di Opname Harian: ubah Expired / Waste jadi 0 supaya Tutup Hari tidak membuat Item Keluar dobel.
+- **Opname Harian**: tombol **Revisi…** tetap tampil pada dokumen yang sudah Close dan menjelaskan langkahnya (Buka Kembali Closing dulu), tidak lagi menghilang.
+
+### Perlu diperhatikan
+- Migrasi menambah kolom `field` di tabel `count_revisions` (revisi lama otomatis Fisik).
+
 ## 1.0.89 (13 November 2026)
 
 ### Perbaikan
