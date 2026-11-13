@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.87 (13 November 2026)
+
+### Perbaikan
+- **Situs web (harga paket)**: harga paket dinaikkan menjadi jutaan dan tertulis per bulan: Mulai Rp5.900.000, Tumbuh Rp9.900.000, Bercabang Rp11.900.000, dengan catatan S&K berlaku (versi Indonesia dan Inggris).
+
 ## 1.0.86 (13 November 2026)
 
 ### Perbaikan
