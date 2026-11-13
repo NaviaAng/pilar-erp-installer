@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.89 (13 November 2026)
+
+### Perbaikan
+- **Web /outlet › Penjualan dan Pembelian**: kolom qty dan harga di form diperkecil sehingga tombol Hapus tidak lagi keluar dari kartu di layar HP.
+  Form dibagi tiga bagian bergaris: Header (data dokumen), Detail (item), dan Footer (pembayaran dan tombol).
+
 ## 1.0.88 (13 November 2026)
 
 ### Baru
