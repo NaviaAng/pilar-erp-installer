@@ -2,6 +2,24 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.93 (14 November 2026)
+
+### Baru
+- **Closing Harian › Atur…**: akun kas outlet kini disebut **Akun kas laci**, dan ada isian baru **Akun setoran (kas supervisor)**, tempat uang laci diserahkan saat closing. Isian ini juga mengisi awal Tujuan setoran di tab Kas.
+- **Kas & Bank (Kas Masuk, Kas Keluar, Transfer Kas)**: kotak centang *Bagian Closing Harian* diganti pilihan **Sumber**. Bawaannya **Otomatis**: Kas Masuk / Keluar dari kas laci dan Transfer antara kas laci dan akun setoran otomatis bagian closing, sisanya (mis. bayar dari kas supervisor, setor ke bank) urusan Akunting. Bisa dipaksa ke *Closing Harian* atau *Akunting*.
+- **Kas & Bank › Transfer Kas**: Transfer langsung dari kas laci ke akun lain (mis. bank) diberi peringatan: uang laci diserahkan ke supervisor dulu. Tidak diblokir.
+- **Closing Harian › Kas › Mutasi kas hari ini**: kini memuat juga **Pembayaran Utang dari kas laci** yang dibuat dari menu Pembayaran Utang, dengan kolom **Sumber** (Posting Kas, Kas & Bank, Pembayaran Utang dari Uang per Shift atau dari menu). Angka Kas seharusnya tidak berubah.
+- **Closing Harian › Uang per Shift › Bayar faktur**: faktur yang sudah dibayar dari kas laci hari itu lewat menu Pembayaran Utang kini tampil (kolom *Sudah dibayar lewat*) dan boleh dipilih. Saat Posting Kas barisnya **ditautkan** ke pembayaran itu, tidak dibayar dua kali, tidak lagi ditolak "sudah lunas", dan Batalkan Posting Kas tidak membatalkan pembayaran dari menu.
+- **Pembayaran Utang**: akun kas laci diberi penanda **· kas laci** dan menjadi pilihan awal; tooltip menjelaskan apakah pembayaran ikut Closing Harian. Faktur yang sudah dicatat di Uang per Shift (belum diposting) diberi peringatan sebelum disimpan.
+
+### Perbaikan
+- **Closing Harian › Mutasi kas hari ini**: dokumen bertanda Closing Harian yang tidak menyentuh akun kas laci tidak lagi tampil sebagai uang masuk.
+
+### Perlu diperhatikan
+- Dokumen Kas & Bank yang **sudah ada** tidak diubah. Hanya dokumen baru (dan dokumen yang akunnya diganti) yang memakai aturan Otomatis.
+- Kas Masuk / Keluar baru dari akun kas laci kini **otomatis ikut Closing Harian**. Bila Akunting mencatat dari akun laci dan tidak ingin ikut closing, pilih **Sumber: Akunting** (atau pakai akun lain).
+- Isi **Akun setoran** di Closing Harian › Atur… (mis. Setoran Kas via Supervisor) supaya Transfer setoran manual juga otomatis ikut closing.
+
 ## 1.0.92 (14 November 2026)
 
 ### Perbaikan
