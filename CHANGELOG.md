@@ -2,6 +2,17 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.94 (14 November 2026)
+
+### Baru
+- **Akuntansi › Akun (COA)**: akun Kas/Bank punya pilihan **Rekening bank bersama semua cabang** (kolom **Bank Bersama** di daftar). Akun Kas/Bank yang namanya
+  mengandung "Bank" (bukan EDC / QRIS / e-wallet) otomatis ditandai; atur ulang bila perlu.
+
+### Perbaikan
+- **Akuntansi › Buku Besar**: di 1.0.92 semua akun Kas/Bank ikut tampil lintas cabang, sehingga akun EDC / QRIS satu outlet bercampur dengan outlet lain.
+  Kini hanya rekening yang ditandai **Bank Bersama** yang tampil lintas cabang (kolom **Cabang** menyebut asalnya); EDC / QRIS, laci kas, dan akun lain tetap
+  per cabang.
+
 ## 1.0.93 (14 November 2026)
 
 ### Baru
