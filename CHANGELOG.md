@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.96 (14 November 2026)
+
+### Perbaikan
+- **Closing Harian › Laporan Setoran Harian**: bila penjualan berasal dari lebih dari satu outlet Quinos, bagian Transaksi Harian kini menampilkan satu baris total per outlet (tanpa rincian akun), lalu Total Penjualan.
+
 ## 1.0.95 (14 November 2026)
 
 ### Perbaikan
