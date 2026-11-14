@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.95 (14 November 2026)
+
+### Perbaikan
+- **Penjualan › Closing Harian › Atur…**: isian tersusun dua kolom dalam kotak berjudul, yaitu **Kas outlet** (akun kas laci dan akun setoran), **Batas & jadwal** (batas selisih kas sampai batas hitung terlambat), dan **Opname Harian** (akun Expired / Waste dan pilihan Daftar Opname), dengan Moving Index selebar penuh di bawahnya.
+- **Cetak › Laporan Setoran Harian**: Transaksi Harian cukup menampilkan total penjualan (tanpa penjualan bruto, layanan, dan PB1). Kas Keluar, Kas Masuk, dan Pembulatan yang tidak ada dicetak **0**, bukan strip. Pembayaran faktur supplier di Kas Keluar / Kas Masuk hanya menampilkan nama supplier, tidak lagi keterangan panjang dengan nomor faktur.
+
 ## 1.0.94 (14 November 2026)
 
 ### Baru
