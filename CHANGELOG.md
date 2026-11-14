@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.91 (14 November 2026)
+
+### Baru
+- **Closing Harian › Cetak › Laporan Setoran Harian**: kini memuat **ringkasan transaksi harian** (penjualan bruto, diskon, pajak, total penjualan) dan
+  **Kas Keluar / Kas Masuk per transaksi dengan keterangan dan rupiah** (mis. *Transport: Ongkir ojol ... 85.000*), bukan hanya total rupiahnya.
+
 ## 1.0.90 (13 November 2026)
 
 ### Perbaikan
