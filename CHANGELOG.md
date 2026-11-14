@@ -2,6 +2,14 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.92 (14 November 2026)
+
+### Perbaikan
+- **Akuntansi › Buku Besar**: mutasi rekening bank dari cabang lain kini ikut tampil. Sebelumnya pelunasan yang dibuat di gudang lain (misalnya Bank BRI 1C
+  dipakai membayar pembelian di gudang B3, atau uang masuk ke Bank 2F dari pelunasan di gudang lain) tidak muncul di buku besar cabang pemilik rekening, karena
+  jurnalnya tercatat di cabang gudang itu. Kolom **Cabang** menyebut asal tiap baris; saldo awal dan saldo berjalan ikut dihitung dari semua cabang.
+  Akun Kas bawaan dan akun lain tetap per cabang.
+
 ## 1.0.91 (14 November 2026)
 
 ### Baru
