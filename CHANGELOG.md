@@ -2,6 +2,14 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.97 (15 November 2026)
+
+### Baru
+- **Dasbor admin › Aktivitas transaksi**: satu halaman untuk melihat transaksi semua perusahaan dan cabang sekaligus, per periode (hari ini, 7 hari, 30 hari, bulan ini).
+  Per perusahaan tampil jumlah dan nilai penjualan × retur penjualan, pembelian × retur pembelian, item masuk × item keluar, dan stok opname (selisih nilai),
+  ditambah total semua perusahaan. Di bawah tiap perusahaan ada rincian per cabang (bisa disembunyikan lewat "Tampilkan per cabang").
+  Hanya angka ringkasan (tanpa nomor dokumen atau nama partner); dokumen batal tidak dihitung. Hanya untuk admin platform (dengan 2FA).
+
 ## 1.0.96 (14 November 2026)
 
 ### Perbaikan
