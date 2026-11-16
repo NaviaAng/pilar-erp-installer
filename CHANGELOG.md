@@ -2,6 +2,13 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.98 (16 November 2026)
+
+### Perbaikan
+- **Closing Harian › Kas**: salah jenis bayar di kasir (Tunai lebih dan satu EDC kurang sama besar, total pembayaran cocok) tidak lagi dihitung sebagai kelebihan uang.
+  Saat Posting Kas dibuat satu **Transfer Kas** pindah EDC ↔ kas laci, sehingga Seharusnya ikut naik dan Selisih kas hanya sisanya (mis. 453, bukan 2.592).
+  Pindahan tampil di kotak *Dibuat saat Posting Kas*, Mutasi kas hari ini, dan cetak / laporan closing; **Batalkan Posting Kas…** ikut membatalkannya.
+
 ## 1.0.97 (15 November 2026)
 
 ### Baru
