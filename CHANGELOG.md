@@ -2,6 +2,26 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.99 (17 November 2026)
+
+### Baru
+- **Laporan › Analisa › Penjualan › Diskon Quinos**: analisa diskon kasir Quinos dari struk aslinya, bukan dari faktur harian. Sebelas tampilan:
+  - peta panas **Jam × Hari** dan **Kalender** (nilai diskon, persen dari penjualan bruto, atau jumlah struk berdiskon; bisa disaring per jenis diskon),
+  - **Kasir × Jenis Diskon** dan **Store × Jenis Diskon**,
+  - **Per Nama Diskon** dan **Per Item**,
+  - **Promo Gratis** per struk dan per kasir: tiap item gratis diperiksa terhadap aturan beli sekian gratis 1 (Sesuai, Bukan termurah, Gratis berlebih,
+    Kurang diberi, Tidak diberi),
+  - **Diskon Owner** per struk dan per penerima,
+  - **Rinci Struk Berdiskon** dengan tanda struk bertotal Rp 0, diskon 50% atau lebih, dan lebih dari satu jenis diskon.
+- **Integrasi Quinos**: setiap kali data ditarik (**1. Buka**, **2. Cek**, atau **4. Import**), salinan struk tanggal itu ikut disimpan sebagai bahan analisa Diskon
+  Quinos: jam, kasir, jenis penjualan, nama di struk, dan nama tiap diskon. Faktur, stok, dan jurnal tidak berubah karenanya.
+
+### Perlu diperhatikan
+- Analisa **Diskon Quinos** baru berisi untuk tanggal yang sudah ditarik sejak versi ini. Untuk tanggal lama, buka **Integrasi Quinos**, pilih rentang tanggalnya
+  (maksimal 31 hari per tarik), lalu **1. Buka**; tidak perlu import ulang.
+- Jabatan yang sudah boleh melihat **Laba Jual** otomatis mendapat hak analisa **Diskon Quinos**.
+- **Bersihkan Data** transaksi ikut menghapus salinan struk Quinos cabang itu; **Ekspor & Backup** ikut membawanya.
+
 ## 1.0.98 (16 November 2026)
 
 ### Perbaikan
