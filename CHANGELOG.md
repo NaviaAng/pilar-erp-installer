@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.100 (18 November 2026)
+
+### Perbaikan
+- **Laporan › Analisa › Cetak / Preview**: grafik kini ikut tercetak di atas tabel. Sebelumnya di cetakan hanya ada ruang kosong di bawah judul
+  (Export Excel sudah benar sejak awal).
+
 ## 1.0.99 (17 November 2026)
 
 ### Baru
