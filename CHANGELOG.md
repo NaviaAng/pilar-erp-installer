@@ -2,6 +2,19 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.101 (18 November 2026)
+
+### Baru
+- **Laporan › Analisa**: bagian baru **Quinos** berisi enam laporan terpisah, masing-masing dibuka di tab sendiri: **Promo Gratis Quinos**,
+  **Diskon Owner Quinos**, **Diskon Quinos per Jam & Tanggal**, **Diskon Quinos per Kasir & Store**, **Diskon Quinos per Nama & Item**, dan
+  **Struk Berdiskon Quinos**. Sebelumnya semuanya ditumpuk sebagai sebelas pilihan di satu analisa **Diskon Quinos**.
+- Laporan Quinos tidak hanya peta panas: ada batang bertumpuk (per jam, per kasir / store), garis (per tanggal), donat (per jenis diskon), dan batang
+  selisih promo per status. Peta panas tetap ada sebagai pilihan lain.
+
+### Perlu diperhatikan
+- Analisa **Diskon Quinos** di bagian Penjualan tidak ada lagi; isinya pindah ke bagian **Quinos**. Hak aksesnya tetap satu dan kini bernama
+  **Laporan Quinos**: jabatan yang sudah punya hak lama langsung melihat keenam laporan.
+
 ## 1.0.100 (18 November 2026)
 
 ### Perbaikan
