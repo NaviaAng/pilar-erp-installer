@@ -2,6 +2,14 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.104 (18 November 2026)
+
+### Perbaikan
+- **Closing Harian › Penjualan**: jual ke perusahaan grup (konsumen GRP-…) tidak lagi ikut Faktur dan Total penjualan, sehingga Total penjualan sama dengan
+  penerimaan dari Quinos. Faktur grup ada di accordion baru **Jual grup** paling bawah (tertutup bawaan; klik dua kali = buka fakturnya); retur grup juga dipisah dari retur konsumen.
+- **Closing Harian**: semua laporan closing (cetakan Lengkap / Ringkas, Laporan Setoran Harian, struk thermal, Salin WhatsApp, web /outlet, Rekap Closing,
+  Laporan Closing) kini memuat penjualan ke konsumen saja; jual grup tidak dicetak.
+
 ## 1.0.103 (18 November 2026)
 
 ### Baru
