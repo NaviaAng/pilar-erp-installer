@@ -2,6 +2,16 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.103 (18 November 2026)
+
+### Baru
+- **Laporan › Laporan Penjualan › Diskon Quinos per Tanggal**: satu baris per tanggal, satu kolom per nama diskon Quinos (Disc 100% Item, disc 10% All item,
+  Disc Owner, …) seperti bagian DISCOUNT di kertas penutupan Quinos, lalu total diskon, item didiskon, kali diskon, struk, penjualan bruto, setelah diskon,
+  dan diskon %. Nama diskon yang tidak dipakai di periode itu tidak dibuat kolomnya; isi kolom bisa rupiah atau jumlah kali.
+
+### Perlu diperhatikan
+- Jabatan yang sudah boleh melihat **Laba Jual** otomatis mendapat hak laporan **Diskon Quinos per Tanggal**.
+
 ## 1.0.102 (18 November 2026)
 
 ### Baru
