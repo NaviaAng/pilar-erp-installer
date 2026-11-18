@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.102 (18 November 2026)
+
+### Baru
+- **Laporan › Analisa › Quinos › Struk Berdiskon Quinos**: pilihan baru **Sebaran Diskon %**: jumlah struk dan rupiah diskon per kelompok besar diskon
+  (0–5%, 5–10%, … 95–100% dari penjualan bruto struk). Kelompok tanpa struk tidak ditampilkan; bisa disaring per jenis diskon.
+
 ## 1.0.101 (18 November 2026)
 
 ### Baru
