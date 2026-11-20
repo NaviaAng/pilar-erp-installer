@@ -2,6 +2,20 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.107 (20 November 2026)
+
+### Baru
+- **Closing Harian (web /outlet/)**: layar mengikuti hak per tab. Kasir yang hanya punya **Import Penjualan Closing** dan **Kas Closing Harian** (tanpa Closing Harian) kini melihat grup **Closing** di HP:
+  Closing List, Dashboard, **Penjualan** dan **Kas**. **Selisih** tetap untuk pemegang Closing Harian, **Tutup Transaksi** untuk yang punya hak Buat Closing Harian.
+- **Closing Harian (web)**: Dashboard hari menampilkan status tiga tab (**Import penjualan**, **Closing kas**, **Closing transaksi**) dan peringatan kuning bila angka kas **bergeser** sejak Tutup Kas
+  (teks yang sama dengan desktop). Sub-tab Tutup Transaksi memuat daftar periksa Import dan Kas.
+
+### Perbaikan
+- **Closing Harian (web)**: istilah disamakan dengan desktop: *Tutup Hari* menjadi **Tutup Transaksi**, *Posting kas* menjadi **Tutup Kas**, *Batalkan posting kas* menjadi **Buka Kembali Kas**,
+  *Buka kembali closing* menjadi **Buka Kembali Transaksi**.
+- **Closing Harian (web)**: tombol import penjualan mati dengan penjelasan bila kas tanggal itu sudah ditutup (sama dengan desktop).
+- **Closing Harian**: kasir dengan hak **Kas Closing Harian** (tanpa Closing Harian) kini bisa memilih akun tujuan setoran (daftar akun kas ikut terkirim); sebelumnya daftarnya kosong.
+
 ## 1.0.106 (20 November 2026)
 
 ### Baru
