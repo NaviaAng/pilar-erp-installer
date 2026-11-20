@@ -2,6 +2,23 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.109 (20 November 2026)
+
+### Baru
+- **Closing Harian (desktop)**: tiga bagian utama (Import Penjualan, Closing Kas, Closing Transaksi) kini dipilih lewat **tiga tombol di tengah** (button group; yang aktif biru penuh), menggantikan baris tab di atas isi.
+  Ikon status berwarna tetap ada di tiap tombol (sama dengan ikon sub-tab), arti dan alasannya di tooltip.
+- **Closing Kas**: sub-tab kini **vertikal** (daftar di kiri isi: Uang per Shift, Pencocokan, Kas). Sub-tab Import Penjualan dan Closing Transaksi tetap horizontal.
+
+### Perbaikan
+- **Closing Harian › Laporan Setoran Harian (thermal 80 mm)** dan **Laporan Outlet › Setoran & Pencocokan**: uang yang keluar dari kas laci lewat dokumen di luar baris Uang per Shift
+  (**Pembayaran Utang dari menu**, Faktur Pembelian yang dibayar dari kas laci, Kas Keluar / Kas Masuk / Transfer Kas langsung dari Kas & Bank) kini ikut menghitung setoran dan
+  tercetak sebagai baris **Pay Out** / **Pay In** (jenis, pemasok / catatan, rupiah). Sebelumnya selisihnya jatuh ke baris **Pembulatan** (kasus outlet 1C 19/11: bayar air mineral
+  Rp 1.040.000 tercetak sebagai Pembulatan −1.040.000) dan peringatan *Setoran dihitung … berbeda dengan isian di tab Kas* muncul padahal angkanya cocok. **Pembulatan** kini hanya
+  sisa yang memang tidak punya dokumen.
+
+### Perlu diperhatikan
+- Di struk **Laporan Setoran Harian** label **Kas Keluar** menjadi **Pay Out** dan **Kas Masuk** menjadi **Pay In**. Nama dokumen Kas Keluar / Kas Masuk di menu Kas & Bank tidak berubah.
+
 ## 1.0.108 (20 November 2026)
 
 ### Baru
