@@ -2,6 +2,34 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.105 (20 November 2026)
+
+### Baru
+- **Pembelian › Pembayaran Utang** dan **Penjualan › Penerimaan Piutang**: satu pembayaran kini bisa melunasi faktur dari beberapa cabang sekaligus. Beli di T2 dan T3 (faktur
+  masing-masing), lalu bayar dari kas T2: buka Pembayaran Utang di T2, pilih supplier, dan faktur T2 serta T3 tampil bersama dengan kolom **Cabang**. Kotak **Semua cabang**
+  (bawaannya tercentang, hanya tampil bila Anda punya akses ke lebih dari satu cabang) memuat faktur semua cabang yang boleh Anda akses; hilangkan centangnya untuk hanya
+  cabang ini. Pembayaran dan jurnalnya tercatat di cabang yang membayar (kas cabang itu berkurang), faktur cabang lain ikut lunas.
+
+### Perbaikan
+- **Persediaan › Opname Harian, Daftar Opname**: kedua menu kini hilang bila hak **Opname Harian (hitung stok PIC)** jabatan dicabut. Sebelumnya menu tetap
+  muncul selama jabatan itu punya Closing Harian, sehingga jabatan Outlet tidak bisa menyembunyikannya. Closing Harian dan Tutup Hari tidak terpengaruh.
+- **Halaman web outlet (/outlet/)**: perubahan hak akses jabatan kini berlaku tanpa keluar lalu masuk lagi. Langkah Opname di Hari ini dan kolom Opname di
+  Closing List juga mengikuti hak **Opname Stock (Web)**.
+- **Integrasi Quinos › Pembayaran**: pemetaan jenis bayar ke akun kas / bank kini per store. Satu profil yang mencakup dua store (outlet), mis. T2 dan T3, bisa memetakan
+  "Tunai" T2 ke Kas T2 dan "Tunai" T3 ke Kas T3; sebelumnya satu pemetaan berlaku untuk semua store sehingga penarikan T2 ikut masuk ke Kas T3. Tab Pembayaran
+  (dan dialog Petakan yang belum di Closing Harian) kini menampilkan kolom **Store**. Pemetaan lama otomatis menjadi pemetaan tanpa store (berlaku untuk store yang belum
+  punya pemetaan sendiri), jadi hasil import yang sudah ada tidak berubah.
+- **Laporan › Rincian / Umur Utang dan Piutang**: faktur yang dilunasi dari cabang lain kini ikut lunas saat laporan dibuka untuk satu cabang (sebelumnya pelunasan hanya
+  dihitung bila dicatat di cabang yang sama dengan fakturnya).
+- Nomor pelunasan di panel **Pelunasan** faktur kini bisa dibuka walau pelunasannya tercatat di cabang lain yang boleh Anda akses. Pelunasan itu hanya bisa dilihat; ubah
+  atau hapus dari cabang pembayarnya.
+
+### Perlu diperhatikan
+- Jabatan yang punya Closing Harian (Lihat) tetapi belum pernah memiliki hak Opname Harian (mis. Akunting) otomatis mendapat Lihat agar menunya tidak hilang.
+  Jabatan yang sudah punya barisnya, termasuk yang sengaja dicabut, tidak diubah.
+- Pelunasan lintas cabang tidak mengubah Laba Rugi cabang mana pun: beban, penjualan, dan HPP tetap di cabang fakturnya. Hanya baris Pembulatan dan Potongan & biaya
+  yang ikut tercatat di cabang pembayar / penerima. Pencatatan utang / piutang antar cabang tidak dibuat (neraca dilihat per perusahaan).
+
 ## 1.0.104 (18 November 2026)
 
 ### Perbaikan
