@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.108 (20 November 2026)
+
+### Baru
+- **Penjualan › Closing Harian › Rekap**: kolom **Kas Bergeser** (kuning) menandai hari yang angka kas lacinya berubah sesudah Tutup Kas, dan kotak saring **Belum Tutup Kas** / **Kas bergeser** untuk Akunting.
+
 ## 1.0.107 (20 November 2026)
 
 ### Baru
