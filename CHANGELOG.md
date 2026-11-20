@@ -2,6 +2,34 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.106 (20 November 2026)
+
+### Baru
+- **Closing Harian dibagi tiga tab** menurut alur kerja dan siapa yang mengerjakannya, masing-masing bersub-tab: **Import Penjualan** (Import, Ringkasan, Penerimaan per Akun), **Closing Kas**
+  (Uang per Shift, Pencocokan, Kas) dan **Closing Transaksi** (Opname, Tutup Transaksi). Kasir menutup kas laci sendiri malam itu, atasan menutup transaksi malam itu atau besok pagi; keduanya tidak
+  saling menunggu. Form terbuka di tab pertama yang belum selesai dan boleh Anda kerjakan; ikon tab utama = yang terburuk di antara sub-tabnya. Rekap Closing menampilkan tiga status
+  (**Import**, **Kas**, **Transaksi**).
+- **Closing Kas › Cetak Laporan Setoran**: Laporan Setoran Harian (struk thermal 80 mm) kini dicetak dari tombol di tab Closing Kas (sub-tab Kas dan Pencocokan), bukan dari **Cetak ▾** di tab
+  Tutup Hari. Kasir cukup dengan hak **Kas Closing Harian (Lihat)**, **Cetak Penjualan**, dan **Laporan Outlet (Lihat)**; stok sistem tidak dibaca.
+- **Peringatan "kas bergeser"**: sesudah Tutup Kas, saldo laci menurut jurnal harus tepat kas fisik − setoran. Bila ada dokumen bertanggal itu yang menyentuh kas laci masuk sesudahnya (penjualan
+  Kasir, Pembayaran Utang, Kas Keluar / Masuk), Closing Kas memberi peringatan beserta jumlahnya; obatnya Buka Kembali Kas lalu Tutup Kas ulang. Hanya untuk kas yang ditutup sejak 14/11/2026.
+- Hak baru **Import Penjualan Closing** (kelompok Penjualan, Lihat / Buat) untuk tab Import Penjualan.
+
+### Perbaikan
+- **Closing Harian › Kas**: salah jenis bayar tunai ↔ EDC kini dikenali juga bila melibatkan **beberapa bank** (mis. Tunai kurang 30.000, EDC BCA lebih 20.000 dan EDC BRI lebih 10.000).
+  Sebelumnya hanya satu bank yang dikenali, sehingga selisih seperti itu dibukukan sebagai Kas Keluar *selisih kas*. Kini Posting Kas membuat satu **Transfer Kas per bank**
+  (kas laci → EDC BCA dan kas laci → EDC BRI) dan Selisih kas hanya sisanya. Closing yang sudah diposting dengan selisih seperti itu diperbaiki dengan **Batalkan Posting Kas…**
+  lalu Posting Kas ulang.
+
+### Perlu diperhatikan
+- **Istilah baru**: *Tutup Hari* menjadi **Tutup Transaksi**, *Posting Kas* menjadi **Tutup Kas**, *Batalkan Posting Kas…* menjadi **Buka Kembali Kas…**. Nama menu tetap Closing Harian.
+- **Sesudah Tutup Kas, import penjualan ditolak** (pertama maupun ulang, dari tab Import Penjualan maupun menu Integrasi Quinos, yang melewati harinya) sampai kas dibuka kembali, karena penjualan tunai
+  mengubah Kas seharusnya yang sudah dibekukan.
+- **Hak akses dipisah per tab.** Import penjualan kini butuh **Import Penjualan Closing (Buat)**, mengisi kas dan Tutup Kas butuh **Kas Closing Harian (Buat)**, Buka Kembali Kas butuh Kas Closing
+  Harian (Batal); hak **Closing Harian (Buat)** hanya untuk Tutup Transaksi. Jabatan yang sebelumnya bisa closing otomatis mendapat hak Import Penjualan Closing dan Kas Closing Harian saat pembaruan
+  (Lihat, Buat, dan Batal mengikuti Closing Harian), jadi tidak ada yang kehilangan kemampuan. Jabatan **Kasir** perusahaan baru mendapat keduanya (Lihat, Buat).
+- **Tutup Transaksi** tidak lagi memposting kas otomatis bagi yang tidak punya hak Kas Closing Harian (Buat); kas ditutup kasir atau Akunting di tab Closing Kas.
+
 ## 1.0.105 (20 November 2026)
 
 ### Baru
