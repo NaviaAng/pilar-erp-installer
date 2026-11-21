@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.111 (21 November 2026)
+
+### Baru
+- **Closing Harian (desktop)**: tombol **Tab vertikal / Tab horizontal** di kanan baris tombol, untuk mengatur sub-tab Import Penjualan, Closing Kas, dan Closing Opname sekaligus. Selama Tab vertikal aktif muncul tombol **Teks vertikal / Teks horizontal** untuk arah teks tab (diputar 90 derajat atau biasa). Bawaannya tab vertikal dengan teks horizontal. Tab Pembayaran per shift dan Kas keluar / kas masuk selalu horizontal.
+- **Closing Harian (desktop)**: pada **Kas keluar / kas masuk**, kotak centang **Tampilkan kolom Arah dan Akun lawan** dan **Tampilkan kolom Referensi** (bawaan tersembunyi) di sebelah kanan tombol **Hapus baris**.
+
+### Perbaikan
+- **Pengaturan › Jabatan & Hak Akses** dan **Master User**: daftar jabatan tidak lagi gagal dimuat bila satu jabatan punya dua hak aktif untuk menu yang sama. Kedua hak digabung, dan user jabatan itu tetap bisa masuk.
+- **Closing Harian › Closing Kas**: migrasi Closing tiga tab tidak lagi menghidupkan kembali hak Kas Closing Harian yang sudah dihapus dari jabatan.
+
+### Perubahan
+- **Closing Harian (desktop)**: header semua tab group diberi latar warna cyan, magenta, kuning bergilir (terang dan transparan) supaya mudah dibedakan.
+- **Closing Harian (desktop)**: peringatan closing tidak lagi kotak di bawah judul; kini tombol **Peringatan** dengan badge jumlah di bar judul, isinya tampil di popup saat diklik.
+- **Closing Harian (desktop)**: **Ringkasan hari** dan **Mode** pindah ke sebelah kanan tab **Pembayaran per shift**; tab Kas keluar / kas masuk memakai lebar penuh.
+- **Closing Harian (desktop)**: tiga tombol bagian utama rata kiri, dan **Closing Transaksi** berganti nama menjadi **Closing Opname** (isinya sama).
+
 ## 1.0.110 (20 November 2026)
 
 ### Perubahan
