@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.113 (23 November 2026)
+
+### Baru
+- **Laporan › Laporan Utang**: kolom **Akun Utang** membedakan utang dagang (*Utang Usaha*), utang ke penitip (*Utang Titipan*), dan tagihan biaya
+  ke akun lain (mis. *Utang Gaji*, *Utang Lain-lain*). Saldo per Supplier dan Umur Utang kini satu baris per supplier & akun utang.
+
+### Perbaikan
+- **Laporan Rekonsiliasi › Utang vs Neraca**: akun utang yang dipilih di Tagihan Biaya (Utang Gaji, Utang Lain-lain, dan sebagainya) kini ikut
+  dibandingkan dengan Neraca, satu baris per akun. Jumlahnya kini sama dengan Laporan Utang (ditambah Titipan Belum Ditagih); sebelumnya hanya Utang Usaha
+  yang dihitung, sehingga totalnya selalu beda bila ada tagihan biaya ke akun lain.
+- **Laporan Rekonsiliasi › Ringkasan Rekonsiliasi**: baris baru **Utang Lain (Tagihan Biaya)**; Keterangan menyebut akun yang selisih.
+
+### Perlu diperhatikan
+- Kas Keluar atau Jurnal Umum yang langsung mendebit akun utang tagihan biaya (mis. gaji dibayar lewat Kas Keluar ke Utang Gaji, bukan lewat
+  Pembayaran Utang) kini tampil sebagai selisih di Utang vs Neraca. Bayar tagihannya lewat **Pembayaran Utang**, atau ganti akun Kas Keluar itu ke akun beban.
+
 ## 1.0.112 (22 November 2026)
 
 ### Baru
