@@ -2,6 +2,24 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.112 (22 November 2026)
+
+### Baru
+- **Sistem › Jabatan & Hak Akses**: isian baru **Batas lihat (hari)** untuk membatasi seberapa jauh ke belakang jabatan itu boleh melihat dokumen
+  transaksi (0 = hanya hari kerja ini, kosong = tanpa batas). Berlaku di daftar, detail, dan Data Terhapus Kasir, Pembelian, Retur, Persediaan,
+  Kas & Bank, Pelunasan, Saldo Awal Piutang / Utang, Pelepasan Aset, dan Jurnal. Pemilih tanggal Dari / s/d di layar daftar ikut terkunci ke batas. Hari kerja mengikuti jam ganti hari cabang, yang berlaku yang lebih longgar antara batas lihat dan batas backdate, dan
+  Izin Backdate untuk satu tanggal ikut membuka lihat tanggal itu. Di bawah daftar tampil "Batas lihat · N hari ke belakang (sejak …)". Pelunasan dan pencarian faktur
+  asal Retur tetap menemukan faktur lama. Detail: `prd/70-004-batas-lihat-data.md`.
+- **Sistem › Jabatan & Hak Akses**: dua hak baru di grup Sistem. **Lihat Riwayat Data** menentukan siapa boleh membuka Riwayat (tombol, menu Lainnya, klik
+  kanan baris dan nomor dokumen; server ikut menolak). **Salin Semua Isi Tabel** menentukan siapa boleh memakai klik kanan **Salin semua** dan Ctrl+C / Ctrl+A
+  banyak baris di grid, juga tombol **Export Excel** di laporan, Buku Besar, Kartu Stok, Moving Index, dan Daftar Harga; tanpa hak ini tetap bisa Salin nomor, Salin sel, dan Salin baris. Cetak tidak diatur oleh hak ini.
+
+### Perlu diperhatikan
+- Jabatan yang sudah ada otomatis mendapat Lihat Riwayat Data dan Salin Semua Isi Tabel (sekali, saat API dinyalakan), jadi tidak ada yang berubah sampai
+  admin mencabutnya. Jabatan **Kasir** untuk perusahaan baru tidak mendapatkan keduanya.
+- Jabatan **Kasir** untuk perusahaan baru diberi batas lihat 1 hari (hari ini dan kemarin). Jabatan yang sudah ada tetap tanpa batas sampai diisi.
+- Jabatan yang tersimpan dari aplikasi desktop versi lama tidak menghapus batas lihat yang sudah diisi.
+
 ## 1.0.111 (21 November 2026)
 
 ### Baru
