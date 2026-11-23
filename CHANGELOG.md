@@ -2,6 +2,11 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.114 (23 November 2026)
+
+### Baru
+- **Persediaan › Pecah Stok**: kolom **Qty hasil** kini bisa diisi langsung bila hasil sebenarnya tidak tentu (mis. 1 kg alpukat jadi 4 atau 5 porsi, daging mentah 1 kg jadi 600 g matang). Seluruh HPP tetap pindah ke item hasil. Kosong/tidak diubah = qty dipecah × isi aturan seperti biasa.
+
 ## 1.0.113 (23 November 2026)
 
 ### Baru
