@@ -2,6 +2,22 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.115 (23 November 2026)
+
+### Baru
+- **Bantuan › Tutorial › Tanya AI**: kotak tanya-jawab dengan asisten AI di jendela Tutorial. Tanyakan cara memakai aplikasi dan lampirkan tangkapan layar
+  (tombol **Gambar…** atau Ctrl+V) agar AI ikut membacanya. AI hanya menjawab dari isi Tutorial: tidak membaca data perusahaan dan tidak menjalankan aksi apa pun.
+- **Jabatan & Hak Akses**: hak baru **Tanya AI** (kelompok Sistem). Jabatan yang sudah ada otomatis mendapat hak ini; admin bisa mencabutnya per jabatan.
+- **Dasbor admin › Rilis & versi › Model AI (Tanya AI)**: admin platform memilih model AI yang dipakai chatbox.
+
+### Perbaikan
+- **Persediaan › Pecah Stok › Cetak thermal**: satu item dicetak dua baris searah, "1 kg  Alpokat (kg)" lalu "  >> 3 porsi  Alpokat", tidak lagi dengan satuan di baris tersendiri dan kata "jadi".
+- **Persediaan › Pecah Stok › Cetak**: baris "Total Qty" dihapus di semua ukuran kertas, karena menjumlahkan satuan yang berbeda (kg dan porsi); "Jumlah Item" tetap.
+
+### Perlu diperhatikan
+- Penyedia aplikasi perlu mengisi kunci API di konfigurasi server (`Ai:ApiKey` atau variabel `ANTHROPIC_API_KEY`); tanpa itu Tanya AI menjawab bahwa fitur belum dikonfigurasi.
+  Ada migrasi database (kolom model AI di pengaturan platform).
+
 ## 1.0.114 (23 November 2026)
 
 ### Baru
