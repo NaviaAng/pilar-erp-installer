@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.116 (23 November 2026)
+
+### Perbaikan
+- **Laporan › Neraca, Laba Rugi, Neraca Saldo**: kini langsung terbuka untuk **Semua cabang** (sebelumnya mengikuti cabang yang sedang dipakai), karena pembukuan satu untuk seluruh perusahaan. Satu cabang tetap bisa dipilih.
+- **Laporan › Buku Kas & Bank** dan **Buku Besar**: akun **Rekening bank bersama semua cabang** kini menampilkan saldo dan mutasi dari semua cabang walau satu cabang dipilih (kolom Cabang menyebut asalnya), sama dengan menu Buku Besar. Laci kas dan EDC / QRIS per outlet tetap per cabang.
+
 ## 1.0.115 (23 November 2026)
 
 ### Baru
