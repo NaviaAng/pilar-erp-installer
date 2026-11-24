@@ -2,6 +2,12 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.117 (24 November 2026)
+
+### Perbaikan
+- **Closing Harian › Buka Kembali Kas**: kini tetap berhasil walau dokumen selisih kas atau setoran buatan Tutup Kas sudah dihapus / dibatalkan dari Kas & Bank (sebelumnya ditolak "Dokumen kas tidak ditemukan" dan kasnya tidak bisa direvisi). Sesudah dibuka, perbaiki kasnya lalu Tutup Kas ulang.
+- **Kas & Bank**: Kas Masuk / Keluar / Transfer yang dibuat Tutup Kas tidak bisa lagi dibatalkan, dihapus, atau diubah dari sini selama kas closing-nya masih ditutup. Jalurnya: Buka Kembali Kas di Closing Harian, perbaiki, lalu Tutup Kas ulang.
+
 ## 1.0.116 (23 November 2026)
 
 ### Perbaikan
