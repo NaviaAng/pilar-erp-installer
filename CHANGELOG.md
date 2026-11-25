@@ -2,6 +2,20 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.118 (25 November 2026)
+
+### Baru
+- **Beranda › Ucapan & Berita**: tampilan baru model tegak seperti Facebook. Gambar di kiri, judul dan pesan di kanan.
+- **Ucapan & Berita**: gambar bisa diklik untuk dilihat satu layar penuh (Esc menutup) dan disimpan ke PC lewat tombol **Simpan…**,
+  klik kanan, atau Ctrl+S di layar penuh.
+- **Ucapan & Berita**: tombol **Suka** pada ucapan, lengkap dengan jumlah dan nama yang menyukai.
+- **Ucapan & Berita**: kolom komentar di kanan. Semua pengguna perusahaan dari cabang mana pun bisa berkomentar, membalas komentar
+  (balasan bersarang sampai 2 tingkat), dan menyukai tiap komentar. Komentar orang lain muncul sendiri tanpa menutup tab.
+
+### Perlu diperhatikan
+- Komentar dan suka hanya terlihat oleh pengguna di perusahaan yang sama; perusahaan lain yang menerima ucapan yang sama punya kolom komentarnya sendiri.
+- Komentar bisa dihapus oleh penulisnya atau oleh admin perusahaan; balasannya ikut terhapus.
+
 ## 1.0.117 (24 November 2026)
 
 ### Perbaikan
