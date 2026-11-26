@@ -2,6 +2,20 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.120 (26 November 2026)
+
+### Baru
+- **Beranda › Tim** kini punya hak akses sendiri, **Tim (Beranda)**, di **Jabatan & Hak Akses** (kelompok Sistem). Tanpa hak ini menunya tidak
+  tampil dan data rekan tidak dikirim.
+
+### Perbaikan
+- **Jabatan & Hak Akses**: di matriks hak akses, aksi yang tidak berlaku untuk suatu menu kini tampil sebagai sel kosong, tidak lagi
+  berupa kotak centang yang tidak bisa dicentang.
+
+### Perlu diperhatikan
+- Sesudah pembaruan, menu **Tim** hanya tampil untuk Admin, juga bagi yang sebelumnya melihat tab **Perangkat**. Centang **Tim (Beranda)** di
+  jabatan lain yang boleh melihatnya.
+
 ## 1.0.119 (26 November 2026)
 
 ### Baru
