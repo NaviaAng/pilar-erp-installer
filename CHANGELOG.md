@@ -2,6 +2,27 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.119 (26 November 2026)
+
+### Baru
+- **Penjualan › Closing Harian › Atur…** (juga tab **Atur** di web /outlet): **Jam ganti hari** kini boleh bermenit dan sampai 23:59, mis. **11:30** atau
+  **13:00** (dulu hanya jam bulat 0–12). Sebelum jam itu hari kerja masih kemarin: tanggal bawaan closing, web /outlet, dan tanda terlambat Opname Harian ikut jam ini.
+- **Closing Harian & Opname Harian**: sebelum jam ganti hari, **tanggal hari ini belum bisa diisi**. Import penjualan, kas, Tutup Kas, Tutup Transaksi, Generate,
+  hitung, Expired / Waste, dan Release untuk tanggal hari ini ditolak dengan pesan *baru bisa diisi mulai pukul …; hari kerja masih …*. Mencegah closing semalam
+  yang dikerjakan pagi salah masuk ke hari berjalan. Di web /outlet tanggal hari ini juga belum bisa dibuka sebelum jam itu.
+
+### Perbaikan
+- **Penjualan › Closing Harian** (Rekap): baris **Belum closing** untuk hari baru kini muncul mulai jam ganti hari outlet itu, bukan pukul 00.00. Hari yang sudah
+  punya closing atau penjualan tetap selalu tampil.
+
+### Perlu diperhatikan
+- Outlet dengan jam ganti hari bawaan 06:00 kini baru melihat baris hari baru di Rekap pukul 06.00, dan antara 00.00 dan 05.59 closing / Opname Harian tanggal
+  kalender hari itu ditolak (yang dikerjakan tanggal kemarin). Closing malam untuk hari itu sendiri tidak terpengaruh. Outlet 24 jam yang closing hari itu juga
+  sebelum pukul 06.00: isi Jam ganti hari = 00:00. Untuk baris baru pukul 11.30, isi 11:30 di Atur….
+- Outlet yang mengerjakan closing semalam pada pagi berikutnya (mis. pukul 09.00): isi **Jam ganti hari** = 11:30 dan **Closing mundur (hari)** = 1 di Atur…
+  (desktop). Batas backdate jabatan tetap dihitung dari tanggal kalender, jadi tanpa Closing mundur kasir perlu izin backdate untuk closing tanggal kemarin.
+  Jam ganti hari tidak mengubah tanggal penjualan.
+
 ## 1.0.118 (25 November 2026)
 
 ### Baru
