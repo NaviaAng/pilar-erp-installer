@@ -2,6 +2,24 @@
 
 Catatan perubahan tiap versi aplikasi desktop Pilar ERP. Installer: [Releases](https://github.com/NaviaAng/pilar-erp-installer/releases/latest) atau https://app.pilarsukses.com/unduh/.
 
+## 1.0.121 (28 November 2026)
+
+### Baru
+- **Bantuan › Advanced AI**: asisten AI yang ikut membaca data perusahaan (hanya baca) untuk menganalisa masalah transaksi dan menjelaskan alur
+  program, dengan daftar data yang dibaca di bawah jawabannya. Yang bisa dibaca mengikuti hak menu, cabang, harga modal, dan batas lihat pengguna.
+
+### Perbaikan
+- **Tanya AI**: topik Tutorial yang panjang (mis. Closing Harian, Pengaturan Perusahaan) tidak lagi terpotong dari awal; bagian yang sesuai
+  pertanyaan yang dikirim, termasuk Aturan dan Hak akses.
+- **Tanya AI**: gambar dan tautan internet di dalam jawaban tidak lagi dimuat atau bisa diklik.
+- **Penjualan › Closing Harian › Atur…**: **Akun Expired** dan **Akun Waste / Rusak** yang dikosongkan kini tetap kosong sesudah disimpan, tidak terisi lagi
+  dengan akun 5-1300. Cabang yang belum pernah mengosongkannya tetap memakai akun 5-1300.
+
+### Perlu diperhatikan
+- Hak **Advanced AI** hanya dimiliki **Admin** sampai dicentang di **Jabatan & Hak Akses**. Data yang dibacanya dikirim ke penyedia AI.
+- Cabang yang akun Expired / Waste-nya dikosongkan tidak memakai kolom itu di Opname Harian.
+- Mengosongkan akun Expired / Waste dari desktop butuh aplikasi desktop versi ini; desktop versi lama membiarkan akun yang tersimpan.
+
 ## 1.0.120 (26 November 2026)
 
 ### Baru
